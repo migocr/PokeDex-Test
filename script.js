@@ -131,7 +131,7 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
 
                             paginas.innerHTML += `
                             
-                           <a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
+                           <a class="pagination-item" href="javascript:void(0)" style="display:inline-block;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
 
 
 
@@ -158,6 +158,15 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
             }
     }
     
+}
+
+function recorrerPaginacion(side){
+    if (side === "right") {
+
+    }
+    if (side === "left" ){
+
+    }
 }
 
 
@@ -221,64 +230,17 @@ function principal(zelda){
             cards.innerHTML += `
                          
                     
-                       <figure class="card card--electric">
-                          <div class="card__image-container">
-                            <img src="${imagen}" alt="Eevee" class="card__image">   
-                          </div>
-                          
-                          <figcaption class="card__caption">
-                            <h1 class="card__name">${datos.name}</h1>
-
-                            <h3 class="card__type">
-                              ${datos.types[0].type.name}
-                            </h3>
-
-                            <table class="card__stats">
-                              <tbody><tr>
-                                <th>HP</th>
-                                <td>${datos.stats[0].base_stat}</td>
-                              </tr>
-                              <tr>
-                                <th>Attack</th>
-                                <td>${datos.stats[1].base_stat}</td>
-                              </tr>
-                              
-                              <tr>
-                                <th>Defense</th>
-                                <td>${datos.stats[2].base_stat}</td>
-                              </tr>
-
-                              <tr>
-                                <th>Special Attack</th>
-                                <td>${datos.stats[3].base_stat}</td>
-                              </tr>
-                              <tr>
-                                <th>Special Defense</th>
-                                <td>${datos.stats[4].base_stat}</td>
-                              </tr>
-                              <tr>
-                                <th>Speed</th>  
-                                <td>${datos.stats[5].base_stat}</td>
-                              </tr>
-                            </tbody></table>
-                            
-                            <div class="card__abilities">
-                              <h4 class="card__ability">
-                                <span class="card__label">Ability</span>
-                                ${datos.abilities[0].ability.name}
-                              </h4>
-                              <h4 class="card__ability">
-                                <span class="card__label">Hidden Ability</span>
-                                 ${datos.abilities[1].ability.name}
-                              </h4>
+                        <div class="pokemon" style="background:${cardColor};">
+                            <div class="img-container">
+                            <img src="${imagen}" alt="${datos.name}">
                             </div>
-                          </figcaption>
-                        </figure>
+                            <div class="info">
+                                <span class="number">${datos.id}</span>
+                                <h3 class="name">${datos.name}</h3>
+                                <small class="type">Type: <span>${datos.types[0].type.name}</span></small>
+                            </div>
+                        </div>
                         
-
-
-
-
                          `
                     
                     
