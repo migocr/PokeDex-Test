@@ -368,7 +368,7 @@ function principal(zelda){
             cards.innerHTML += `
                          
                     
-                        <div class="pokemon" style="background:${cardColor};">
+                        <div class="pokemon" onclick="imprimirDatos(${datos.id},'${datos.name}','${concaTipos}','${imagen}')" style="background:${cardColor};">
                             <div class="img-container">
                             <img src="${imagen}" alt="${datos.name}">
                             </div>
@@ -548,6 +548,18 @@ function buscador(pagina,indice,accion){
     
     
     
+}
+
+function imprimirDatos(id,nombre,concaTipos,imagen){
+    document.getElementById("informacion").innerHTML="";
+    document.getElementById('id01').style.display='block';
+    console.log(imagen);
+    informacion.innerHTML += `
+                        <p>${nombre}</p>
+                        <p>${id}</p>
+                        
+
+                         `
 }
 
 

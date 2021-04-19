@@ -27,6 +27,7 @@ h1, h2, h3, h4, h5 {
 }
 
 
+
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -69,7 +70,8 @@ h1, h2, h3, h4, h5 {
 .pokemon .name {
     margin: 15px 0 7px;
     letter-spacing: 1px;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 700;
 }
 .pagination{
  
