@@ -207,7 +207,11 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
     var paginas = document.getElementById("paginas");
     document.getElementById("paginas").innerHTML="";
     var defaultTipo = tipo;
-    
+    var pA = document.getElementById("paginaActual");
+    var pAout = pA.outerHTML;
+    var paginaActual = pAout.slice(21, -6);
+    newPaginaActual = paginaActual.replace('/', ''); 
+    console.log("imprimir paginacion PA " +newPaginaActual);
     
     if (defaultTipo==="busqueda") {
         
@@ -232,18 +236,16 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
     }
     else{
         for (var numeroPagina = 0; numeroPagina < totalPaginas; numeroPagina++){
-                            
-                               
-                            var pagina =numeroPagina+1;
-                            paginas.innerHTML += `
-                              
-                           <a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a>
+            var pagina =numeroPagina+1;
+            if (pagina == newPaginaActual) {
+                paginas.innerHTML += 
+                `<a class="page-link" href="javascript:void(0)" style="display:inline-block; background-color:blue;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
+            } else{
+                paginas.innerHTML += 
+                `<a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> ` 
 
-
-
-
-
-                                     `                     
+            }
+                                                               
             }
     }
     
@@ -344,24 +346,24 @@ function principal(zelda){
                         var tipo1 = datos.types[0].type.name;
                     }
 
-            if (tipo1 === "grass"){ var cardColor = "linear-gradient(to right top, #12360b, #185c0f, #1a8511, #16b00f, #02de08)";}             
-                    else if (tipo1 === "fire"){ var cardColor = "linear-gradient(to right top, #d96800, #db5805, #dd470d, #de3016, #de021e)";}               
-                    else if (tipo1 === "water"){ var cardColor = "linear-gradient(to right top, #00c1ea, #00a7d6, #008dc0, #0073a9, #045b91)"; } 
-                    else if (tipo1 === "bug") {var cardColor="linear-gradient(to right top, #00d928, #4dd81d, #6cd615, #84d410, #98d211)";}
-                    else if (tipo1 === "normal") {var cardColor="linear-gradient(to right top, #234a52, #37545b, #4a5e64, #5b686d, #6c7275)"}
-                    else if (tipo1 === "flying") {var cardColor=" linear-gradient(to right top, #0090ff, #2ba0f6, #55aeeb, #7cb9df, #a1c3d4)"}
-                    else if (tipo1 === "poison") {var cardColor=" linear-gradient(to right top, #6055e9, #553fba, #462b8d, #341864, #21083e)"}
-                    else if (tipo1 === "ground") {var cardColor="linear-gradient(to right top, #504d11, #57521b, #5e5725, #655c2e, #6b6137)"}
-                    else if (tipo1 === "ghost") {var cardColor="linear-gradient(to right top, #4b6ab3, #4555a0, #403f8c, #3c2978, #381062)"}
-                    else if (tipo1 === "steel") {var cardColor="linear-gradient(to right top, #5a8fa3, #4a7f97, #3b708b, #2c607e, #1e5172)"}
-                    else if (tipo1 === "electric") {var cardColor="linear-gradient(to right top, #ffff24, #e4e41e, #c9c918, #afaf13, #96960d)"}
-                    else if (tipo1 === "ice") {var cardColor="linear-gradient(to right top, #4cd1c0, #2ec9ce, #24c0d9, #3ab6de, #57aade)"}
-                    else if (tipo1 === "psychic") {var cardColor="linear-gradient(to right top, #ff6676, #fd628a, #f7629e, #ec65b1, #dd6bc3)"}
-                    else if (tipo1 === "dragon") {var cardColor=" linear-gradient(to right top, #1d6dbb, #467eca, #6390da, #7da2e9, #96b5f9)"}
-                    else if (tipo1 === "dark") {var cardColor="linear-gradient(to right top, #545163, #413e4c, #2e2b36, #1c1a21, #07030c)"}
-                    else if (tipo1 === "fairy") {var cardColor="linear-gradient(to right top, #ff24f0, #fc51f4, #fa6df8, #f784fa, #f598fb)";}
-                    else if (tipo1 === "fighting") {var cardColor="linear-gradient(to right top, #e74a50, #e85159, #e85862, #e85e6b, #e76573)";}
-                    else if (tipo1==="rock") {var cardColor="linear-gradient(to right top, #84744b, #958459, #a69568, #b7a677, #c9b787)";}
+            if (tipo1 === "grass"){ var cardColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%);";}             
+                    else if (tipo1 === "fire"){ var cardColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%);";}               
+                    else if (tipo1 === "water"){ var cardColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%);"; } 
+                    else if (tipo1 === "bug") {var cardColor="radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%);";}
+                    else if (tipo1 === "normal") {var cardColor="radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%);"}
+                    else if (tipo1 === "flying") {var cardColor="radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%);"}
+                    else if (tipo1 === "poison") {var cardColor="radial-gradient(circle, rgba(192,147,206,1) 0%, rgba(147,0,192,1) 100%);"}
+                    else if (tipo1 === "ground") {var cardColor="radial-gradient(circle, rgba(244,231,218,1) 0%, rgba(142,109,76,1) 100%);"}
+                    else if (tipo1 === "ghost") {var cardColor="radial-gradient(circle, rgba(185,163,208,1) 0%, rgba(119,82,159,1) 100%);"}
+                    else if (tipo1 === "steel") {var cardColor="radial-gradient(circle, rgba(211,211,211,1) 0%, rgba(53,53,53,1) 100%);"}
+                    else if (tipo1 === "electric") {var cardColor="radial-gradient(circle, rgba(247,239,200,1) 0%, rgba(251,209,0,1) 100%);"}
+                    else if (tipo1 === "ice") {var cardColor="radial-gradient(circle, rgba(233,246,244,1) 0%, rgba(119,208,196,1) 100%);"}
+                    else if (tipo1 === "psychic") {var cardColor="radial-gradient(circle, rgba(231,196,239,1) 0%, rgba(101,44,102,1) 100%);"}
+                    else if (tipo1 === "dragon") {var cardColor="radial-gradient(circle, rgba(151,179,230,1) 0%, rgba(0,29,82,1) 100%);"}
+                    else if (tipo1 === "dark") {var cardColor="radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(68,63,77,1) 100%);"}
+                    else if (tipo1 === "fairy") {var cardColor="radial-gradient(circle, rgba(252,234,255,1) 0%, rgba(236,178,245,1) 100%);";}
+                    else if (tipo1 === "fighting") {var cardColor="radial-gradient(circle, rgba(230,224,212,1) 0%, rgba(239,145,145,1) 100%);";}
+                    else if (tipo1==="rock") {var cardColor="radial-gradient(circle, rgba(213,213,212,1) 0%, rgba(139,139,132,1) 100%);";}
                     else {var cardColor = "card text-white bg-info mb-3";}
             cards.innerHTML += `
                          
@@ -373,7 +375,7 @@ function principal(zelda){
                             <div class="info">
                                 <span class="number">${datos.id}</span>
                                 <h3 class="name">${datos.name}</h3>
-                                <small class="type">Type: <span>${datos.types[0].type.name}</span></small>
+                                <small class="type">Type: <span>${concaTipos}</span></small>
                             </div>
                         </div>
                         
