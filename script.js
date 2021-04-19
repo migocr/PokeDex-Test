@@ -7,15 +7,24 @@ function filtro(tipoElegido){
     document.getElementById("cards").innerHTML="";
     var defaultTipo = tipoElegido;
     load(defaultTipo);
+
 }
 
 
 
 function load(defaultTipo){
     //console.log(defaultTipo);
+    
 
     if (defaultTipo === undefined) {
         paginador(1);
+        subtitulo.innerHTML +=`<p id="pSub" >Home</p> `
+        var totalPaginas = 75;
+        var pagina = 1;
+        document.getElementById("divPaginaActual").innerHTML="";
+        divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+        divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
+        imprimirBotones(totalPaginas);
 
     } else {
         enlacesPorTipo(defaultTipo,inicio,final);
@@ -28,22 +37,34 @@ function load(defaultTipo){
 
 function paginador(y,defaultTipo){
     
-    
+    document.getElementById("divPaginaActual").innerHTML="";
+    //divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+    divPaginaActual.innerHTML += `<p id="paginaActual">${y}/75</p>`;
     if (y===1) {
             document.getElementById("paginas").innerHTML="";
             document.getElementById("cards").innerHTML="";
             var inicio = 0;
             var final=inicio+14;
-        }  if (y>=2) {
+            
+        }  
+    if (y>=2) {
             document.getElementById("paginas").innerHTML="";
             document.getElementById("cards").innerHTML="";
             var inicio = (y*15)-15;
             var final=inicio+14;
             
+            
         } 
     if (defaultTipo === undefined || defaultTipo === "undefined" ){
-        enlaces(inicio,final);}   
-    else{enlacesPorTipo(defaultTipo,inicio,final);}
+        enlaces(inicio,final);
+        imprimirBotones(75)
+    }
+
+    else{
+        enlacesPorTipo(defaultTipo,inicio,final,y);
+        
+    }
+    
     
     
 }
@@ -77,11 +98,24 @@ function enlaces(inicio,final){
     request.send();
 
 }
-function enlacesPorTipo(defaultTipo,inicio,final){
+function enlacesPorTipo(defaultTipo,inicio,final,y){
+    document.getElementById("divPaginaActual").innerHTML="";
+    document.getElementById("divTotalPaginas").innerHTML="";
+    document.getElementById("subtitulo").innerHTML="";
+    var paginaActual = y;
+    if (paginaActual === undefined) {
+                var paginaActual= 1;
+            }
+    console.log(paginaActual);
     var ini =inicio;
     var fin = final;
     var tipo = defaultTipo;
     var link ="https://pokeapi.co/api/v2/type/"+tipo;
+
+    subtitulo.innerHTML +=`<p id="pSub" >Tipo: ${tipo}</p> `
+
+    
+    
 
     var request = new XMLHttpRequest();
     request.open("GET", link);
@@ -92,20 +126,45 @@ function enlacesPorTipo(defaultTipo,inicio,final){
             pokemon = datos.pokemon;
 
 
+            var conteo = pokemon.length;
+            var totalPaginas = Math.ceil( conteo/15);
+            
 
-            //console.log(pokemon.length);
+            divPaginaActual.innerHTML += `<p id="paginaActual">${paginaActual}/${totalPaginas}</p>`;
+
+            
+
+           
+           
             
             
             for (var i = ini; i <= fin; i++) {
                     var zelda = (pokemon[i].pokemon.url);
                     principal(zelda);
-                    var index = i;
+                     //en caso de estar en la ultima pagina
+                     if (paginaActual === totalPaginas) {
+                        //obtenemos la posicion del ultimo dato del array
+                        var final =(fin - (15-(conteo%15)));
+                        //paramos la ejecucion al llegar al ultimo dato
+                        if (i===final) {
+                            break;
+                        }
+
+                    } 
                 }
-            var conteo = pokemon.length;
-            var totalPaginas = Math.ceil( conteo/15) ;
+            
+
+            
+           
             
             
-            imprimirPaginacion(totalPaginas,tipo);            
+            imprimirPaginacion(totalPaginas,tipo);
+            
+            divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+            imprimirBotones(totalPaginas);          
+            
+            
+
 
         }
 
@@ -115,10 +174,40 @@ function enlacesPorTipo(defaultTipo,inicio,final){
 
 }
 
+function imprimirBotones(totalPaginas){
+
+    var pA = document.getElementById("paginaActual");
+    var pAout = pA.outerHTML;
+    var paginaActual = pAout.slice(21, -6);
+    newPaginaActual = paginaActual.replace('/', ''); 
+    paginaActual = newPaginaActual;
+    console.log("pagina actual " + newPaginaActual);
+    //console.log(totalPaginas);
+
+    if (paginaActual == totalPaginas) {
+        document.getElementById("botonR").innerHTML="";
+    } else {
+        document.getElementById("botonR").innerHTML="";
+        botonR.innerHTML += `<button onclick="recorrerPagina('right')" href="#">&raquo;</button>`
+    }
+    if (paginaActual == 1) {
+        document.getElementById("botonL").innerHTML="";
+    } else{
+        document.getElementById("botonL").innerHTML="";
+        botonL.innerHTML += `<button onclick="recorrerPagina('left')"  href="#">&raquo;</button>`
+    }
+    
+
+    
+    
+    
+}
+
 function imprimirPaginacion(totalPaginas,tipo,indice){
     var paginas = document.getElementById("paginas");
     document.getElementById("paginas").innerHTML="";
     var defaultTipo = tipo;
+    
     
     if (defaultTipo==="busqueda") {
         
@@ -142,10 +231,10 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
             }
     }
     else{
-        for (var numeroPagina = 1; numeroPagina < totalPaginas; numeroPagina++){
+        for (var numeroPagina = 0; numeroPagina < totalPaginas; numeroPagina++){
                             
-                            var paginas = document.getElementById("paginas");    
-                            var pagina =numeroPagina;
+                               
+                            var pagina =numeroPagina+1;
                             paginas.innerHTML += `
                               
                            <a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a>
@@ -160,13 +249,60 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
     
 }
 
-function recorrerPaginacion(side){
-    if (side === "right") {
+function recorrerPagina(side){
+    //obtenemos el subtitulo para verificar si es una busqueda, filtro o no
+    var p = document.getElementById("pSub");
+    //obtenemos el dato de la pagina actual, lo pasamos, lo pasamos a una variable y lo cortamos para quedarnos con el numero
+    var pA = document.getElementById("paginaActual");
+    var pAout = pA.outerHTML;
+    var paginaActual = pAout.slice(21, -6);
+    var subtitulo = p.outerHTML;
+    newPaginaActual = paginaActual.replace('/', ''); 
+    var paginaActual = newPaginaActual;
+    console.log("pagina actual "+newPaginaActual);
+    //falta imprimir paginacion en filtro de tipos
+   
+    if(p.outerHTML === '<p id="pSub">Busqueda:</p>'){
 
+        if (side==="right") {
+             
+             var pagina = (+paginaActual + 1);
+             //console.log(pagina);
+             buscador(pagina,undefined,"right");
+        }
+        else if (side==="left") {
+             var pagina = (+paginaActual - 1);
+             //console.log(pagina);
+             buscador(pagina,undefined,"left");
+        }
+        
     }
-    if (side === "left" ){
+    else if (subtitulo.includes('<p id="pSub">Tipo:')) {
+        var defaultTipo = subtitulo.slice(19, -4);
+        console.log("es por tipo");
+        if (side==="right") {
+             
+             var pagina = (+paginaActual + 1);
 
+        }
+        else if (side==="left") {
+             var pagina = (+paginaActual - 1);
+        }
+        console.log(defaultTipo);
+        paginador(pagina,defaultTipo);
     }
+    else{
+        if (side==="right") {
+             
+             var pagina = (+paginaActual + 1);
+
+        }
+        else if (side==="left") {
+             var pagina = (+paginaActual - 1);
+        }
+        paginador(pagina);
+    }
+        
 }
 
 
@@ -189,7 +325,7 @@ function principal(zelda){
             // éspecial defensa = datos.stats[4].base_stat;
             // speed = datos.stats[5].base_stat;
             //console.log(habilidad);
-            console.log(datos.stats);
+            //console.log(datos.stats);
             
             var img = datos.sprites.other.dream_world.front_default;
                     if (img == null) {
@@ -245,21 +381,30 @@ function principal(zelda){
                     
                     
         }
-        imprimirPaginacion(76);
+        imprimirPaginacion(75);
+        
     }
     request.send();
 
 }
 
 
-function buscador(pagina,indice){
-    
+function buscador(pagina,indice,accion){
+    //console.log(accion);
+    document.getElementById("subtitulo").innerHTML="<p id='pSub' >Busqueda:</p>";
+    //document.getElementById("botonL").innerHTML="";
+    //document.getElementById("botonR").innerHTML="";
+    //botonL.innerHTML += `<button onclick="recorrerPagina('left')"  href="#">&raquo;</button>`
+    //botonR.innerHTML += `<button onclick="recorrerPagina('right')" href="#">&raquo;</button>`
+
+
     var pokeNames = indice;
     if (pokeNames === undefined) {
         var link ="https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118";
         var limite = 1118;
         busqueda = document.getElementById("busqueda").value;
         document.getElementById("cards").innerHTML="";
+        document.getElementById("botonL").innerHTML="";
         
         var request = new XMLHttpRequest();
         request.open("GET", link,false);
@@ -282,13 +427,11 @@ function buscador(pagina,indice){
                     resultadosBusqueda.push(names);
                     
                     if (counter <= 15 ) {
-                       principal(zelda);
-                      
-                       
-                      
-                    } else{
-                       
-                        
+                        if (accion === undefined) {
+                            principal(zelda);
+                            console.log("pagina indefinida");
+
+                        }  
                     }
 
                     
@@ -296,11 +439,36 @@ function buscador(pagina,indice){
                     
                    }
                    if (i >= 1117) {
+                     if (accion === "right" || accion === "left") {
+                            //console.log("pagina mayor a " + pagina);
+                            buscador(pagina,resultadosBusqueda,"buttonSide");
+                            //console.log(resultadosBusqueda);
+                            
+                        }
+                        else if (accion) {}{
+                            
+                        }
                     
                     // console.log("pause " + indice);
                     var totalPaginas =(Math.ceil(counter/15)+1);
                     //console.log("Resultados "+resultadosBusqueda); 
                     imprimirPaginacion(totalPaginas,"busqueda",resultadosBusqueda);
+
+
+                    //subtituloPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1} </p> <p>Pagina <p id="paginaActual">1</p>/${totalPaginas-1}</p>`;
+                    if ((totalPaginas-1)==1) {
+                        document.getElementById("botonR").innerHTML="";
+                    }
+                    if (accion === undefined) {
+                        document.getElementById("divTotalPaginas").innerHTML="";
+                        document.getElementById("divPaginaActual").innerHTML="";
+                        divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1}</p>`;
+                        divPaginaActual.innerHTML += `<p id="paginaActual">1/${totalPaginas-1}</p>`;
+                    }
+                    let totPag = totalPaginas-1;
+                    imprimirBotones(totPag);
+                    
+
                    }
                    
                 }
@@ -312,11 +480,21 @@ function buscador(pagina,indice){
         request.send();
     } 
     else{
+        console.log("paaagina: "+pagina)
+
+        if (accion === "buttonSide") {
+            var arrayPokes = pokeNames;
+
+        } else {
+            var arrayPokes = pokeNames.split(",");
+        }
         
-        var arrayPokes = pokeNames.split(",");
+        
         console.log(arrayPokes);
         document.getElementById("cards").innerHTML="";
         document.getElementById("paginas").innerHTML="";
+        document.getElementById("divTotalPaginas").innerHTML="";
+        document.getElementById("divPaginaActual").innerHTML="";
         if (pagina <= 1) {
             var ini = 0;
             if (arrayPokes.length>14) {
@@ -330,13 +508,39 @@ function buscador(pagina,indice){
             var ini = (pagina*15)-15;
             var fin = (pagina*15)-1;
         }
+        var totalPaginas = (Math.ceil(arrayPokes.length/15))+1;
+        console.log(totalPaginas + " total paginas")
+        console.log(pagina + "  pagina")
+        if (pagina === (totalPaginas-1)){
+            console.log("se borra el boton")
+            document.getElementById("botonR").innerHTML="";
+        } else{
+            //borramos de existir y reimprimimos el boton derecho
+            document.getElementById("botonR").innerHTML="";
+            botonR.innerHTML += `<button onclick="recorrerPagina('right')" href="#">&raquo;</button>`;
+
+        }
+        if (pagina === totalPaginas) {
+            var ini = (pagina*15)-30;
+            var fin = (pagina*15)-16;
+             console.log("se pása del limite")
+        }
+        
         for (var i = ini; i <= fin; i++) {
                 var zelda = "https://pokeapi.co/api/v2/pokemon/" + arrayPokes[i];
                 principal(zelda);
             }
-            var totalPaginas = (Math.ceil(arrayPokes.length/15))+1;
+
+        
+            
             imprimirPaginacion(totalPaginas,"busqueda",arrayPokes);
             
+            
+            divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1}</p>`;
+
+            divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas-1}</p>`;
+            var totalPaginas = totalPaginas - 1;
+            imprimirBotones(totalPaginas);
     }
     
     
@@ -344,16 +548,6 @@ function buscador(pagina,indice){
     
 }
 
-function imprimirDatos(id,nombre,concaTipos,imagen){
-    document.getElementById('id01').style.display='block';
-    console.log(imagen);
-    informacion.innerHTML += `
-                        <p>${nombre}</p>
-                        <p>${id}</p>
-                        
-
-                         `
-}
 
 
 

@@ -72,8 +72,9 @@ h1, h2, h3, h4, h5 {
     text-transform: uppercase;
 }
 .pagination{
-  max-width: 1060px;
-  display:flex;
+ 
+  display: flex;
+  max-width: 1000px;
 }
 
 .pagination a {
@@ -107,4 +108,7 @@ h1, h2, h3, h4, h5 {
   border:none;
   border-radius: 150px;
   width: 59px;
+}
+.paginas{
+  float:center;
 }

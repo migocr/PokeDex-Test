@@ -14,6 +14,8 @@
 	
 	<input id="busqueda" type="search" name="busqueda" ><input id="buscar" type="submit" value="Buscar" onclick="buscador()">
 	<br>
+
+	<div id="subtitulo"></div>
 	
 	 
 	 <div id="cards" class="cards" >
@@ -36,12 +38,19 @@
 	
 	
 	  
-	 
-	<div class="pagination">
-		<button onclick="recorrerPaginacion('left')" style="float: left;" href="#">&laquo;</button>
-		<div id="paginas"></div>
-		<button onclick="recorrerPaginacion('right')" style="float: right;" href="#">&raquo;</button>		
+	
+	<div class="pagination" id="pagination">
+		
+		<div style="float: left;" id="botonL"></div> 
+		<div class="paginas" id="paginas"></div>
+		<div style="float: right;" id="botonR"></div>
+				
 	</div>
+	
+
+
+	<div id="divTotalPaginas"></div>
+	<div id="divPaginaActual"></div>
 
 	<div id="selector">
 		<button onclick="filtro('grass');" id="filtro">Grass</button>
