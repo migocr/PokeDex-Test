@@ -85,11 +85,14 @@ function enlaces(inicio,final){
             var datos = JSON.parse(request.responseText);           
 
             for (var i = ini; i <= li; i++) {
-               var zelda = datos.results[i].url;
-
-               principal(zelda);
-               //console.log(zelda);   
+               
+               //console.log(zelda);
+               if (i < 1118) {
+                var zelda = datos.results[i].url;
+                principal(zelda);
+               }   
             }
+            imprimirPaginacion(75);
 
         }
 
@@ -202,7 +205,7 @@ function imprimirBotones(totalPaginas){
     
     
 }
-
+var pageMap = [];
 function imprimirPaginacion(totalPaginas,tipo,indice){
     var paginas = document.getElementById("paginas");
     document.getElementById("paginas").innerHTML="";
@@ -213,29 +216,58 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
     newPaginaActual = paginaActual.replace('/', ''); 
     console.log("imprimir paginacion PA " +newPaginaActual);
     
+    pageMap.push(+newPaginaActual);
+    console.log(pageMap+" : mapa de pagina")
+
+    if (totalPaginas > 13) {
+        if (newPaginaActual >= 8 && newPaginaActual < (totalPaginas-7) && totalPaginas>13) {
+            var inicio = +newPaginaActual-7;
+            var fin = inicio + 13;
+        }
+        else if (newPaginaActual >= 8 && newPaginaActual >= (totalPaginas-7)) {
+            var fin = totalPaginas;
+            var inicio = totalPaginas-13
+        }
+        else if (newPaginaActual < 8) {
+            var inicio = 0;
+            var fin= inicio+13;
+        }      
+    }
+    else {
+        var inicio = 0
+        var fin = totalPaginas;
+    }
+
+    
+    
+
+
+   
+    
+
+    
     if (defaultTipo==="busqueda") {
         
-         console.log(indice);
+         //console.log(indice);
          for (var numeroPagina = 1; numeroPagina < totalPaginas; numeroPagina++){
+                if (numeroPagina == newPaginaActual) {
+                    paginas.innerHTML += `
                             
-                            var paginas = document.getElementById("paginas");    
-                    
-                           
+                           <a class="pagination-item" href="javascript:void(0)" style="display:inline-block; background-color:blue;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
 
-                            paginas.innerHTML += `
+                                     `
+                } else{
+                    paginas.innerHTML += `
                             
                            <a class="pagination-item" href="javascript:void(0)" style="display:inline-block;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
 
-
-
-
-
-                                     ` 
-
+                                     `
+                }
+                            
             }
     }
     else{
-        for (var numeroPagina = 0; numeroPagina < totalPaginas; numeroPagina++){
+        for (var numeroPagina = inicio; numeroPagina < fin; numeroPagina++){
             var pagina =numeroPagina+1;
             if (pagina == newPaginaActual) {
                 paginas.innerHTML += 
@@ -318,15 +350,25 @@ function principal(zelda){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200) {
             var datos = JSON.parse(request.responseText);
             var id = datos.id;
-            //var habilidad = datos.abilities[0].ability.name;
-            //var habilidadOculta= datos.abilities[1].ability.name
-            // HP = datos.stats[0].base_stat;
-            // ataque = datos.stats[1].base_stat;
-            // defensa = datos.stats[2].base_stat;
-            // especial attack = datos.stats[3].base_stat;
-            // éspecial defensa = datos.stats[4].base_stat;
-            // speed = datos.stats[5].base_stat;
-            //console.log(habilidad);
+            var habilidad = datos.abilities[0].ability.name;
+
+            if(datos.hasOwnProperty('datos.abilities[1].ability.name')){
+                var habilidadOculta= datos.abilities[1].ability.name;
+            } else{
+                var habilidadOculta= "---"
+            }
+            
+            var HP = datos.stats[0].base_stat;
+            var ataque = datos.stats[1].base_stat;
+            var defensa = datos.stats[2].base_stat;
+            var specialAttack = datos.stats[3].base_stat;
+            var specialDeffense = datos.stats[4].base_stat;
+            var speed = datos.stats[5].base_stat;
+            var base_experience = datos.base_experience;
+            var altura = datos.height; 
+            var numeroPokedex = datos.order;
+            var peso = datos.weight;
+            //console.log(base_experience);
             //console.log(datos.stats);
             
             var img = datos.sprites.other.dream_world.front_default;
@@ -383,9 +425,13 @@ function principal(zelda){
                     
                     
         }
-        imprimirPaginacion(75);
+        else {
+            
+        }
+        
         
     }
+
     request.send();
 
 }
@@ -405,6 +451,7 @@ function buscador(pagina,indice,accion){
         var link ="https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118";
         var limite = 1118;
         busqueda = document.getElementById("busqueda").value;
+        console.log("termino de busqueda "+ busqueda);
         document.getElementById("cards").innerHTML="";
         document.getElementById("botonL").innerHTML="";
         
@@ -535,13 +582,15 @@ function buscador(pagina,indice,accion){
 
         
             
-            imprimirPaginacion(totalPaginas,"busqueda",arrayPokes);
+            
             
             
             divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1}</p>`;
 
             divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas-1}</p>`;
+            imprimirPaginacion(totalPaginas,"busqueda",arrayPokes);
             var totalPaginas = totalPaginas - 1;
+
             imprimirBotones(totalPaginas);
     }
     
