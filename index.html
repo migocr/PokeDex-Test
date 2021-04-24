@@ -3,15 +3,38 @@
 	<link href="style.css" rel="stylesheet" />
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	
-
-
-
-
 	<title>Document</title>
 </head>
-<body style="padding: 20px;">
-
+<body>
+	<header>
+		<div class="logo"><img src="logo.png" alt="logo"></div>
+		
+		<div class="buscador">
+		<input id="busqueda" type="search" name="busqueda" >
+		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador()">Buscar</button>
+		</div>
+	</header>
+	<link href="menu.css" rel="stylesheet" />
+	<div class="main-container">
+            <div class="block">
+                <ul class="header-menu horizontal-list">
+                    <li>
+                        <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Home</a>
+                    </li>
+                    <li>
+                        <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color"></span>Types</a>
+                    </li>
+                    <li>
+                        
+                    <li>
+                        <a class="header-menu-tab" href="#5"><span class="icon fontawesome-star-empty scnd-font-color"></span>Generation</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+	
+	<div class="subtitulo" id="subtitulo"></div>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<div class="w3-container">
 	  <div id="id01" class="w3-modal">
@@ -27,10 +50,9 @@
 	</div>
 	
 	
-	<input id="busqueda" type="search" name="busqueda" ><input id="buscar" type="submit" value="Buscar" onclick="buscador()">
-	<br>
+	
 
-	<div id="subtitulo"></div>
+	
 	
 	 
 	 <div id="cards" class="cards" >
@@ -67,13 +89,109 @@
 	<div id="divTotalPaginas"></div>
 	<div id="divPaginaActual"></div>
 
-	<div id="selector">
-		<button onclick="filtro('grass');" id="filtro">Grass</button>
-		<button onclick="filtro('fire');" id="filtro">Fire</button>
-		<button onclick="filtro('water');" id="filtro">water</button>
-		<button onclick="filtro('ground');" id="filtro">tierra</button>
-		<button onclick="filtro('rock');" id="filtro">rock</button>
-	</div>
-	<script src="script.js" type="text/javascript"> </script>
+
+	
+
+	<div class="types">
+  <ul>
+    
+    <li onclick="filtro('normal');" class="type normal">
+      <p>
+        <img src="types/normal.png" alt="nomal"/> Nomal
+    </p>
+   </li>
+    
+    <li onclick="filtro('bug');" class="bug">
+      <p>
+        <img src="types/bug.png" alt="bug"/> Bug
+    </p>
+   </li>
+    
+    <li onclick="filtro('dark');" class="dark">
+      <p>
+        <img src="types/dark.png" alt="Dark"/> Dark
+    </p>
+   </li>
+    
+    <li onclick="filtro('steel');" class="steel">
+      <p>
+        <img src="types/steel.png" alt="Steel"/> Steel
+    </p>
+   </li>
+    <li class="water">
+      <p>
+        <img src="types/water.png" alt="Water"/> Water
+    </p>
+   </li>
+    <li class="fire">
+      <p>
+        <img src="types/fire.png" alt="Fire"/> Fire
+    </p>
+   </li>
+    <li class="grass">
+      <p>
+        <img src="types/grass.png" alt="Grass"/> Grass
+    </p>
+   </li>
+    <li class="rock">
+      <p>
+        <img src="types/rock.png" alt="Rock"/> Rock
+    </p>
+   </li>
+    <li class="dragon">
+      <p>
+        <img src="types/dragon.png" alt="Dragon"/> Dragon
+    </p>
+   </li>
+    <li class="electric">
+      <p>
+        <img src="types/electric.png" alt="Electric"/> Electric
+    </p>
+   </li>
+    <li class="fairy">
+      <p>
+        <img src="types/fairy.png" alt="Fairy"/> Fairy
+    </p>
+   </li>
+    <li class="fighting">
+      <p>
+        <img src="types/fighting.png" alt="Fighting"/> Fighting
+    </p>
+   </li>
+    <li class="poison">
+      <p>
+        <img src="types/poison.png" alt="Poison"/> Poison
+    </p>
+   </li>
+    <li class="flying">
+      <p>
+        <img src="types/flying.png" alt="Flying"/> Flying
+    </p>
+   </li>
+    <li class="ground">
+      <p>
+        <img src="types/ground.png" alt="Ground"/> Ground
+    </p>
+   </li>
+    <li class="psychic">
+      <p>
+        <img src="types/psychic.png" alt="Psychic"/> Psychic
+    </p>
+   </li>
+    <li class="ice">
+      <p>
+        <img src="types/ice.png" alt="Ice"/> Ice
+    </p>
+   </li>
+   <li class="ghost">
+      <p>
+        <img src="types/ghost.png" alt="bug"/> Ghost
+    </p>
+   </li>
+  </ul>
+</div>
+
+
+  	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
