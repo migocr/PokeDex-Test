@@ -12,23 +12,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Lato';
+  font-family: "Segoe UI",Arial,sans-serif;
   margin: 0;
 
 }
 
-p{
-  color: black !important;
-}
+
 
 header{
   background: #ffffff8c;
-  max-width: : 100%;
-  display: flex;
-  flex-wrap:  wrap;
-  padding: 39 13%;
-  margin: 0px;
-  border-radius: 0px 0px 10px 10px;
+  width: 100%;
+  height: auto;
+  webkit-box-shadow: 0px 7px 12px -6px rgb(128 128 128 / 0%);
+    -moz-box-shadow: 0px 7px 12px -6px rgba(128,128,128,1);
+    box-shadow: 0px 7px 12px -6px rgb(128 128 128 / 24%)
 }
 
 
@@ -85,7 +82,10 @@ h1, h2, h3, h4, h5 {
     
     letter-spacing: 1px;
     text-transform: capitalize;
-    font-weight: 300;
+    font-weight: 600;
+    color: white;
+    margin: 10 0;
+    font-size: 20px;
 }
 .pagination{
  
@@ -131,30 +131,31 @@ h1, h2, h3, h4, h5 {
 
 .buscador{
   border: none !important;
-  display: flex;
-  max-width: 80%;
-  text-align: center;
-  margin: auto;
-  padding: 10px;
+    display: flex;
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    width: 500px;
 }
 .btnBuscar{
   cursor: pointer;
   background: #d4b743;
-  color: #292826;
+  color: white;
   outline: 0;
   border: none !important;
-  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  border-radius: 0rem 1.25rem 1.25rem 0rem;
   
 }
 
 .logo{
   
-  margin: auto;
-  width: 50%;
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
 }
 .logo img {
-   max-width: 100%;
-   height: auto;
+   max-width: 400px;
    
 }
 
@@ -174,7 +175,7 @@ input[type="search"] {
   background-clip: padding-box;
   background-color: white;
   vertical-align: middle;
-  border-radius: 0.25rem 0rem 0rem 0.25rem;
+  border-radius: 1.25rem 0rem 0rem 1.25rem;
   border: 1px solid #e0e0e5;
   font-size: 1rem;
   width: 100%;
@@ -223,6 +224,8 @@ input[type="search"]:focus {
 .subtitulo{
   display: none;
 }
+
+
 
 .types ul{
   list-style:none;
@@ -330,4 +333,123 @@ input[type="search"]:focus {
 }
 .rock{
   background: #c9b787;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 10px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #00000085;
+  margin: auto;
+  border: 1px solid #888;
+  max-width: 500px;
+  border-radius: 15px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.infoModal{
+  
+    background: white;
+    border-radius: 20px;
+    margin: 5%;
+
+}
+.infoModal p{
+  color:white;
+}
+
+.infoblock{
+  background: #aaa;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  padding: 10%;
+  text-align: center;
+  padding-top: 150px;
+}
+
+.infoblock_footer{
+  background: #aaa;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+  text-align: center;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.infoblock_title p{
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.infoModal .img-container {
+    background-color: white;
+    text-align: center;
+    align-content: center;
+    border-radius: 10px 10px 0px 0px;
+    max-width: 100%;
+    max-height: 60%;
+    padding: 5% 0 0 0;
+}
+
+.infoModal img{
+  width: 100%;
+  max-width: 200px;
+}
+
+.imagen{
+  
+text-align: center;
+  
+display: inline-flex;
+  
+background: #0e110a00;
+  
+border-radius: 10px;
+  
+margin-top: 1%;
+  
+padding: 10px;
+  
+max-height: 200px;
+  
+position: unset;
+  
+margin-bottom: -104px;
 }

@@ -11,7 +11,7 @@
 		
 		<div class="buscador">
 		<input id="busqueda" type="search" name="busqueda" >
-		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador()">Buscar</button>
+		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador()"><p>Buscar</p></button>
 		</div>
 	</header>
 	<link href="menu.css" rel="stylesheet" />
@@ -35,17 +35,12 @@
     
 	
 	<div class="subtitulo" id="subtitulo"></div>
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<div class="w3-container">
-	  <div id="id01" class="w3-modal">
-	    <div class="w3-modal-content">
-	      <div class="w3-container">
-	        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-	        <div id="informacion">
-	        	
-	        </div>
-	      </div>
-	    </div>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+	  <!-- Modal content -->
+	  <div id="modal" class="modal-content">
+	    <span class="close">&times;</span>
+	    <div id="info" class="infoModal"></div>
 	  </div>
 	</div>
 	

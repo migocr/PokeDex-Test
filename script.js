@@ -388,7 +388,7 @@ function principal(zelda){
                         var tipo1 = datos.types[0].type.name;
                     }
 
-            if (tipo1 === "grass"){ var cardColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%);";}             
+            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(46,162,64,1) 0%, rgba(105,201,119,0.8438725832129726) 100%);";}             
                     else if (tipo1 === "fire"){ var cardColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%);";}               
                     else if (tipo1 === "water"){ var cardColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%);"; } 
                     else if (tipo1 === "bug") {var cardColor="radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%);";}
@@ -410,7 +410,7 @@ function principal(zelda){
             cards.innerHTML += `
                          
                     
-                        <div class="pokemon" onclick="imprimirDatos(${datos.id},'${datos.name}','${concaTipos}','${imagen}')" style="background:${cardColor};">
+                        <div class="pokemon" onclick="imprimirDatos(${datos.id},'${datos.name}','${concaTipos}','${imagen}','${HP}','${ataque}','${defensa}','${specialAttack}','${specialDeffense}','${speed}','${base_experience}','${altura}','${numeroPokedex}','${peso}','${cardColor}')" style="background:${cardColor};">
                             <div class="img-container">
                             <img src="${imagen}" alt="${datos.name}">
                             </div>
@@ -599,13 +599,61 @@ function buscador(pagina,indice,accion){
     
 }
 
-function imprimirDatos(id,nombre,concaTipos,imagen){
-    document.getElementById("informacion").innerHTML="";
-    document.getElementById('id01').style.display='block';
-    console.log(imagen);
-    informacion.innerHTML += `
-                        <p>${nombre}</p>
-                        <p>${id}</p>
+
+      
+      
+
+function imprimirDatos(id,nombre,concaTipos,imagen,HP,ataque,defensa,specialAttack,specialDeffense,speed,base_experience,altura,numeroPokedex,peso,cardColor){
+    
+    document.getElementById("info").innerHTML="";
+    var modal = document.getElementById("myModal");
+    var span =  document.getElementsByClassName("close")[0];
+    modal.style.display = "block";
+    
+    //boton cerrar modal
+    span.onclick = function() {
+       modal.style.display = "none";
+      }
+
+    //cerrar modal si se hace click fuera de el
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    var porAtaque = (ataque / 200) * 100;
+    info.innerHTML += `
+
+                        
+
+
+                        <div class="infoblock_title"><p>#${numeroPokedex} ${nombre}</p></div>
+                        <div class="img-container">
+                            <div class="imagen">
+                                <img src="${imagen}" alt="nombre">
+                            </div>
+                        </div>
+                        <div class="infoblock">
+                            <p>HP: ${HP}</p>
+                            <p style="display:inline-block;">Ataque </p><div class="attackBar" style="display:inline-block;">
+                        <div style="width: 150px; height: 30px; background-color:white; border-radius:10px;">
+                          <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="padding: 5px;font-size: 12px;text-align: right;">${ataque}</p></div>
+                        </div>
+                        </div>
+                            <p>Deffense: ${defensa}</p>
+                            <p>Special Deffense: ${specialAttack}</p>
+                            <p>Special Attack: ${specialDeffense}</p>
+                            <p>Speed: ${speed}</p>
+                        </div>
+                        
+                        <div class="infoblock_footer">
+                            <p>Base Experience: ${base_experience}</p>
+                            <p>Weight: ${altura}</p>
+                            <p>Height: ${peso}</p>
+                        </div>
+                       
+                        
                         
 
                          `

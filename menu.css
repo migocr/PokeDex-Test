@@ -13,43 +13,10 @@
 [class*="fontawesome-"]:before {
   font-family: 'FontAwesome', sans-serif;
 }
-/* zocial */
-[class*="zocial-"]:before {
-  font-family: 'zocial', sans-serif;
-}
-@font-face {
-	font-family: 'icomoon';
-	src:url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot');
-	src:url('https://jlalovi-cv.herokuapp.com/font/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('https://jlalovi-cv.herokuapp.com/font/icomoon.ttf') format('truetype'),
-		url('https://jlalovi-cv.herokuapp.com/font/icomoon.woff') format('woff'),
-		url('https://jlalovi-cv.herokuapp.com/font/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 
-[class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-.icon-cloudy:before {
-	content: "\e60f";
-}
-.icon-sun:before {
-	content: "\e610";
-}
-.icon-cloudy2:before {
-	content: "\e611";
-}
+
+
 /************************************* END FONTS *************************************/
 
 
@@ -76,7 +43,9 @@
 
 .main-container a {
 	text-decoration: none;
-	font-size: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #0000008c;
 }
 	.main-container a:hover {
 		text-decoration: none;
@@ -117,13 +86,13 @@
 
 .main-container {
 	font-family: 'Ubuntu', sans-serif;
-    
-    height: auto;
-    margin: 10px;
+    margin: 10px 0px 10px 0px;
     background: #ffffffa6;
     text-align: center;
     border-radius: 20px;
-    padding: 0 25% 0 25%;
+    max-width: 1200px;
+    min-width: 300px;
+    width: 100%;
 }	
 	/*********************************************** HEADER ***********************************************/
 	.block{
@@ -146,8 +115,8 @@
 					transition: background .3s;
 				}
 					.header-menu-tab:hover {
-						background: #daa531;
-						border-bottom: 4px solid #11a8ab;
+						background: #d4b743;
+						border-bottom: 4px solid #463b0db8;
 						text-decoration: none;
 					}
 					.header-menu-tab .icon {
