@@ -388,9 +388,9 @@ function principal(zelda){
                         var tipo1 = datos.types[0].type.name;
                     }
 
-            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(46,162,64,1) 0%, rgba(105,201,119,0.8438725832129726) 100%);";}             
-                    else if (tipo1 === "fire"){ var cardColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%);";}               
-                    else if (tipo1 === "water"){ var cardColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%);"; } 
+            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(53,192,74,1) 0%, rgba(107,190,119,1) 100%);";}             
+                    else if (tipo1 === "fire"){ var cardColor = "linear-gradient(180deg, rgba(255,156,71,1) 0%, rgba(251,181,121,1) 100%)";}               
+                    else if (tipo1 === "water"){ var cardColor = "linear-gradient(180deg, rgba(51,147,221,1) 0%, rgba(95,167,222,1) 100%);"; } 
                     else if (tipo1 === "bug") {var cardColor="radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%);";}
                     else if (tipo1 === "normal") {var cardColor="radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%);"}
                     else if (tipo1 === "flying") {var cardColor="radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%);"}
@@ -690,7 +690,7 @@ function imprimirDatos(id,nombre,concaTipos,imagen,HP,ataque,defensa,specialAtta
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             
                             <div class="infoblock_footer">

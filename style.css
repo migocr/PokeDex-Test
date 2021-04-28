@@ -403,6 +403,15 @@ input[type="search"]:focus {
   border-radius: 0px 0px 10px 10px;
 }
 
+.infoblock_footer p{
+      width: 30%;
+    background: #0000003d;
+    padding: 10px;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: lighter;
+}
+
 
 
 .infoModal .img-container {
@@ -468,3 +477,4 @@ input[type="search"]:focus {
     font-weight: 900;
     font-size: 20px;
 }
+
