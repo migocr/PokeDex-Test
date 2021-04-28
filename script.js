@@ -627,30 +627,77 @@ function imprimirDatos(id,nombre,concaTipos,imagen,HP,ataque,defensa,specialAtta
 
                         
 
+                        <div style="background: ${cardColor}; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100);   border-style: solid; border-color: #00000042; ">
+                            
+                            <div class="img-container">
+                                <div class="imagen">
+                                    <img src="${imagen}" alt="nombre">
+                                    
+                                </div>
+                            <p class="numberP">${numeroPokedex}</p>
+                            <p class="infoblock_title">${nombre}</p>
+                            <p>${concaTipos}</p>
+                            
 
-                        <div class="infoblock_title"><p>#${numeroPokedex} ${nombre}</p></div>
-                        <div class="img-container">
-                            <div class="imagen">
-                                <img src="${imagen}" alt="nombre">
                             </div>
-                        </div>
-                        <div class="infoblock">
-                            <p>HP: ${HP}</p>
-                            <p style="display:inline-block;">Ataque </p><div class="attackBar" style="display:inline-block;">
-                        <div style="width: 150px; height: 30px; background-color:white; border-radius:10px;">
-                          <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="padding: 5px;font-size: 12px;text-align: right;">${ataque}</p></div>
-                        </div>
-                        </div>
-                            <p>Deffense: ${defensa}</p>
-                            <p>Special Deffense: ${specialAttack}</p>
-                            <p>Special Attack: ${specialDeffense}</p>
-                            <p>Speed: ${speed}</p>
-                        </div>
-                        
-                        <div class="infoblock_footer">
-                            <p>Base Experience: ${base_experience}</p>
-                            <p>Weight: ${altura}</p>
-                            <p>Height: ${peso}</p>
+                            <div class="infoblock">
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >HP </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${HP}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${HP}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Ataque </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${ataque}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Defensa </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${defensa}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${defensa}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >specialAttack </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialAttack}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialAttack}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >specialDeffense </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialDeffense}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialDeffense}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Speed </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${speed}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${speed}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="infoblock_footer">
+                                <p>Base Experience: ${base_experience}</p>
+                                <p>Weight: ${altura}</p>
+                                <p>Height: ${peso}</p>
+                            </div>
                         </div>
                        
                         
