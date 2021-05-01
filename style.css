@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .pagination a {
-  color: black;
+    color: white;
     float: left;
     padding: 15;
     text-decoration: none;
@@ -104,17 +104,19 @@ h1, h2, h3, h4, h5 {
     height: 48px;
     text-align: center;
     margin: 5px;
+    font-weight: bolder;
 }
 
 .pagination a.active {
   background-color: #4CAF50;
   color: white;
-  border-radius: 5px;
+  background-color: #694f07;
+  border-radius: 50%;
 }
 
 .pagination a:hover:not(.active) {
-  background-color: #ddd;
-  border-radius: 5px;
+  background-color: black;
+  border-radius: 50%;
 }
 .pagination button{
   color: black;
@@ -124,6 +126,16 @@ h1, h2, h3, h4, h5 {
   border:none;
   border-radius: 150px;
   width: 59px;
+}
+.pagination button:hover{
+  color: white;
+  float: left;
+  padding: 16px;
+  text-decoration: none;
+  border:none;
+  border-radius: 150px;
+  width: 59px;
+  background:black;
 }
 .paginas{
   float:center;
@@ -355,8 +367,11 @@ input[type="search"]:focus {
 
 /* Modal Content */
 .modal-content {
+  background-color: #00000085;
   margin: auto;
-  max-width: 900px;
+  border: 1px solid #888;
+  max-width: 500px;
+  border-radius: 15px;
 }
 
 /* The Close Button */
@@ -375,26 +390,30 @@ input[type="search"]:focus {
   cursor: pointer;
 }
 
-.infoModal{}
+.infoModal{
+  
+    background: white;
+    border-radius: 20px;
+    margin: 5%;
+
+}
 .infoModal p{
   color:white;
-  display: inline-block;
-  width: 100%;
 }
 
 .infoblock{
- 
+  background: #aaa;
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
   display: block;
-  
+  padding: 10%;
   text-align: center;
-  
+  padding-top: 150px;
 }
 
 .infoblock_footer{
-  
+  background: #aaa;
   margin: 0 auto;
   overflow: hidden;
   width: 100%;
@@ -403,78 +422,46 @@ input[type="search"]:focus {
   border-radius: 0px 0px 10px 10px;
 }
 
-.infoblock_footer p{
-      width: 30%;
-    background: #0000003d;
-    padding: 10px;
-    border-radius: 40px;
-    font-size: 20px;
-    font-weight: lighter;
+.infoblock_title p{
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.2em;
+  font-weight: bolder;
 }
 
-
-
 .infoModal .img-container {
-    
+    background-color: white;
     text-align: center;
     align-content: center;
     border-radius: 10px 10px 0px 0px;
     max-width: 100%;
-    max-height: auto;
+    max-height: 60%;
     padding: 5% 0 0 0;
-
 }
 
 .infoModal img{
   width: 100%;
   max-width: 200px;
-  padding: 20;
 }
 
 .imagen{
   
-  text-align: center;
-  display: block;
-  background-color: #ffffff7a;
-  border-radius: 50%;
-  padding: 5px 0px;
-  width: 180px;
-  height: 180px;
-  margin: auto;
-}
-
-.numberP{
-    background:#25252538;
-    width: 80px !important;
-    height: 80px;
-    text-align: center;
-    padding: 4;
-    font-size: -webkit-xxx-large;
-    border-radius: 24px;
-    font-weight: bolder;
-    margin: 10 0 0 0;
-
-}
-.infoblock_title{
-  text-transform: capitalize;
-  font-size: -webkit-xxx-large;
-  font-weight: 100;
-  margin: 0px;
-}
-
- 
-.infoblock p{
+text-align: center;
   
-    width: 40%;
+display: inline-flex;
+  
+background: #0e110a00;
+  
+border-radius: 10px;
+  
+margin-top: 1%;
+  
+padding: 10px;
+  
+max-height: 200px;
+  
+position: unset;
+  
+margin-bottom: -104px;
 }
-
-.infoblock_p_stats{
-    display: inline-block;
-    width: auto;
-    background: none;
-    padding: 0px;
-    margin: 0px;
-    font-weight: 900;
-    font-size: 20px;
-}
-
