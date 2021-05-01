@@ -388,9 +388,9 @@ function principal(zelda){
                         var tipo1 = datos.types[0].type.name;
                     }
 
-            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(46,162,64,1) 0%, rgba(105,201,119,0.8438725832129726) 100%);";}             
-                    else if (tipo1 === "fire"){ var cardColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%);";}               
-                    else if (tipo1 === "water"){ var cardColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%);"; } 
+            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(53,192,74,1) 0%, rgba(107,190,119,1) 100%);";}             
+                    else if (tipo1 === "fire"){ var cardColor = "linear-gradient(180deg, rgba(255,156,71,1) 0%, rgba(251,181,121,1) 100%)";}               
+                    else if (tipo1 === "water"){ var cardColor = "linear-gradient(180deg, rgba(51,147,221,1) 0%, rgba(95,167,222,1) 100%);"; } 
                     else if (tipo1 === "bug") {var cardColor="radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%);";}
                     else if (tipo1 === "normal") {var cardColor="radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%);"}
                     else if (tipo1 === "flying") {var cardColor="radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%);"}
@@ -627,30 +627,77 @@ function imprimirDatos(id,nombre,concaTipos,imagen,HP,ataque,defensa,specialAtta
 
                         
 
+                        <div style="background: ${cardColor}; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100);   border-style: solid; border-color: #00000042; ">
+                            
+                            <div class="img-container">
+                                <div class="imagen">
+                                    <img src="${imagen}" alt="nombre">
+                                    
+                                </div>
+                            <p class="numberP">${numeroPokedex}</p>
+                            <p class="infoblock_title">${nombre}</p>
+                            <p>${concaTipos}</p>
+                            
 
-                        <div class="infoblock_title"><p>#${numeroPokedex} ${nombre}</p></div>
-                        <div class="img-container">
-                            <div class="imagen">
-                                <img src="${imagen}" alt="nombre">
                             </div>
-                        </div>
-                        <div class="infoblock">
-                            <p>HP: ${HP}</p>
-                            <p style="display:inline-block;">Ataque </p><div class="attackBar" style="display:inline-block;">
-                        <div style="width: 150px; height: 30px; background-color:white; border-radius:10px;">
-                          <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="padding: 5px;font-size: 12px;text-align: right;">${ataque}</p></div>
-                        </div>
-                        </div>
-                            <p>Deffense: ${defensa}</p>
-                            <p>Special Deffense: ${specialAttack}</p>
-                            <p>Special Attack: ${specialDeffense}</p>
-                            <p>Speed: ${speed}</p>
-                        </div>
-                        
-                        <div class="infoblock_footer">
-                            <p>Base Experience: ${base_experience}</p>
-                            <p>Weight: ${altura}</p>
-                            <p>Height: ${peso}</p>
+                            <div class="infoblock">
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >HP </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${HP}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${HP}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Ataque </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${ataque}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Defensa </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${defensa}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${defensa}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >specialAttack </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialAttack}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialAttack}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >specialDeffense </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialDeffense}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialDeffense}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                    <p class="infoblock_p_stats" >Speed </p>
+                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${speed}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${speed}</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <div class="infoblock_footer">
+                                <p>Base Experience: ${base_experience}</p>
+                                <p>Weight: ${altura}</p>
+                                <p>Height: ${peso}</p>
+                            </div>
                         </div>
                        
                         
