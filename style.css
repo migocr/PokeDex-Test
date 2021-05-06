@@ -48,6 +48,7 @@ h1, h2, h3, h4, h5 {
   padding: 40 10 50 20;
   
 }
+
 .pokemon{
   background-color: #eee;
   border-radius: 20px;
@@ -56,7 +57,16 @@ h1, h2, h3, h4, h5 {
   padding: 20px 30px 20px 38px;
   text-align: center;
   width:200px;
+  transition: transform .3s;
 }
+.pokemon .img-container:hover{
+  background-color: #00000059;
+}
+.pokemon:hover {
+    transform: scale(1.15);
+    filter:drop-shadow(2px 4px 6px black)
+}
+
 .pokemon .img-container {
     background-color: rgba(255, 255, 255, 0.6);
     border-radius: 50%;
@@ -89,8 +99,15 @@ h1, h2, h3, h4, h5 {
 }
 .pagination{
  
-  display: flex;
-  max-width: 1000px;
+display: flex;
+ 
+max-width: 1000px;
+ 
+background: #00000059;
+ 
+padding: 5px;
+ 
+border-radius: 10px;
 }
 
 .pagination a {
@@ -98,8 +115,6 @@ h1, h2, h3, h4, h5 {
     float: left;
     padding: 15;
     text-decoration: none;
-    background-color: #e0bd22;
-    border-radius: 200px;
     width: 48px;
     height: 48px;
     text-align: center;
@@ -115,30 +130,46 @@ h1, h2, h3, h4, h5 {
 }
 
 .pagination a:hover:not(.active) {
-  background-color: black;
-  border-radius: 50%;
+  background-color: #06060682; 
+  border-radius: 10px;
 }
 .pagination button{
-  color: black;
-  float: left;
-  padding: 16px;
-  text-decoration: none;
-  border:none;
-  border-radius: 150px;
-  width: 59px;
-}
-.pagination button:hover{
   color: white;
   float: left;
-  padding: 16px;
   text-decoration: none;
-  border:none;
-  border-radius: 150px;
-  width: 59px;
-  background:black;
+  border: none;
+  width: 50px;
+  height: 50px;
+  margin-top: 4px;
+  background: transparent;
+  font-size: 39px;
+}
+.pagination button:hover{
+  float: left;
+  text-decoration: none;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 4px;
 }
 .paginas{
   float:center;
+}
+
+.paginaActual{
+  display: inline-flex;
+  background: #00000070;
+    font-size: 10px;
+    padding: 0px 10px;
+    margin: 3px;
+    border-radius: 20px;
+    height: 34px;
+    font-weight: 200;
+}
+
+.paginaActual:hover{
+  background:black;
 }
 
 .buscador{
@@ -159,16 +190,28 @@ h1, h2, h3, h4, h5 {
   border-radius: 0rem 1.25rem 1.25rem 0rem;
   
 }
+.btnBuscar:hover{
+  cursor: pointer;
+  background: #060606b0;
+  
+  
+}
 
 .logo{
   
     width: 100%;
-    padding-top: 5px;
+    padding-top: 8px;
     text-align: center;
 }
 .logo img {
-   max-width: 400px;
+   max-width: 26%;
+    min-width: 250px;
    
+}
+
+.logo img:hover{
+  filter: drop-shadow(2px 2px 2px black);
+
 }
 
 
@@ -205,6 +248,18 @@ input[type="search"]:focus {
   outline: none;
 }
 
+input[type="search"]::placeholder {
+  color: #00000059;
+  font-size:15px;
+  
+}
+
+.fontawesome-search{
+  margin: 10px;
+  font-size: 20px;
+}
+
+
 
 .button {
   display: inline-block;
@@ -234,7 +289,16 @@ input[type="search"]:focus {
 }
 
 .subtitulo{
-  display: none;
+  height: 10px;
+    position: relative;
+}
+
+.subtitulo p{
+  font-size: 20px;
+    color: #696969;
+    text-align: left;
+    font-weight: bold;
+
 }
 
 
@@ -253,7 +317,7 @@ input[type="search"]:focus {
   background:rgb(255,255,255,0.3);
   max-width: 1200px;
   border-radius: 30px 30px 0px 3px;
-  backdrop-filter: blur(20px);
+  
     }
 
 .types p{
@@ -281,6 +345,14 @@ input[type="search"]:focus {
   border-width: 2px;
   border-style: solid;
   border-color: #ffffff14;
+  transition-duration: .2s;
+
+  
+}
+.types li:hover{
+  
+  transform: scale(1.2);
+  filter: drop-shadow(2px 4px 6px black);
 
   
 }

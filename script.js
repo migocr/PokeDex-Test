@@ -18,13 +18,14 @@ function load(defaultTipo){
 
     if (defaultTipo === undefined) {
         paginador(1);
-        subtitulo.innerHTML +=`<p id="pSub" >Home</p> `
+        
         var totalPaginas = 75;
         var pagina = 1;
         document.getElementById("divPaginaActual").innerHTML="";
         divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
         divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
         imprimirBotones(totalPaginas);
+        subtitulo.innerHTML +=`<p id="pSub" >Home</p> `
 
     } else {
         enlacesPorTipo(defaultTipo,inicio,final);
@@ -115,7 +116,7 @@ function enlacesPorTipo(defaultTipo,inicio,final,y){
     var tipo = defaultTipo;
     var link ="https://pokeapi.co/api/v2/type/"+tipo;
 
-    subtitulo.innerHTML +=`<p id="pSub" >Tipo: ${tipo}</p> `
+    subtitulo.innerHTML +=`<p id="pSub" >Type: ${tipo}</p> `
 
     
     
@@ -130,6 +131,8 @@ function enlacesPorTipo(defaultTipo,inicio,final,y){
 
 
             var conteo = pokemon.length;
+             document.getElementById("subtitulo").innerHTML="";
+             subtitulo.innerHTML +=`<p id="pSub" >Type: ${tipo}</p> (results:${conteo})`
             var totalPaginas = Math.ceil( conteo/15);
             
 
@@ -253,7 +256,7 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
                 if (numeroPagina == newPaginaActual) {
                     paginas.innerHTML += `
                             
-                           <a class="pagination-item" href="javascript:void(0)" style="display:inline-block; background-color:#8c7c0a;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
+                           <a class="pagination-item" href="javascript:void(0)" style="display: inline-block; background-color: #06060682; border-radius: 10px;" onclick="buscador(${numeroPagina},'${indice}')" >${numeroPagina}</a>
 
                                      `
                 } else{
@@ -271,7 +274,7 @@ function imprimirPaginacion(totalPaginas,tipo,indice){
             var pagina =numeroPagina+1;
             if (pagina == newPaginaActual) {
                 paginas.innerHTML += 
-                `<a class="page-link" href="javascript:void(0)" style="display:inline-block; background-color:#8c7c0a;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
+                `<a class="page-link" href="javascript:void(0)" style="display: inline-block; background-color: #06060682; border-radius: 10px;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
             } else{
                 paginas.innerHTML += 
                 `<a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> ` 
@@ -295,8 +298,11 @@ function recorrerPagina(side){
     var paginaActual = newPaginaActual;
     console.log("pagina actual "+newPaginaActual);
     //falta imprimir paginacion en filtro de tipos
+
+    var stringSub = p.outerHTML.includes("Resultados de busqueda");
+    console.log(stringSub);
    
-    if(p.outerHTML === '<p id="pSub">Busqueda:</p>'){
+    if(stringSub == true){
 
         if (side==="right") {
              
@@ -311,7 +317,7 @@ function recorrerPagina(side){
         }
         
     }
-    else if (subtitulo.includes('<p id="pSub">Tipo:')) {
+    else if (subtitulo.includes('<p id="pSub">Type:')) {
         var defaultTipo = subtitulo.slice(19, -4);
         console.log("es por tipo");
         if (side==="right") {
@@ -388,9 +394,9 @@ function principal(zelda){
                         var tipo1 = datos.types[0].type.name;
                     }
 
-            if (tipo1 === "grass"){ var cardColor = "linear-gradient(180deg, rgba(53,192,74,1) 0%, rgba(107,190,119,1) 100%);";}             
-                    else if (tipo1 === "fire"){ var cardColor = "linear-gradient(180deg, rgba(255,156,71,1) 0%, rgba(251,181,121,1) 100%)";}               
-                    else if (tipo1 === "water"){ var cardColor = "linear-gradient(180deg, rgba(51,147,221,1) 0%, rgba(95,167,222,1) 100%);"; } 
+            if (tipo1 === "grass"){ var cardColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%)";}             
+                    else if (tipo1 === "fire"){ var cardColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%)";}               
+                    else if (tipo1 === "water"){ var cardColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%)"; } 
                     else if (tipo1 === "bug") {var cardColor="radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%);";}
                     else if (tipo1 === "normal") {var cardColor="radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%);"}
                     else if (tipo1 === "flying") {var cardColor="radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%);"}
@@ -436,10 +442,13 @@ function principal(zelda){
 
 }
 
+function btnBuscar(){
+    buscador();
+}
 
 function buscador(pagina,indice,accion){
     //console.log(accion);
-    document.getElementById("subtitulo").innerHTML="<p id='pSub' >Busqueda:</p>";
+    document.getElementById("subtitulo").innerHTML="<p id='pSub' >Resultados de busqueda: </p>";
     //document.getElementById("botonL").innerHTML="";
     //document.getElementById("botonR").innerHTML="";
     //botonL.innerHTML += `<button onclick="recorrerPagina('left')"  href="#">&raquo;</button>`
@@ -450,7 +459,8 @@ function buscador(pagina,indice,accion){
     if (pokeNames === undefined) {
         var link ="https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118";
         var limite = 1118;
-        busqueda = document.getElementById("busqueda").value;
+        busquedaBruta = document.getElementById("busqueda").value;
+        var busqueda = busquedaBruta.toLowerCase();
         console.log("termino de busqueda "+ busqueda);
         document.getElementById("cards").innerHTML="";
         document.getElementById("botonL").innerHTML="";
@@ -476,6 +486,7 @@ function buscador(pagina,indice,accion){
                     resultadosBusqueda.push(names);
                     
                     if (counter <= 15 ) {
+
                         if (accion === undefined) {
                             principal(zelda);
                             console.log("pagina indefinida");
@@ -487,24 +498,29 @@ function buscador(pagina,indice,accion){
                     document.getElementById("paginas").innerHTML="";
                     
                    }
+
                    if (i >= 1117) {
+                    document.getElementById("pSub").innerHTML += counter;
+
                      if (accion === "right" || accion === "left") {
                             //console.log("pagina mayor a " + pagina);
                             buscador(pagina,resultadosBusqueda,"buttonSide");
                             //console.log(resultadosBusqueda);
                             
                         }
-                        else if (accion) {}{
-                            
-                        }
+                        
                     
                     // console.log("pause " + indice);
                     var totalPaginas =(Math.ceil(counter/15)+1);
+
                     //console.log("Resultados "+resultadosBusqueda); 
                     imprimirPaginacion(totalPaginas,"busqueda",resultadosBusqueda);
 
 
                     //subtituloPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1} </p> <p>Pagina <p id="paginaActual">1</p>/${totalPaginas-1}</p>`;
+                    if (totalPaginas==1) {
+                        cards.innerHTML += `<p>No hemos encobntrado resultados</p>`;
+                    }
                     if ((totalPaginas-1)==1) {
                         document.getElementById("botonR").innerHTML="";
                     }
@@ -530,7 +546,7 @@ function buscador(pagina,indice,accion){
     } 
     else{
         console.log("paaagina: "+pagina)
-
+        document.getElementById("pSub").innerHTML += pokeNames.length;
         if (accion === "buttonSide") {
             var arrayPokes = pokeNames;
 

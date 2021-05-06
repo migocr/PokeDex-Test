@@ -115,9 +115,9 @@
 					transition: background .3s;
 				}
 					.header-menu-tab:hover {
-						background: #d4b743;
-						border-bottom: 4px solid #463b0db8;
+						background: #1f1b0ea6;
 						text-decoration: none;
+						height: auto;
 					}
 					.header-menu-tab .icon {
 						padding-right: 15px;

@@ -4,15 +4,17 @@
 	<link href="menu.css" rel="stylesheet" />
 	<meta charset="UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<title>Document</title>
+	<link rel="icon" type="image/png" href="favicon.ico">
+
+	<title>PokeDex-Test - API REST</title>
 </head>
 <body>
 	<header>
-		<div class="logo"><img src="logo.png" alt="logo"></div>
+		<div  class="logo"> <a href="index.html"><img src="logo.png" alt="logo"></a></div>
 		
 		<div class="buscador">
 		<input id="busqueda" type="search" placeholder="Search your favorite pokemon..." name="busqueda" >
-		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador()"><p>Buscar</p></button>
+		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador()"><p class="fontawesome-search"></p></button>
 		</div>
 	</header>
 	
@@ -20,10 +22,10 @@
             <div class="block">
                 <ul class="header-menu horizontal-list">
                     <li>
-                        <a class="header-menu-tab" href="#1"><span class="icon entypo-cog scnd-font-color"></span>Home</a>
+                        <a href="index.html" class="header-menu-tab" href="#1"><span class="icon entypo-home scnd-font-color"></span>Home</a>
                     </li>
                     <li>
-                        <a class="header-menu-tab" href="#2"><span class="icon fontawesome-user scnd-font-color"></span>Types</a>
+                        <a class="header-menu-tab" href="#2"><span class="icon fontawesome-bolt scnd-font-color"></span>Types</a>
                     </li>
                     <li>
                         
@@ -35,7 +37,7 @@
         </div>
     
 	
-	<div class="subtitulo" id="subtitulo"></div>
+	
 	<!-- The Modal -->
 	<div id="myModal" class="modal">
 	  <!-- Modal content -->
@@ -50,7 +52,7 @@
 
 	
 	
-	 
+	 <div class="subtitulo" id="subtitulo"></div>
 	 <div id="cards" class="cards" >
 	 	
 	</div>
@@ -80,10 +82,11 @@
 				
 	</div>
 	
-
-
-	<div id="divTotalPaginas"></div>
-	<div id="divPaginaActual"></div>
+	<div style="visibility: hidden; height: 0px;" id="divTotalPaginas"></div>
+	<div class="paginaActual">
+		<p>Page: </p><div id="divPaginaActual"></div>
+	</div>
+	
 
 
 	
@@ -114,72 +117,72 @@
         <img src="types/steel.png" alt="Steel"/> Steel
     </p>
    </li>
-    <li class="water">
+    <li onclick="filtro('water');" class="water">
       <p>
         <img src="types/water.png" alt="Water"/> Water
     </p>
    </li>
-    <li class="fire">
+    <li onclick="filtro('fire');" class="fire">
       <p>
         <img src="types/fire.png" alt="Fire"/> Fire
     </p>
    </li>
-    <li class="grass">
+    <li onclick="filtro('grass');" class="grass">
       <p>
         <img src="types/grass.png" alt="Grass"/> Grass
     </p>
    </li>
-    <li class="rock">
+    <li onclick="filtro('rock');" class="rock">
       <p>
         <img src="types/rock.png" alt="Rock"/> Rock
     </p>
    </li>
-    <li class="dragon">
+    <li onclick="filtro('dragon');"  class="dragon">
       <p>
         <img src="types/dragon.png" alt="Dragon"/> Dragon
     </p>
    </li>
-    <li class="electric">
+    <li onclick="filtro('electric');" class="electric">
       <p>
         <img src="types/electric.png" alt="Electric"/> Electric
     </p>
    </li>
-    <li class="fairy">
+    <li onclick="filtro('fairy');"  class="fairy">
       <p>
         <img src="types/fairy.png" alt="Fairy"/> Fairy
     </p>
    </li>
-    <li class="fighting">
+    <li onclick="filtro('fighting');" class="fighting">
       <p>
         <img src="types/fighting.png" alt="Fighting"/> Fighting
     </p>
    </li>
-    <li class="poison">
+    <li onclick="filtro('poison');" class="poison">
       <p>
         <img src="types/poison.png" alt="Poison"/> Poison
     </p>
    </li>
-    <li class="flying">
+    <li onclick="filtro('flying');" class="flying">
       <p>
         <img src="types/flying.png" alt="Flying"/> Flying
     </p>
    </li>
-    <li class="ground">
+    <li onclick="filtro('ground');" class="ground">
       <p>
         <img src="types/ground.png" alt="Ground"/> Ground
     </p>
    </li>
-    <li class="psychic">
+    <li onclick="filtro('psychic');" class="psychic">
       <p>
         <img src="types/psychic.png" alt="Psychic"/> Psychic
     </p>
    </li>
-    <li class="ice">
+    <li onclick="filtro('ice');"  class="ice">
       <p>
         <img src="types/ice.png" alt="Ice"/> Ice
     </p>
    </li>
-   <li class="ghost">
+   <li onclick="filtro('ghost');"  class="ghost">
       <p>
         <img src="types/ghost.png" alt="bug"/> Ghost
     </p>
