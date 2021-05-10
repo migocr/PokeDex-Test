@@ -46,6 +46,7 @@
     font-size: 20px;
     font-weight: 400;
     color: #0000008c;
+    cursor: pointer;
 }
 	.main-container a:hover {
 		text-decoration: none;
