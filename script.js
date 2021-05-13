@@ -262,7 +262,7 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
 
 
 
-    if (defaultTipo === "busqueda") {
+    if (defaultTipo == "busqueda") {
 
         //console.log(indice);
         for (var numeroPagina = inicio; numeroPagina < (fin - 1); numeroPagina++) {
@@ -300,7 +300,7 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
         }
     }
     
-    if (defaultTipo==undefined)  {
+    if (defaultTipo == undefined || defaultTipo == "grass" || defaultTipo == "normal"|| defaultTipo == "bug"|| defaultTipo == "dark"|| defaultTipo == "steel"|| defaultTipo == "water"|| defaultTipo == "fire"|| defaultTipo == "rock"|| defaultTipo == "dragon"|| defaultTipo == "electric"|| defaultTipo == "fairy"|| defaultTipo == "fighting"|| defaultTipo == "poison"|| defaultTipo == "flying"|| defaultTipo == "ground"|| defaultTipo == "psychic"|| defaultTipo == "ice"|| defaultTipo == "ghost") {
         for (var numeroPagina = inicio; numeroPagina < fin; numeroPagina++) {
             var pagina = numeroPagina + 1;
             if (pagina == newPaginaActual) {
@@ -428,7 +428,7 @@ function principal(zelda) {
             if (datos.types.length > 1) {
                 var tipo1 = datos.types[0].type.name;
                 var tipo2 = datos.types[1].type.name;
-                var concaTipos = tipo1 + ", " + tipo2;
+                var concaTipos = tipo1 + "," + tipo2;
                 var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >" + "<img class='cardTypes' src='types/" +tipo2+ ".png' alt='" +tipo2+ "' >";
             } else {
                 var concaTipos = datos.types[0].type.name;
@@ -591,6 +591,7 @@ function buscador(pagina, indice, accion) {
                             divPaginaActual.innerHTML += `<p id="paginaActual">1/${totalPaginas-1}</p>`;
 
                         }
+
                         imprimirPaginacion(totalPaginas, "busqueda", resultadosBusqueda);
                         let totPag = totalPaginas - 1;
                         imprimirBotones(totPag);
@@ -681,14 +682,16 @@ function buscador(pagina, indice, accion) {
 
 
 function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor) {
-
+    var tipos = concaTipos.split(',');
+    console.log(tipos);
     document.getElementById("info").innerHTML = "";
     var modal = document.getElementById("myModal");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("closeModal")[0];
     modal.style.display = "block";
 
     //boton cerrar modal
     span.onclick = function() {
+        console.log("click en boton");
         modal.style.display = "none";
     }
 
@@ -699,71 +702,180 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         }
     }
 
+
+    if (tipos.length>1){
+        var tipo1 = tipos[0];
+        var tipo2 = tipos[1];
+        var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >" + "<img class='cardTypes' src='types/" +tipo2+ ".png' alt='" +tipo2+ "' >";
+        var concaTiposDescripcion = tipo1 + " y tipo "+tipo2;
+         console.log(concaTiposIMG);
+    } else{
+        var tipo1 = tipos[0];
+        var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >";
+        console.log(concaTiposIMG);
+        var concaTiposDescripcion = tipo1;
+    }
+
     var porAtaque = (ataque / 200) * 100;
+    var porHP = (HP / 260) * 100;
+    var porDefensa = (defensa / 260) * 100;
+    var porSpecialAttack = (specialAttack / 200) * 100;
+    var porSpecialDefense = (specialDeffense / 250) * 100;
+    var porSpeed = (speed / 200) * 100;
+
+    var barColorRed = "linear-gradient(97deg, rgb(239 20 20 / 53%) 0%, rgb(255 0 0 / 60%) 100%)";
+    var barColorYellow = "linear-gradient(97deg, rgb(226 255 0 / 52%) 0%, rgb(167 171 0 / 58%) 100%)";
+    var barColorGreen = "linear-gradient(97deg, rgb(29 202 81 / 71%) 0%, rgb(24 144 0 / 67%) 100%)";
+    var barColorBlue = "linear-gradient(97deg, rgb(14 92 189 / 58%) 0%, rgb(2 57 105 / 67%) 100%)";
+
+    if (porAtaque < 25 ) {
+        var atackBarColor = barColorRed;
+    }
+    else if (porAtaque>=25 && porAtaque <= 40) {
+        var atackBarColor = barColorYellow;
+    }
+    else if (porAtaque > 40 && porAtaque<= 70) {
+        var atackBarColor = barColorGreen;
+    }
+    else if (porAtaque > 70) {
+        var atackBarColor = barColorBlue;
+    }
+
+    if (porHP < 25 ) {
+        var hpBarColor = barColorRed;
+    }
+    else if (porHP>=25 && porHP <= 40) {
+        var hpBarColor = barColorYellow;
+    }
+    else if (porHP > 40 && porHP<= 70) {
+        var hpBarColor = barColorGreen;
+    }
+    else if (porHP > 70) {
+        var hpBarColor = barColorBlue;
+    }
+
+    if (porDefensa < 25 ) {
+        var defensaBarColor = barColorRed;
+    }
+    else if (porDefensa>=25 && porDefensa <= 40) {
+        var defensaBarColor = barColorYellow;
+    }
+    else if (porDefensa > 40 && porDefensa<= 70) {
+        var defensaBarColor = barColorGreen;
+    }
+    else if (porDefensa > 70) {
+        var defensaBarColor = barColorBlue;
+    }
+
+    if (porSpecialAttack< 25 ) {
+        var specialAtackBarColor = barColorRed;
+    }
+    else if (porSpecialAttack>=25 && porSpecialAttack <= 40) {
+        var specialAtackBarColor = barColorYellow;
+    }
+    else if (porSpecialAttack > 40 && porSpecialAttack<= 70) {
+        var specialAtackBarColor = barColorGreen;
+    }
+    else if (porSpecialAttack > 70) {
+        var specialAtackBarColor = barColorBlue;
+    }
+
+     if (porSpecialDefense< 25 ) {
+        var specialDefenseBarColor = barColorRed;
+    }
+    else if (porSpecialDefense>=25 && porSpecialDefense <= 40) {
+        var specialDefenseBarColor = barColorYellow;
+    }
+    else if (porSpecialDefense > 40 && porSpecialDefense<= 70) {
+        var specialDefenseBarColor = barColorGreen;
+    }
+    else if (porSpecialDefense > 70) {
+        var specialDefenseBarColor = barColorBlue;
+    }
+
+    if (porSpeed< 25 ) {
+        var speedBarColor = barColorRed;
+    }
+    else if (porSpeed>=25 && porSpeed <= 40) {
+        var speedBarColor = barColorYellow;
+    }
+    else if (porSpeed > 40 && porSpeed<= 70) {
+        var speedBarColor = barColorGreen;
+    }
+    else if (porSpeed > 70) {
+        var speedBarColor = barColorBlue;
+    }
+
+
+
     info.innerHTML += `
 
                         
-
-                        <div style="background: ${cardColor}; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100);   border-style: solid; border-color: #00000042; ">
+                    <div style="background: ${cardColor}; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100" >
+                        <div style="background:#00000042; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100);   border-style: solid; border-color: #00000042; ">
                             
                             <div class="img-container">
                                 <div class="imagen">
-                                    <img src="${imagen}" alt="nombre">
+                                    <img class="infoModalPokeIMG" src="${imagen}" alt="nombre">
                                     
                                 </div>
                             <p class="numberP">${numeroPokedex}</p>
                             <p class="infoblock_title">${nombre}</p>
-                            <p>${concaTipos}</p>
+                            <small class="typesModal"><span>${concaTiposIMG}</span></small>
                             
 
+                            </div>
+                            <div class="descripcion">
+                                <p>${nombre} es un pokemon de tipo ${concaTiposDescripcion}</p>
                             </div>
                             <div class="infoblock">
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >HP </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${HP}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${HP}</p>
+
+                                    <p class="infoblock_p_stats" ><i class="fas fa-heart" style="color:${hpBarColor};"></i> HP:</p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porHP}%; background: ${hpBarColor};"><p class ="statsBarText">${HP}</p>
                                         </div>
                                     </div>
                                 </div>
                                 
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >Ataque </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${ataque}</p>
+                                    <p class="infoblock_p_stats" ><i class="fas fa-fist-raised"></i> Attack:</p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${atackBarColor};"><p class ="statsBarText">${ataque}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >Defensa </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${defensa}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${defensa}</p>
+                                    <p class="infoblock_p_stats" ><i class="fas fa-shield-alt"></i> Defense:</p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porDefensa}%; background: ${defensaBarColor};"><p class="statsBarText">${defensa}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >specialAttack </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialAttack}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialAttack}</p>
+                                    <p class="infoblock_p_stats" ><i class="fab fa-battle-net"></i> Special Atack: </p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialAttack}%; background: ${specialAtackBarColor};"><p class ="statsBarText">${specialAttack}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >specialDeffense </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${specialDeffense}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${specialDeffense}</p>
+                                    <p class="infoblock_p_stats" ><i class="fas fa-hand-sparkles"></i> Special Defense: </p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" >Speed </p>
-                                    <div style="width: 50%;height: 30px;background-color:white;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${speed}%; background: ${cardColor}"><p style="font-size: 12px;text-align: right;width: auto;background: none;display: block;padding: 1;margin: 6;">${speed}</p>
+                                    <p class="infoblock_p_stats" ><i class="fas fa-tachometer-alt"></i> Speed:</p>
+                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpeed}%; background: ${speedBarColor};"><p class ="statsBarText">${speed}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -771,11 +883,12 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                             </div>
                             
                             <div class="infoblock_footer">
-                                <p>Base Experience: ${base_experience}</p>
+                                <p>Base XP: ${base_experience}</p>
                                 <p>Weight: ${altura}</p>
                                 <p>Height: ${peso}</p>
                             </div>
                         </div>
+                    </div>
                        
                         
                         
@@ -808,11 +921,11 @@ function filtroGeneracion(generacion,pagina,side) {
     }
 
     if (pagina == undefined) {
-        var inicio = 1
-        var fin = 15;
+        var inicio = 0
+        var fin = 14;
     }
     if (pagina >=1) {
-        var inicio = (pagina * 15)-14;
+        var inicio = (pagina * 15)-15;
         var fin = inicio + 14;
     }
 

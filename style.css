@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5 {
   max-width: 1200px;
   background: #f0f8ffb3;
   border-radius: 20px;
-  padding: 40 10 50 20;
+  padding: 40 0 40 0;
   
 }
 .cardTypes{
@@ -67,7 +67,9 @@ h1, h2, h3, h4, h5 {
 }
 .pokemon .img-container:hover{
   background-color: #00000059;
+
 }
+
 .pokemon:hover {
     transform: scale(1.15);
     filter:drop-shadow(2px 4px 6px black)
@@ -83,6 +85,7 @@ h1, h2, h3, h4, h5 {
 .pokemon .img-container img {
     margin-top: 20px;
     max-width: 90%;
+    max-height: 100px;
 }
 .pokemon .info {
     margin-top: 20px;
@@ -464,19 +467,29 @@ input[type="search"]::placeholder {
 }
 
 /* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding-right: 10px;
+.close, .closeModal {
+      color: #f7d843;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #00000054;
+    text-align: center;
+    border-radius: 0px 12px 0px 12px;
+    width: auto;
+    margin: 10px;
+    padding: 0px 15px 4px 15px;
 }
 
 .close:hover,
-.close:focus {
+.close:focus{
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+span.closeModal:hover {
+    color: white;
+    background-color: #0000009e
 }
 
 .infoModal{}
@@ -484,6 +497,7 @@ input[type="search"]::placeholder {
   color:white;
   display: inline-block;
   width: 100%;
+  
 }
 
 .infoblock{
@@ -508,12 +522,12 @@ input[type="search"]::placeholder {
 }
 
 .infoblock_footer p{
-      width: 30%;
+          width: auto;
     background: #0000003d;
     padding: 10px;
     border-radius: 40px;
-    font-size: 20px;
-    font-weight: lighter;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 
@@ -529,10 +543,9 @@ input[type="search"]::placeholder {
 
 }
 
-.infoModal img{
-  width: 100%;
-  max-width: 200px;
-  padding: 20;
+.infoModalPokeIMG{
+      width: 100%;
+    max-height: 200px;
 }
 
 .imagen{
@@ -549,7 +562,7 @@ input[type="search"]::placeholder {
 
 .numberP{
     background:#25252538;
-    width: 80px !important;
+    width: auto !important;
     height: 80px;
     text-align: center;
     padding: 4;
@@ -557,6 +570,7 @@ input[type="search"]::placeholder {
     border-radius: 24px;
     font-weight: bolder;
     margin: 10 0 0 0;
+    min-width: 80px;
 
 }
 .infoblock_title{
@@ -567,19 +581,23 @@ input[type="search"]::placeholder {
 }
 
  
-.infoblock p{
+.infoblock_p_stats p{
   
-    width: 40%;
+    width: 50%;
+    text-align: left;
 }
 
 .infoblock_p_stats{
-    display: inline-block;
-    width: auto;
-    background: none;
+        background: none;
     padding: 0px;
     margin: 0px;
     font-weight: 900;
-    font-size: 20px;
+    font-size: 1em;
+    text-align: left;
+    width: 50% !important;
+}
+.typesModal{
+  width: 40px;
 }
 
 .genlist{
@@ -624,4 +642,12 @@ input[type="search"]::placeholder {
     width: auto;
     font-weight: lighter;
     padding: 2px 10px 2px 10px;
+}
+
+.statsBarText{
+      font-size: 12px;
+    text-align: right;
+    background: none;
+    padding: 0 10px 0px 0px;
+    margin: 6;
 }
