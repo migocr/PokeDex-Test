@@ -18,8 +18,10 @@ load(defaultTipo);
 //  -ejecutamos la funcion enlacesPorTipo y le pasamos la variable defaultTipo, inicio y final.
 function load(defaultTipo) {
     //console.log(defaultTipo);
-
     
+    
+
+    backgroundRandom();
     if (defaultTipo === undefined) {
         paginador(1);
 
@@ -32,6 +34,7 @@ function load(defaultTipo) {
         subtitulo.innerHTML += `<p id="pSub" >Home</p> `
 
     } else {
+        showLoader();
         document.getElementById("cards").innerHTML = "";
         enlacesPorTipo(defaultTipo, inicio, final);
     }
@@ -87,12 +90,12 @@ function paginador(y, defaultTipo) {
 //link - enlace a pokeapi con el array de nombres y urls de los datos a mostrar
 //realizamos un XMLHttpRequest para pedir el array de datos necesario
 //for i=ini hasta que i sea menor o igual a li (limite/final) y mientras i sea menor al total de registros (1118):
-//  -guardamos el array de urls en la variable zelda
-//  -ejecuta la funcion principal pasandole la url a consultar (zelda)
+//  -guardamos el array de urls en la variable enlace
+//  -ejecuta la funcion principal pasandole la url a consultar (enlace)
 //imprimimos paginacion con el total de paginas
 function enlaces(inicio, final) {
 
-
+    showLoader();
     var link = "https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1118";
     var ini = inicio;
     var li = final;
@@ -106,10 +109,10 @@ function enlaces(inicio, final) {
 
             for (var i = ini; i <= li; i++) {
 
-                //console.log(zelda);
+                //console.log(enlace);
                 if (i < 1118) {
-                    var zelda = datos.results[i].url;
-                    principal(zelda);
+                    var enlace = datos.results[i].url;
+                    principal(enlace);
                 }
             }
             imprimirPaginacion(75);
@@ -127,8 +130,98 @@ function enlaces(inicio, final) {
 //inicio y final - determina el inicio y fin de los datos a mostrar (15 por pagina)
 //y - pagina actual, sirve de referencia para la paginacion, si no existe y sera igual a 1
 
+function backgroundPorTipo(defaultTipo){
+    console.log(defaultTipo);
+
+    switch (defaultTipo) {
+      case 'grass':
+        var backgroundColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%)";
+        return backgroundColor
+        break;
+      case 'fire':
+        var backgroundColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%)"; 
+        return backgroundColor
+        break;
+      case 'water':
+        var backgroundColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%)";
+        return backgroundColor
+        break;
+      case 'bug':
+        var backgroundColor = "radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%)"; 
+        return backgroundColor 
+        break;
+      case 'normal':
+        var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
+        return backgroundColor
+        break;
+      case 'flying':
+        var backgroundColor = "radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%)";
+        return backgroundColor
+        break;
+      case 'poison':
+        var backgroundColor = "radial-gradient(circle, rgba(192,147,206,1) 0%, rgba(147,0,192,1) 100%)";
+        return backgroundColor
+        break;
+      case 'normal':
+        var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
+        return backgroundColor
+        break;
+      case 'ground':
+        var backgroundColor = "radial-gradient(circle, rgba(244,231,218,1) 0%, rgba(142,109,76,1) 100%)";;
+        return backgroundColor
+        break;
+      case 'ghost':
+        var backgroundColor = "radial-gradient(circle, rgba(185,163,208,1) 0%, rgba(119,82,159,1) 100%)";
+        return backgroundColor
+        break;
+      case 'steel':
+        var backgroundColor = "radial-gradient(circle, rgba(211,211,211,1) 0%, rgba(53,53,53,1) 100%)";
+        return backgroundColor
+        break;
+      case 'electric':
+        var backgroundColor = "radial-gradient(circle, rgba(247,239,200,1) 0%, rgba(251,209,0,1) 100%)";
+        return backgroundColor
+        break;
+      case 'ice':
+        var backgroundColor = "radial-gradient(circle, rgba(233,246,244,1) 0%, rgba(119,208,196,1) 100%)";
+        return backgroundColor
+        break;
+      case 'psychic':
+        var backgroundColor = "radial-gradient(circle, rgba(231,196,239,1) 0%, rgba(101,44,102,1) 100%)";
+        return backgroundColor
+        break;
+      case 'dragon':
+        var backgroundColor = "radial-gradient(circle, rgba(151,179,230,1) 0%, rgba(0,29,82,1) 100%)";
+        return backgroundColor
+        break;
+      case 'dark':
+        var backgroundColor = "radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(68,63,77,1) 100%)";
+        return backgroundColor
+        break;
+      case 'fairy':
+        var backgroundColor = "radial-gradient(circle, rgba(252,234,255,1) 0%, rgba(236,178,245,1) 100%)";
+        return backgroundColor
+        break;
+      case 'fighting':
+        var backgroundColor = "radial-gradient(circle, rgba(230,224,212,1) 0%, rgba(239,145,145,1) 100%)";
+        return backgroundColor
+        break;
+       case 'rock':
+        var backgroundColor = "radial-gradient(circle, rgba(213,213,212,1) 0%, rgba(139,139,132,1) 100%)";
+        return backgroundColor
+        break;
+      
+      default:
+        console.log('background por defecto');
+    }
+           
+         
+
+        
+}
 
 function enlacesPorTipo(defaultTipo, inicio, final, y) {
+    showLoader();
     document.getElementById("divPaginaActual").innerHTML = "";
     document.getElementById("divTotalPaginas").innerHTML = "";
     document.getElementById("subtitulo").innerHTML = "";
@@ -141,6 +234,15 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
     var fin = final;
     var tipo = defaultTipo;
     var link = "https://pokeapi.co/api/v2/type/" + tipo;
+
+    var body = document.getElementById("body");
+    body.style.background=backgroundPorTipo(defaultTipo);
+    console.log("fondo: " + backgroundPorTipo(defaultTipo));
+
+    backgroundPorTipo(defaultTipo);
+
+
+
 
     subtitulo.innerHTML += `<p id="pSub" >Type: ${tipo}</p> `
 
@@ -165,8 +267,8 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
 
 
             for (var i = ini; i <= fin; i++) {
-                var zelda = (pokemon[i].pokemon.url);
-                principal(zelda);
+                var enlace = (pokemon[i].pokemon.url);
+                principal(enlace);
                 //en caso de estar en la ultima pagina
                 if (paginaActual === totalPaginas) {
                     //obtenemos la posicion del ultimo dato del array
@@ -383,9 +485,9 @@ function recorrerPagina(side) {
 }
 
 
-function principal(zelda) {
+function principal(enlace) {
 
-    var link = zelda;
+    var link = enlace;
     var request = new XMLHttpRequest();
     request.open("GET", link, false);
     request.onreadystatechange = function() {
@@ -500,12 +602,24 @@ function principal(zelda) {
     }
 
     request.send();
+    closeLoader();
 
 }
 
+//tecla enter en buscador
+var inputBusqueda = document.getElementById("busqueda");
+inputBusqueda.addEventListener("keyup", function(event) {
+    var body = document.getElementById("body");
+    
+  if (event.keyCode === 13) {
+   buscador(undefined,undefined,'buscar');
+   
+  }
+});
 
 
 function buscador(pagina, indice, accion) {
+
     //console.log(accion);
     document.getElementById("subtitulo").innerHTML = "<p id='pSub' >Search Results: </p>";
     
@@ -539,7 +653,7 @@ function buscador(pagina, indice, accion) {
                     var final = names.includes(busqueda);
 
                     if (final == true) {
-                        var zelda = "https://pokeapi.co/api/v2/pokemon/" + names;
+                        var enlace = "https://pokeapi.co/api/v2/pokemon/" + names;
                         counter++;
                         var indice = i;
                         //console.log(indice);
@@ -548,7 +662,7 @@ function buscador(pagina, indice, accion) {
                         if (counter <= 15) {
 
                             if (accion === undefined || accion == "buscar") {
-                                principal(zelda);
+                                principal(enlace);
                                 console.log("pagina indefinida");
 
                             }
@@ -657,8 +771,8 @@ function buscador(pagina, indice, accion) {
         }
 
         for (var i = ini; i <= fin; i++) {
-            var zelda = "https://pokeapi.co/api/v2/pokemon/" + arrayPokes[i];
-            principal(zelda);
+            var enlace = "https://pokeapi.co/api/v2/pokemon/" + arrayPokes[i];
+            principal(enlace);
         }
 
 
@@ -679,7 +793,29 @@ function buscador(pagina, indice, accion) {
 }
 
 
+function descripcionPokemon(id,nombre,concaTiposDescripcion){
+    var link = "https://pokeapi.co/api/v2/pokemon-species/"+id+"/";
+    var request = new XMLHttpRequest();
+    request.open("GET", link);
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+            var datos = JSON.parse(request.responseText);
+            var descrPoke = datos.flavor_text_entries[8].flavor_text;
+            var nombreMayusc = nombre.charAt(0).toUpperCase() + nombre.slice(1);
+            var descripcionMinusc = descrPoke.toLowerCase();
+            var descripcionSinPuntos = descripcionMinusc.replaceAll('.', ',');
+            var descripcionFinal = descripcionSinPuntos.charAt(0).toUpperCase() + descripcionSinPuntos.slice(1,-1);
 
+            console.log(descrPoke);
+            descripcion.innerHTML += `<p style="text-align:center;">${nombreMayusc} is a ${concaTiposDescripcion} Pokemon. ${descripcionFinal}.</p>`
+            
+            
+        }
+    }
+   
+    request.send();
+
+}
 
 function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor) {
     var tipos = concaTipos.split(',');
@@ -707,15 +843,15 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         var tipo1 = tipos[0];
         var tipo2 = tipos[1];
         var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >" + "<img class='cardTypes' src='types/" +tipo2+ ".png' alt='" +tipo2+ "' >";
-        var concaTiposDescripcion = tipo1 + " y tipo "+tipo2;
+        var concaTiposDescripcion = "dual-type "+tipo1 + "/"+tipo2;
          console.log(concaTiposIMG);
     } else{
         var tipo1 = tipos[0];
         var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >";
         console.log(concaTiposIMG);
-        var concaTiposDescripcion = tipo1;
+        var concaTiposDescripcion = tipo1+" type";
     }
-
+    
     var porAtaque = (ataque / 200) * 100;
     var porHP = (HP / 260) * 100;
     var porDefensa = (defensa / 260) * 100;
@@ -806,8 +942,15 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         var speedBarColor = barColorBlue;
     }
 
+    var height = altura / 10;
+    var weight = peso /10;
+
+    
+    
+    
 
 
+    descripcionPokemon(id,nombre,concaTiposDescripcion);
     info.innerHTML += `
 
                         
@@ -825,56 +968,56 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                             
 
                             </div>
-                            <div class="descripcion">
-                                <p>${nombre} es un pokemon de tipo ${concaTiposDescripcion}</p>
+                            <div class="descripcion" id="descripcion">
+                                
                             </div>
                             <div class="infoblock">
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
+                                <div class="attackBar">
 
-                                    <p class="infoblock_p_stats" ><i class="fas fa-heart" style="color:${hpBarColor};"></i> HP:</p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                    <p class="infoblock_p_stats" ><i class="fas fa-heart"></i> HP</p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porHP}%; background: ${hpBarColor};"><p class ="statsBarText">${HP}</p>
                                         </div>
                                     </div>
                                 </div>
                                 
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" ><i class="fas fa-fist-raised"></i> Attack:</p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                <div class="attackBar" >
+                                    <p class="infoblock_p_stats" ><i class="fas fa-fist-raised"></i> Atack</p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${atackBarColor};"><p class ="statsBarText">${ataque}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" ><i class="fas fa-shield-alt"></i> Defense:</p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                <div class="attackBar" >
+                                    <p class="infoblock_p_stats" ><i class="fas fa-shield-alt"></i> Defense</p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porDefensa}%; background: ${defensaBarColor};"><p class="statsBarText">${defensa}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" ><i class="fab fa-battle-net"></i> Special Atack: </p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                <div class="attackBar" >
+                                    <p class="infoblock_p_stats" ><i class="fab fa-battle-net"></i> Special Atack </p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialAttack}%; background: ${specialAtackBarColor};"><p class ="statsBarText">${specialAttack}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" ><i class="fas fa-hand-sparkles"></i> Special Defense: </p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                <div class="attackBar" >
+                                    <p class="infoblock_p_stats" ><i class="fas fa-hand-sparkles"></i> Special Defense </p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" style="display:inline-block;width: 100%;">
-                                    <p class="infoblock_p_stats" ><i class="fas fa-tachometer-alt"></i> Speed:</p>
-                                    <div style="width: 50%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
+                                <div class="attackBar" >
+                                    <p class="infoblock_p_stats" ><i class="fas fa-tachometer-alt"></i> Speed</p>
+                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
                                         <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpeed}%; background: ${speedBarColor};"><p class ="statsBarText">${speed}</p>
                                         </div>
                                     </div>
@@ -884,8 +1027,8 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                             
                             <div class="infoblock_footer">
                                 <p>Base XP: ${base_experience}</p>
-                                <p>Weight: ${altura}</p>
-                                <p>Height: ${peso}</p>
+                                <p>Weight: ${height} mts</p>
+                                <p>Height: ${weight} kg</p>
                             </div>
                         </div>
                     </div>
@@ -907,6 +1050,7 @@ function generaciones() {
 
 var gen = []
 function filtroGeneracion(generacion,pagina,side) {
+    showLoader();
     document.getElementById("subtitulo").innerHTML = "";
     document.getElementById("cards").innerHTML = "";
     
@@ -917,7 +1061,7 @@ function filtroGeneracion(generacion,pagina,side) {
         var genCount = gen.length-1;
         
         var generacion = gen[genCount];
-         console.log("side no es null "+generacion);
+         //console.log("side no es null "+generacion);
     }
 
     if (pagina == undefined) {
@@ -929,16 +1073,20 @@ function filtroGeneracion(generacion,pagina,side) {
         var fin = inicio + 14;
     }
 
+   
+
+    
+
     var link = "https://pokeapi.co/api/v2/generation/" + generacion + "/";
     var request = new XMLHttpRequest();
-    request.open("GET", link, false);
+    request.open("GET", link);
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
             var datos = JSON.parse(request.responseText);
 
             var count = datos.pokemon_species.length;
             var totalPaginas = (Math.ceil(count / 15));
-            console.log(datos.main_region.name);
+            console.log("cantidad de data "+count);
 
             subtitulo.innerHTML += `<p id="pSub" >${count} results from the ${datos.main_region.name} region</p>`;
             
@@ -949,32 +1097,35 @@ function filtroGeneracion(generacion,pagina,side) {
             divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
 
 
-            if (fin > count) {
-                if (inicio == count) {
-                    var zelda = "https://pokeapi.co/api/v2/pokemon/" + fin;
-                    principal(zelda);
+            if (fin > (count-1)) {
+                if (inicio == (count)) {
+                    var enlace = "https://pokeapi.co/api/v2/pokemon/" + fin;
+                    principal(enlace);
+
+
                     
                 }
                 else{
-                    var final = count;
+                    var final = count-1;
+                    console.log("el final se pasa y es"+final);
                 }
                
-                console.log("es mayor y se sale final "+final);
+                //console.log("es mayor y se sale final "+final);
             }else{
                 var final = fin;
             }
 
 
            
-            console.log(inicio+" inicio y final " +final)
+            //console.log(inicio+" inicio y final " +final)
             for (var i = inicio; i <= final; i++) {
 
                 var pokeId = datos.pokemon_species[i].url;
                 var id = pokeId.slice(42);
 
-                var zelda = "https://pokeapi.co/api/v2/pokemon/" + id;
+                var enlace = "https://pokeapi.co/api/v2/pokemon/" + id;
                
-                principal(zelda);
+                principal(enlace);
             }
             imprimirPaginacion(totalPaginas, "filtroGeneracion", generacion);
             imprimirBotones(totalPaginas);
@@ -987,3 +1138,30 @@ function filtroGeneracion(generacion,pagina,side) {
     console.log(gen);
     request.send();
 }
+
+
+function closeLoader(){
+    var modalLoading = document.getElementById("modalLoading");
+    modalLoading.style.display = "none";
+}
+function showLoader(){
+    var modalLoading = document.getElementById("modalLoading");
+    modalLoading.style.display = 'block';
+    console.log("si entra");
+}
+
+function backgroundRandom(){
+    var background = [
+        "background:linear-gradient(to right, #D4D3DD, #EFEFBB)",
+        "background:linear-gradient(to right, #a9a2e4, #94fdc3)",
+        "background:linear-gradient(to right, #6ad495db, #bc94fd)"
+        ];
+    var body = document.getElementById("body");
+    var fondo = background[2];
+    body.style.background=fondo;
+
+    console.log(fondo);
+
+
+}
+

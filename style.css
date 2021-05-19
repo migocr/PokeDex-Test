@@ -5,9 +5,8 @@
   box-sizing: border-box;
 }
 body {
-  background: #EFEFBB;
-  background: -webkit-linear-gradient(to right, #D4D3DD, #EFEFBB);
-  background: linear-gradient(to right, #D4D3DD, #EFEFBB);
+ 
+  background: linear-gradient(to right, #a9a2e4, #94fdc3);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,16 +42,16 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   margin: 0 auto;
   max-width: 1200px;
+  width: 100%;
   background: #f0f8ffb3;
   border-radius: 20px;
   padding: 40 0 40 0;
   
 }
 .cardTypes{
-  width: 30px;
+      width: 30px;
     height: auto;
-    background: #ffffff3b;
-    border-radius: 50%;
+    filter: opacity(0.8);
 }
 
 .pokemon{
@@ -64,6 +63,7 @@ h1, h2, h3, h4, h5 {
   text-align: center;
   width:200px;
   transition: transform .3s;
+  cursor: pointer;
 }
 .pokemon .img-container:hover{
   background-color: #00000059;
@@ -97,6 +97,8 @@ h1, h2, h3, h4, h5 {
     font-size: 0.8em;
     padding: 5px 10px;
 }
+
+
 .pokemon .name {
     
         text-transform: capitalize;
@@ -446,7 +448,7 @@ input[type="search"]::placeholder {
 
 
 /* The Modal (background) */
-.modal {
+.modal{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -460,10 +462,45 @@ input[type="search"]::placeholder {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
+.modalLoading{
+  display: fixed; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 10px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
 /* Modal Content */
 .modal-content {
   margin: auto;
   max-width: 900px;
+  padding: 10px, 15px;
+}
+
+.modaleLoadIMG{
+  margin: auto;
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.modaleLoadIMG img{
+      display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    padding: 10%;
+    filter: brightness(0.5);
+    border-radius: 25px;
+    width: auto;
+    text-align: center;
 }
 
 /* The Close Button */
@@ -501,14 +538,20 @@ span.closeModal:hover {
 }
 
 .infoblock{
- 
+
   margin: 0 auto;
-  overflow: hidden;
-  width: 100%;
-  display: block;
-  
-  text-align: center;
-  
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 2%;
+    max-width: 800px;
+}
+
+.infoblock:hover,.descripcion p:hover,.infoblock_footer:hover, 
+.infoblock_title:hover, .numberP:hover, img.cardTypes:hover, 
+.imagen:hover,h3.name:hover,span.number:hover{
+    filter: drop-shadow(1px 1px 1px rgb(0 0 0 / 45%));
 }
 
 .infoblock_footer{
@@ -521,13 +564,18 @@ span.closeModal:hover {
   border-radius: 0px 0px 10px 10px;
 }
 
+
+
 .infoblock_footer p{
-          width: auto;
-    background: #0000003d;
+    width: auto;
+    background: #00000029;
     padding: 10px;
-    border-radius: 40px;
+    border-radius: 40px 0px;
     font-size: 15px;
     font-weight: bolder;
+    width: 100%;
+    margin: 0px 5px 25px;
+    max-width: 250px;
 }
 
 
@@ -546,6 +594,22 @@ span.closeModal:hover {
 .infoModalPokeIMG{
       width: 100%;
     max-height: 200px;
+}
+
+.descripcion p{
+      text-align: center;
+    padding: 0px 15px;
+    max-width: 600px;
+    margin: auto;
+    display: block;
+    color: white;
+    font-weight: 300;
+    font-size: large;
+}
+
+.attackBar{
+  display: inline-block;
+  width: 200px;
 }
 
 .imagen{
@@ -588,13 +652,12 @@ span.closeModal:hover {
 }
 
 .infoblock_p_stats{
-        background: none;
+   background: none;
     padding: 0px;
     margin: 0px;
     font-weight: 900;
     font-size: 1em;
     text-align: left;
-    width: 50% !important;
 }
 .typesModal{
   width: 40px;
@@ -607,6 +670,7 @@ span.closeModal:hover {
   padding-top: 2px;
   text-align: center;;
 }
+
 
 .genList li{
  
@@ -624,6 +688,12 @@ span.closeModal:hover {
     
 }
 
+.genList li:hover{
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+
+
 .genList img{
   
  height: 50px;
@@ -633,6 +703,7 @@ span.closeModal:hover {
     border-style: solid;
     border-color: gold;
     border-width: 3px;
+    cursor: pointer;
 }
 .genList p{
   color: white;
@@ -642,7 +713,15 @@ span.closeModal:hover {
     width: auto;
     font-weight: lighter;
     padding: 2px 10px 2px 10px;
+    cursor: pointer;
 }
+
+span.close:hover {
+    background: #000000a1;
+    color: white;
+}
+
+
 
 .statsBarText{
       font-size: 12px;
@@ -650,4 +729,40 @@ span.closeModal:hover {
     background: none;
     padding: 0 10px 0px 0px;
     margin: 6;
+}
+
+footer{
+ height: auto;
+   
+    width: 100%;
+    text-align: center;
+    height: auto;
+}
+
+.pie{
+  max-width: 1200px;
+    margin: auto;
+    margin-bottom: 50px;
+    background: #ffffff8a;
+    height: 100%;
+    padding: 15px 3%;
+}
+
+.pie img{
+  height: 50px;
+    float: left;
+    filter: opacity(0.5);
+}
+
+.pie p{
+       display: inline-block;
+    float: right;
+    color: #00000087;
+    font-weight:300;
+    font-size: 20px;
+}
+
+.pie a{
+  color: #ffc928;
+    text-decoration: none;
 }

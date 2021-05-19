@@ -11,9 +11,9 @@
 
 	<title>PokeDex-Test - API REST</title>
 </head>
-<body>
+<body id="body">
 	<header>
-		<div  class="logo"> <a href="index.html"><img src="logo.png" alt="logo"></a></div>
+		<div  class="logo"> <a  onclick="backgroundRandom();" href="index.html"><img src="logo.png" alt="logo"></a></div>
 		
 		<div class="buscador">
 		<input id="busqueda" type="search" placeholder="Search your favorite pokemon..." name="busqueda" >
@@ -106,6 +106,14 @@
 	    <span class="closeModal">&times;</span>
 	    <div id="info" class="infoModal"></div>
 	  </div>
+	</div>
+
+	<div id="modalLoading" style="display: none;" class="modalLoading">
+	  <!-- Modal content -->
+	  <div id="modal" class="modaleLoadIMG">
+	   <img src="img/loader.gif" alt="Loading">
+	  </div>
+	  
 	</div>
 	
 	
@@ -250,6 +258,13 @@
    </li>
   </ul>
 </div>
+
+<footer>
+	<div class="pie">
+		<img src="logo-min.png" alt="">
+		<p>&copy;PokeTest 2021 - Working with <a href="https://pokeapi.co/">PokeApi</a></p>
+	</div>
+</footer>
 
 
   	<script type="text/javascript" src="script.js"></script>
