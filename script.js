@@ -257,7 +257,10 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
 
             var conteo = pokemon.length;
             document.getElementById("subtitulo").innerHTML = "";
-            subtitulo.innerHTML += `<p>${conteo} Results for&nbsp;</p><p id="pSub" >Type: ${tipo}</p>`
+            var tipoMayus = tipo.charAt(0).toUpperCase() + tipo.slice(1);
+            subtitulo.innerHTML += `<p>${conteo} Results for&nbsp;</p><p id="pSub" >${tipoMayus} type </p>
+                <img class="img-types-filter" src="types/${tipo}.png" alt="${tipo} type">
+            `
             var totalPaginas = Math.ceil(conteo / 15);
 
 
@@ -448,8 +451,10 @@ function recorrerPagina(side) {
             buscador(pagina, undefined, "left");
         }
 
-    } else if (subtitulo.includes('<p id="pSub">Type:')) {
-        var defaultTipo = subtitulo.slice(19, -4);
+    } else if (subtitulo.includes('type')) {
+        var tipo = subtitulo.slice(13, -10);
+
+        var defaultTipo = tipo.toLowerCase();
         console.log("es por tipo");
         if (side === "right") {
 
@@ -608,14 +613,17 @@ function principal(enlace) {
 
 //tecla enter en buscador
 var inputBusqueda = document.getElementById("busqueda");
-inputBusqueda.addEventListener("keyup", function(event) {
+inputBusqueda.addEventListener("keyup", async function(event) {
     var body = document.getElementById("body");
-    
+  
   if (event.keyCode === 13) {
+   await showLoader();  
    buscador(undefined,undefined,'buscar');
    
   }
 });
+
+
 
 
 function buscador(pagina, indice, accion) {
@@ -1144,10 +1152,15 @@ function closeLoader(){
     var modalLoading = document.getElementById("modalLoading");
     modalLoading.style.display = "none";
 }
-function showLoader(){
+
+
+function showLoader() {
+  return new Promise(function(resolve,reject) {
     var modalLoading = document.getElementById("modalLoading");
     modalLoading.style.display = 'block';
     console.log("si entra");
+    setTimeout(resolve, 2000);
+  })
 }
 
 function backgroundRandom(){

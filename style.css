@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5 {
   justify-content: center;
   margin: 0 auto;
   max-width: 1200px;
-  width: 100%;
+  width: 97%;
   background: #f0f8ffb3;
   border-radius: 20px;
   padding: 40 0 40 0;
@@ -387,6 +387,16 @@ input[type="search"]::placeholder {
   width: 36px;
 }
 
+.img-types-filter{
+  width: 20px;
+    margin: auto;
+    height: auto;
+    display: inline-block;
+    text-align: center;
+    vertical-align: text-bottom;
+    filter: opacity(0.5);
+}
+
 
 .normal{
  background: #909ca2;
@@ -481,7 +491,7 @@ input[type="search"]::placeholder {
 .modal-content {
   margin: auto;
   max-width: 900px;
-  padding: 10px, 15px;
+  padding: 10px 15px;
 }
 
 .modaleLoadIMG{
