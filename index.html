@@ -1,7 +1,7 @@
 <html lang="en">
    <head>
-      <link href="style.css" rel="stylesheet" />
-      <link href="menu.css" rel="stylesheet" />
+      <link href="css/style.css" rel="stylesheet" />
+      <link href="css/menu.css" rel="stylesheet" />
       <script src="https://kit.fontawesome.com/67fd88d500.js" crossorigin="anonymous"></script>
       <meta charset="UTF-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,7 @@
    </head>
    <body id="body">
       <header>
-         <div  class="logo"> <a  onclick="backgroundRandom();" href="index.html"><img src="logo.png" alt="logo"></a></div>
+         <div  class="logo"> <a  onclick="backgroundRandom();" href="index.html"><img src="img/logo.png" alt="logo"></a></div>
          <div class="buscador">
             <input id="busqueda" type="search" placeholder="Search your favorite pokemon..." name="busqueda" >
             <button  class="btnBuscar" id="buscar" type="submit" value="Buscar")">
@@ -38,43 +38,43 @@
             <span class="close">×</span>
             <ul>
                <li onclick="filtroGeneracion(1,1);">
-                  <img src="gen/kanto.png" alt="kanto"/>
+                  <img src="img/gen/kanto.png" alt="kanto"/>
                   <p>Kanto</p>
                </li>
                <li onclick="filtroGeneracion(2,1);">
-                  <img src="gen/johto.png" alt="kanto"/>
+                  <img src="img/gen/johto.png" alt="kanto"/>
                   <p>Johto</p>
                </li>
                <li onclick="filtroGeneracion(3,1)" >
-                  <img src="gen/hoenn.png" alt="hoenn"/>
+                  <img src="img/gen/hoenn.png" alt="hoenn"/>
                   <p>Hoenn</p>
                </li>
                <li onclick="filtroGeneracion(4,1);" >
-                  <img src="gen/sinnoh.png" alt="sinnoh"/>
+                  <img src="img/gen/sinnoh.png" alt="sinnoh"/>
                   <p>Sinnoh</p>
                </li>
                <li onclick="filtroGeneracion(5,1);" >
-                  <img src="gen/unova.png" alt="sinnoh"/>
+                  <img src="img/gen/unova.png" alt="sinnoh"/>
                   <p>Unova</p>
                </li>
                <li onclick="filtroGeneracion(6,1);" >
-                  <img src="gen/kalos.png" alt="kanto"/>
+                  <img src="img/gen/kalos.png" alt="kanto"/>
                   <p>Kalos</p>
                </li>
                <li onclick="filtroGeneracion(7,1);" >
-                  <img src="gen/alola.png" alt="kanto"/>
+                  <img src="img/gen/alola.png" alt="kanto"/>
                   <p>Alola</p>
                </li>
                <li onclick="filtroGeneracion('Unknown');" >
-                  <img src="gen/kalos.png" alt="Unknown"/>
+                  <img src="img/gen/kalos.png" alt="Unknown"/>
                   <p>Unknown</p>
                </li>
                <li onclick="filtroGeneracion(8,1);" >
-                  <img src="gen/galar.png" alt="kanto"/>
+                  <img src="img/gen/galar.png" alt="kanto"/>
                   <p>Galar</p>
                </li>
                <li onclick="filtroGeneracion('mega',undefined,undefined);">
-                  <img src="gen/mega.png" alt="kanto"/>
+                  <img src="img/gen/mega.png" alt="kanto"/>
                   <p>Mega Evolutions</p>
                </li>
             </ul>
@@ -99,12 +99,7 @@
       <div id="cards" class="cards" >
       </div>
       <br/><br/>
-      <div class="d-flex justify-content-center">
-         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group" id="">
-            </div>
-         </div>
-      </div>
+      
       <div class="pagination" id="pagination">
          <div  id="botonL"></div>
          <div class="paginas" id="paginas"></div>
@@ -119,98 +114,98 @@
          <ul>
             <li onclick="load('normal');" class="type normal">
                <p>
-                  <img src="types/normal.png" alt="nomal"/> Nomal
+                  <img src="img/types/normal.png" alt="nomal"/> Nomal
                </p>
             </li>
             <li onclick="load('bug');" class="bug">
                <p>
-                  <img src="types/bug.png" alt="bug"/> Bug
+                  <img src="img/types/bug.png" alt="bug"/> Bug
                </p>
             </li>
             <li onclick="load('dark');" class="dark">
                <p>
-                  <img src="types/dark.png" alt="Dark"/> Dark
+                  <img src="img/types/dark.png" alt="Dark"/> Dark
                </p>
             </li>
             <li onclick="load('steel');" class="steel">
                <p>
-                  <img src="types/steel.png" alt="Steel"/> Steel
+                  <img src="img/types/steel.png" alt="Steel"/> Steel
                </p>
             </li>
             <li onclick="load('water');" class="water">
                <p>
-                  <img src="types/water.png" alt="Water"/> Water
+                  <img src="img/types/water.png" alt="Water"/> Water
                </p>
             </li>
             <li onclick="load('fire');" class="fire">
                <p>
-                  <img src="types/fire.png" alt="Fire"/> Fire
+                  <img src="img/types/fire.png" alt="Fire"/> Fire
                </p>
             </li>
             <li onclick="load('grass');" class="grass">
                <p>
-                  <img src="types/grass.png" alt="Grass"/> Grass
+                  <img src="img/types/grass.png" alt="Grass"/> Grass
                </p>
             </li>
             <li onclick="load('rock');" class="rock">
                <p>
-                  <img src="types/rock.png" alt="Rock"/> Rock
+                  <img src="img/types/rock.png" alt="Rock"/> Rock
                </p>
             </li>
             <li onclick="load('dragon');"  class="dragon">
                <p>
-                  <img src="types/dragon.png" alt="Dragon"/> Dragon
+                  <img src="img/types/dragon.png" alt="Dragon"/> Dragon
                </p>
             </li>
             <li onclick="load('electric');" class="electric">
                <p>
-                  <img src="types/electric.png" alt="Electric"/> Electric
+                  <img src="img/types/electric.png" alt="Electric"/> Electric
                </p>
             </li>
             <li onclick="load('fairy');"  class="fairy">
                <p>
-                  <img src="types/fairy.png" alt="Fairy"/> Fairy
+                  <img src="img/types/fairy.png" alt="Fairy"/> Fairy
                </p>
             </li>
             <li onclick="load('fighting');" class="fighting">
                <p>
-                  <img src="types/fighting.png" alt="Fighting"/> Fighting
+                  <img src="img/types/fighting.png" alt="Fighting"/> Fighting
                </p>
             </li>
             <li onclick="load('poison');" class="poison">
                <p>
-                  <img src="types/poison.png" alt="Poison"/> Poison
+                  <img src="img/types/poison.png" alt="Poison"/> Poison
                </p>
             </li>
             <li onclick="load('flying');" class="flying">
                <p>
-                  <img src="types/flying.png" alt="Flying"/> Flying
+                  <img src="img/types/flying.png" alt="Flying"/> Flying
                </p>
             </li>
             <li onclick="load('ground');" class="ground">
                <p>
-                  <img src="types/ground.png" alt="Ground"/> Ground
+                  <img src="img/types/ground.png" alt="Ground"/> Ground
                </p>
             </li>
             <li onclick="load('psychic');" class="psychic">
                <p>
-                  <img src="types/psychic.png" alt="Psychic"/> Psychic
+                  <img src="img/types/psychic.png" alt="Psychic"/> Psychic
                </p>
             </li>
             <li onclick="load('ice');"  class="ice">
                <p>
-                  <img src="types/ice.png" alt="Ice"/> Ice
+                  <img src="img/types/ice.png" alt="Ice"/> Ice
                </p>
             </li>
             <li onclick="load('ghost');"  class="ghost">
                <p>
-                  <img src="types/ghost.png" alt="bug"/> Ghost
+                  <img src="img/types/ghost.png" alt="bug"/> Ghost
                </p>
             </li>
          </ul>
       </div>
       <footer>
-         <img src="logo-min.png" alt="">
+         <img src="img/logo-min.png" alt="">
          <p>&copy;PokeTest 2021 - Working with <a href="https://pokeapi.co/">PokeApi</a></p>
       </footer>
       <script type="text/javascript" src="script.js"></script>

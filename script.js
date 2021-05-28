@@ -258,7 +258,7 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
             document.getElementById("subtitulo").innerHTML = "";
             var tipoMayus = tipo.charAt(0).toUpperCase() + tipo.slice(1);
             subtitulo.innerHTML += `<p>${conteo} Results for&nbsp;</p><p id="pSub" >${tipoMayus} type </p>
-                <img class="img-types-filter" src="types/${tipo}.png" alt="${tipo} type">
+                <img class="img-types-filter" src="img/types/${tipo}.png" alt="${tipo} type">
             `
             var totalPaginas = Math.ceil(conteo / 15);
 
@@ -560,11 +560,11 @@ function principal(enlace) {
                 var tipo1 = datos.types[0].type.name;
                 var tipo2 = datos.types[1].type.name;
                 var concaTipos = tipo1 + "," + tipo2;
-                var concaTiposIMG = "<img class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img class='cardTypes' src='types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
+                var concaTiposIMG = "<img class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img class='cardTypes' src='img/types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
             } else {
                 var concaTipos = datos.types[0].type.name;
                 var tipo1 = datos.types[0].type.name;
-                var concaTiposIMG = "<img class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
+                var concaTiposIMG = "<img class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
             }
 
             if (tipo1 === "grass") {
@@ -934,12 +934,12 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
     if (tipos.length > 1) {
         var tipo1 = tipos[0];
         var tipo2 = tipos[1];
-        var concaTiposIMG = "<img  id='imgTipoModal' class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img id='imgTipoModal2'class='cardTypes' src='types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
+        var concaTiposIMG = "<img  id='imgTipoModal' class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img id='imgTipoModal2'class='cardTypes' src='img/types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
         var concaTiposDescripcion = "dual-type " + tipo1 + "/" + tipo2;
         console.log(concaTiposIMG);
     } else {
         var tipo1 = tipos[0];
-        var concaTiposIMG = "<img id='imgTipoModal' class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
+        var concaTiposIMG = "<img id='imgTipoModal' class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
         console.log(concaTiposIMG);
         var concaTiposDescripcion = tipo1 + " type";
     }

@@ -124,7 +124,8 @@ background: #00000059;
 padding: 5px;
 border-radius: 10px;
 box-shadow: 0 0 22px rgb(0 0 0 / 20%);
-width: 97%;
+width: auto;
+margin: 0 1.5%;
 
 
 }
@@ -183,7 +184,7 @@ width: 97%;
   background-color: #06060682;
 }
 .paginas{
-  float:center;
+  margin: auto;
 }
 
 #botonL{
@@ -811,6 +812,9 @@ footer img{
     float: left;
     filter: opacity(0.5);
 }
+footer img:hover {
+    filter: none;
+}
 
 footer p{
        display: inline-block;
@@ -818,6 +822,9 @@ footer p{
     color: #00000087;
     font-weight:300;
     font-size: 20px;
+}
+footer p:hover{
+  color: black;
 }
 
 footer a{
