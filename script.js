@@ -327,6 +327,9 @@ function imprimirBotones(totalPaginas) {
         document.getElementById("botonL").innerHTML = "";
         botonL.innerHTML += `<button class="entypo-left-open" onclick="recorrerPagina('left')"  href="#"></button>`
     }
+    if (totalPaginas == 0) {
+         document.getElementById("botonR").innerHTML = "";
+    }
 
 
 
@@ -617,15 +620,15 @@ function principal(enlace) {
             } 
             //mega evoluciones
             else if (datos.id >= 10033 && datos.id < 10077 || datos.id == 10079 || datos.id >= 10087 && datos.id < 10091) {
-                var numPoke = "<i class='fab fa-megaport'></i>"
+                var numPoke = "<img src='img/gen/mega.png'/> "
             } 
             //formas de pikachu
             else if (datos.id >= 10080 && datos.id < 10086 ||datos.id >= 10094 && datos.id < 10100 || datos.id == 10148) {
-                var numPoke = "<i class='fas fa-bolt'></i>"
+                var numPoke = "<img src='img/pikachu.png'/>"
             }
             //gigamax
             else if (datos.id >= 10186 && datos.id < 10094 || datos.id >= 10101 && datos.id < 10148|| datos.id >= 10149) {
-                var numPoke = "<i class='fab fa-maxcdn'></i>"
+                var numPoke = "<img src='img/gmax.png'/>"
             }
             //normal 
             else{
@@ -760,7 +763,8 @@ function buscador(pagina, indice, accion) {
 
                         //subtituloPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1} </p> <p>Pagina <p id="paginaActual">1</p>/${totalPaginas-1}</p>`;
                         if (totalPaginas == 1) {
-                            cards.innerHTML += `<p>No hemos encobntrado resultados</p>`;
+                            cards.innerHTML += `<h2 style="color: #717171;">No search results found</h2>`;
+                            closeLoader();
                         }
                         if ((totalPaginas - 1) == 1) {
                             document.getElementById("botonR").innerHTML = "";

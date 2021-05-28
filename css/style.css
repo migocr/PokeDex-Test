@@ -116,6 +116,12 @@ h1, h2, h3, h4, h5 {
     border-style: solid;
     border-color: #0000000d;
 }
+
+.pokemon .number img{
+      width: 22px;
+    vertical-align: middle;
+    padding-bottom: 6;
+}
 .pagination{
  
 display: flex;
