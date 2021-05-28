@@ -1,272 +1,218 @@
 <html lang="en">
-<head>
-	<link href="style.css" rel="stylesheet" />
-	<link href="menu.css" rel="stylesheet" />
-	<script src="https://kit.fontawesome.com/67fd88d500.js" crossorigin="anonymous"></script>
-
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-	<link rel="icon" type="image/png" href="favicon.ico">
-
-	<title>PokeDex-Test - API REST</title>
-</head>
-<body id="body">
-	<header>
-		<div  class="logo"> <a  onclick="backgroundRandom();" href="index.html"><img src="logo.png" alt="logo"></a></div>
-		
-		<div class="buscador">
-		<input id="busqueda" type="search" placeholder="Search your favorite pokemon..." name="busqueda" >
-		<button  class="btnBuscar" id="buscar" type="submit" value="Buscar" onclick="buscador(undefined,undefined,'buscar')"><p class="fontawesome-search"></p></button>
-		</div>
-	</header>
-	
-	<div class="main-container">
-            <div class="block">
-                <ul class="header-menu horizontal-list">
-                    <li>
-                        <a href="index.html" class="header-menu-tab" href="#1"><span class="icon entypo-home scnd-font-color"></span>Home</a>
-                    </li>
-                    <li>
-                        <a class="header-menu-tab" href="#types"><span class="icon fontawesome-bolt scnd-font-color"></span>Types</a>
-                    </li>
-                    <li>
-                        
-                    <li>
-                        <a onclick="generaciones();" class="header-menu-tab"><span class="icon fontawesome-globe scnd-font-color"></span>Generation</a>
-                    </li>
-                </ul>
+   <head>
+      <link href="style.css" rel="stylesheet" />
+      <link href="menu.css" rel="stylesheet" />
+      <script src="https://kit.fontawesome.com/67fd88d500.js" crossorigin="anonymous"></script>
+      <meta charset="UTF-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <link rel="icon" type="image/png" href="favicon.ico">
+      <title>PokeDex-Test - API REST</title>
+   </head>
+   <body id="body">
+      <header>
+         <div  class="logo"> <a  onclick="backgroundRandom();" href="index.html"><img src="logo.png" alt="logo"></a></div>
+         <div class="buscador">
+            <input id="busqueda" type="search" placeholder="Search your favorite pokemon..." name="busqueda" >
+            <button  class="btnBuscar" id="buscar" type="submit" value="Buscar")">
+               <p class="fontawesome-search"></p>
+            </button>
+         </div>
+      </header>
+      <div class="main-container">
+         <div class="block">
+            <ul class="header-menu horizontal-list">
+               <li class="first">
+                  <a href="index.html" alt="home" class="header-menu-tab"><span id="menuIcon1" class="icon entypo-home scnd-font-color"></span>Home</a>
+               </li>
+               <li>
+                  <a class="header-menu-tab" alt="home" href="#types"><span id="menuIcon2" class="icon fontawesome-bolt scnd-font-color"></span>Types</a>
+               </li>
+               <li class="last">
+                  <a onclick="generaciones();" alt="home" href="#gen" class="header-menu-tab"><span id="menuIcon3" class="icon fontawesome-globe scnd-font-color"></span>Generation</a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div id="generacionesBlock">
+         <div class="genList">
+            <span class="close">×</span>
+            <ul>
+               <li onclick="filtroGeneracion(1,1);">
+                  <img src="gen/kanto.png" alt="kanto"/>
+                  <p>Kanto</p>
+               </li>
+               <li onclick="filtroGeneracion(2,1);">
+                  <img src="gen/johto.png" alt="kanto"/>
+                  <p>Johto</p>
+               </li>
+               <li onclick="filtroGeneracion(3,1)" >
+                  <img src="gen/hoenn.png" alt="hoenn"/>
+                  <p>Hoenn</p>
+               </li>
+               <li onclick="filtroGeneracion(4,1);" >
+                  <img src="gen/sinnoh.png" alt="sinnoh"/>
+                  <p>Sinnoh</p>
+               </li>
+               <li onclick="filtroGeneracion(5,1);" >
+                  <img src="gen/unova.png" alt="sinnoh"/>
+                  <p>Unova</p>
+               </li>
+               <li onclick="filtroGeneracion(6,1);" >
+                  <img src="gen/kalos.png" alt="kanto"/>
+                  <p>Kalos</p>
+               </li>
+               <li onclick="filtroGeneracion(7,1);" >
+                  <img src="gen/alola.png" alt="kanto"/>
+                  <p>Alola</p>
+               </li>
+               <li onclick="filtroGeneracion('Unknown');" >
+                  <img src="gen/kalos.png" alt="Unknown"/>
+                  <p>Unknown</p>
+               </li>
+               <li onclick="filtroGeneracion(8,1);" >
+                  <img src="gen/galar.png" alt="kanto"/>
+                  <p>Galar</p>
+               </li>
+               <li onclick="filtroGeneracion('mega',undefined,undefined);">
+                  <img src="gen/mega.png" alt="kanto"/>
+                  <p>Mega Evolutions</p>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+         <!-- Modal content -->
+         <div id="modal" class="modal-content">
+            <span class="closeModal">&times;</span>
+            <div id="info" class="infoModal"></div>
+         </div>
+      </div>
+      <div id="modalLoading" class="modalLoading">
+         <!-- Modal content -->
+         <div id="modal" class="modaleLoadIMG">
+            <img src="img/loader.gif" alt="Loading">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+         </div>
+      </div>
+      <div class="subtitulo" id="subtitulo"></div>
+      <div id="cards" class="cards" >
+      </div>
+      <br/><br/>
+      <div class="d-flex justify-content-center">
+         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group" id="">
             </div>
-        </div>
-    
-	<div style="display:none; max-width: 1200px; width: 100%;" id="generacionesBlock">
-
-		<div class="genList">
-			<span class="close">×</span>
-		  <ul>
-		    
-		    <li onclick="filtroGeneracion(1,1);">
-		      <img src="gen/kanto.png" alt="kanto"/>
-		         <p>Kanto</p>
-		   
-		   </li>
-
-		   <li onclick="filtroGeneracion(2,1);">
-		      <img src="gen/johto.png" alt="kanto"/>
-		      <p>Johto</p>
-		   </li>
-
-		   <li onclick="filtroGeneracion(3,1)" >
-		      <img src="gen/hoenn.png" alt="hoenn"/>
-		      <p>Hoenn</p>
-		   </li>
-
-		   <li onclick="filtroGeneracion(4,1);" >
-		    <img src="gen/sinnoh.png" alt="sinnoh"/>
-		    <p>Sinnoh</p>
-		   </li>
-
-		   <li onclick="filtroGeneracion(5,1);" >
-			    <img src="gen/unova.png" alt="sinnoh"/>
-			    <p>Unova</p>
-		   </li>
-
-		   <li onclick="filtroGeneracion(6,1);" >
-		      <img src="gen/kalos.png" alt="kanto"/>
-		      <p>Kalos</p>
-		   </li>
-		   <li onclick="filtroGeneracion(7,1);" >
-		      <img src="gen/alola.png" alt="kanto"/>
-		      <p>Alola</p>
-		   </li>
-		   <li onclick="filtroGeneracion('Unknown');" >
-		   	  <img src="gen/kalos.png" alt="Unknown"/>
-		   	  <p>Unknown</p>
-		   </li>
-		   <li onclick="filtroGeneracion(8,1);" >
-		  	  <img src="gen/galar.png" alt="kanto"/><p>Galar</p>
-		   </li>
-		   <li onclick="filtroGeneracion('mega');">
-		      <img src="gen/mega.png" alt="kanto"/>
-		      <p>Mega Evolutions</p>
-		   </li>
-		   
-		   
-		   </ul>
-		
-
-
-		  </div>
-	</div>
-	
-	<!-- The Modal -->
-	<div id="myModal" class="modal">
-	  <!-- Modal content -->
-	  <div id="modal" class="modal-content">
-	    <span class="closeModal">&times;</span>
-	    <div id="info" class="infoModal"></div>
-	  </div>
-	</div>
-
-	<div id="modalLoading" style="display: none;" class="modalLoading">
-	  <!-- Modal content -->
-	  <div id="modal" class="modaleLoadIMG">
-	   <img src="img/loader.gif" alt="Loading">
-	  </div>
-	  
-	</div>
-	
-	
-	
-
-	
-	
-	 <div class="subtitulo" id="subtitulo"></div>
-	 <div id="cards" class="cards" >
-	 	
-	</div>
-   <br/><br/>
-   
-
-   <div class="d-flex justify-content-center">
-   <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-   <div class="btn-group mr-2" role="group" aria-label="First group" id="">
- 	  
-	  
-
-	  </div>
-	  </div>
-	  </div>
-
-	  
-	
-	
-	  
-	
-	<div class="pagination" id="pagination">
-		
-		<div style="float: left;" id="botonL"></div> 
-		<div class="paginas" id="paginas"></div>
-		<div style="float: right;" id="botonR"></div>
-				
-	</div>
-	
-	<div style="visibility: hidden; height: 0px;" id="divTotalPaginas"></div>
-	<div id="paginActual" class="paginaActual">
-		<p>Page: </p><div id="divPaginaActual"></div>
-	</div>
-	
-
-
-	
-
-	<div id="types" class="types">
-  <ul>
-    
-    <li onclick="load('normal');" class="type normal">
-      <p>
-        <img src="types/normal.png" alt="nomal"/> Nomal
-    </p>
-   </li>
-    
-    <li onclick="load('bug');" class="bug">
-      <p>
-        <img src="types/bug.png" alt="bug"/> Bug
-    </p>
-   </li>
-    
-    <li onclick="load('dark');" class="dark">
-      <p>
-        <img src="types/dark.png" alt="Dark"/> Dark
-    </p>
-   </li>
-    
-    <li onclick="load('steel');" class="steel">
-      <p>
-        <img src="types/steel.png" alt="Steel"/> Steel
-    </p>
-   </li>
-    <li onclick="load('water');" class="water">
-      <p>
-        <img src="types/water.png" alt="Water"/> Water
-    </p>
-   </li>
-    <li onclick="load('fire');" class="fire">
-      <p>
-        <img src="types/fire.png" alt="Fire"/> Fire
-    </p>
-   </li>
-    <li onclick="load('grass');" class="grass">
-      <p>
-        <img src="types/grass.png" alt="Grass"/> Grass
-    </p>
-   </li>
-    <li onclick="load('rock');" class="rock">
-      <p>
-        <img src="types/rock.png" alt="Rock"/> Rock
-    </p>
-   </li>
-    <li onclick="load('dragon');"  class="dragon">
-      <p>
-        <img src="types/dragon.png" alt="Dragon"/> Dragon
-    </p>
-   </li>
-    <li onclick="load('electric');" class="electric">
-      <p>
-        <img src="types/electric.png" alt="Electric"/> Electric
-    </p>
-   </li>
-    <li onclick="load('fairy');"  class="fairy">
-      <p>
-        <img src="types/fairy.png" alt="Fairy"/> Fairy
-    </p>
-   </li>
-    <li onclick="load('fighting');" class="fighting">
-      <p>
-        <img src="types/fighting.png" alt="Fighting"/> Fighting
-    </p>
-   </li>
-    <li onclick="load('poison');" class="poison">
-      <p>
-        <img src="types/poison.png" alt="Poison"/> Poison
-    </p>
-   </li>
-    <li onclick="load('flying');" class="flying">
-      <p>
-        <img src="types/flying.png" alt="Flying"/> Flying
-    </p>
-   </li>
-    <li onclick="load('ground');" class="ground">
-      <p>
-        <img src="types/ground.png" alt="Ground"/> Ground
-    </p>
-   </li>
-    <li onclick="load('psychic');" class="psychic">
-      <p>
-        <img src="types/psychic.png" alt="Psychic"/> Psychic
-    </p>
-   </li>
-    <li onclick="load('ice');"  class="ice">
-      <p>
-        <img src="types/ice.png" alt="Ice"/> Ice
-    </p>
-   </li>
-   <li onclick="load('ghost');"  class="ghost">
-      <p>
-        <img src="types/ghost.png" alt="bug"/> Ghost
-    </p>
-   </li>
-  </ul>
-</div>
-
-<footer>
-	<div class="pie">
-		<img src="logo-min.png" alt="">
-		<p>&copy;PokeTest 2021 - Working with <a href="https://pokeapi.co/">PokeApi</a></p>
-	</div>
-</footer>
-
-
-  	<script type="text/javascript" src="script.js"></script>
-</body>
+         </div>
+      </div>
+      <div class="pagination" id="pagination">
+         <div  id="botonL"></div>
+         <div class="paginas" id="paginas"></div>
+         <div  id="botonR"></div>
+      </div>
+      <div id="divTotalPaginas"></div>
+      <div id="paginActual" class="paginaActual">
+         <p>Page: </p>
+         <div id="divPaginaActual"></div>
+      </div>
+      <div id="types" class="types">
+         <ul>
+            <li onclick="load('normal');" class="type normal">
+               <p>
+                  <img src="types/normal.png" alt="nomal"/> Nomal
+               </p>
+            </li>
+            <li onclick="load('bug');" class="bug">
+               <p>
+                  <img src="types/bug.png" alt="bug"/> Bug
+               </p>
+            </li>
+            <li onclick="load('dark');" class="dark">
+               <p>
+                  <img src="types/dark.png" alt="Dark"/> Dark
+               </p>
+            </li>
+            <li onclick="load('steel');" class="steel">
+               <p>
+                  <img src="types/steel.png" alt="Steel"/> Steel
+               </p>
+            </li>
+            <li onclick="load('water');" class="water">
+               <p>
+                  <img src="types/water.png" alt="Water"/> Water
+               </p>
+            </li>
+            <li onclick="load('fire');" class="fire">
+               <p>
+                  <img src="types/fire.png" alt="Fire"/> Fire
+               </p>
+            </li>
+            <li onclick="load('grass');" class="grass">
+               <p>
+                  <img src="types/grass.png" alt="Grass"/> Grass
+               </p>
+            </li>
+            <li onclick="load('rock');" class="rock">
+               <p>
+                  <img src="types/rock.png" alt="Rock"/> Rock
+               </p>
+            </li>
+            <li onclick="load('dragon');"  class="dragon">
+               <p>
+                  <img src="types/dragon.png" alt="Dragon"/> Dragon
+               </p>
+            </li>
+            <li onclick="load('electric');" class="electric">
+               <p>
+                  <img src="types/electric.png" alt="Electric"/> Electric
+               </p>
+            </li>
+            <li onclick="load('fairy');"  class="fairy">
+               <p>
+                  <img src="types/fairy.png" alt="Fairy"/> Fairy
+               </p>
+            </li>
+            <li onclick="load('fighting');" class="fighting">
+               <p>
+                  <img src="types/fighting.png" alt="Fighting"/> Fighting
+               </p>
+            </li>
+            <li onclick="load('poison');" class="poison">
+               <p>
+                  <img src="types/poison.png" alt="Poison"/> Poison
+               </p>
+            </li>
+            <li onclick="load('flying');" class="flying">
+               <p>
+                  <img src="types/flying.png" alt="Flying"/> Flying
+               </p>
+            </li>
+            <li onclick="load('ground');" class="ground">
+               <p>
+                  <img src="types/ground.png" alt="Ground"/> Ground
+               </p>
+            </li>
+            <li onclick="load('psychic');" class="psychic">
+               <p>
+                  <img src="types/psychic.png" alt="Psychic"/> Psychic
+               </p>
+            </li>
+            <li onclick="load('ice');"  class="ice">
+               <p>
+                  <img src="types/ice.png" alt="Ice"/> Ice
+               </p>
+            </li>
+            <li onclick="load('ghost');"  class="ghost">
+               <p>
+                  <img src="types/ghost.png" alt="bug"/> Ghost
+               </p>
+            </li>
+         </ul>
+      </div>
+      <footer>
+         <img src="logo-min.png" alt="">
+         <p>&copy;PokeTest 2021 - Working with <a href="https://pokeapi.co/">PokeApi</a></p>
+      </footer>
+      <script type="text/javascript" src="script.js"></script>
+   </body>
 </html>

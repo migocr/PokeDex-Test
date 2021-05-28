@@ -94,6 +94,7 @@
     max-width: 1200px;
     min-width: 300px;
     width: 97%;
+    box-shadow: 0 0 22px rgba(0, 0, 0, 0.2)  ; 
 }	
 	/*********************************************** HEADER ***********************************************/
 	.block{
@@ -153,4 +154,45 @@
 			    justify-content: center;
 			    height: auto;
 		}
-	
+@media only screen and (max-width: 500px){
+	  .horizontal-list li {
+	    float: none;
+	    border-bottom: 3px solid #0000004f;
+
+	  }
+	  .header-menu {
+	    width: 100%;
+	}
+	.header-menu li{
+		-webkit-tap-highlight-color: transparent;
+	}
+	.block{
+		width: 100%;
+	}
+	.horizontal-list .last{
+		border: none;
+		
+	}
+
+	.header-menu-tab:hover {
+		background:none;
+	}
+	.horizontal-list:hover{
+		background:transparent;
+		
+	}
+	li.first:hover {
+		
+		border-radius: 20px 20px 0px 0px;
+	}
+	li.last:hover {
+		
+		border-radius:  0px 0px 20px 20px;
+	}
+	.horizontal-list li:hover {
+		background:#1f1b0ea6;
+	}
+
+
+}
+

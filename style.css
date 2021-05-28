@@ -46,12 +46,14 @@ h1, h2, h3, h4, h5 {
   background: #f0f8ffb3;
   border-radius: 20px;
   padding: 40 0 40 0;
+  box-shadow: 0 0 22px rgb(0 0 0 / 20%);
   
 }
 .cardTypes{
       width: 30px;
     height: auto;
     filter: opacity(0.8);
+    cursor: pointer;
 }
 
 .pokemon{
@@ -117,14 +119,14 @@ h1, h2, h3, h4, h5 {
 .pagination{
  
 display: flex;
- 
 max-width: 1000px;
- 
 background: #00000059;
- 
 padding: 5px;
- 
 border-radius: 10px;
+box-shadow: 0 0 22px rgb(0 0 0 / 20%);
+width: 97%;
+
+
 }
 
 .pagination a {
@@ -137,6 +139,10 @@ border-radius: 10px;
     text-align: center;
     margin: 5px;
     font-weight: bolder;
+    display: inline-block;
+    background-color: #06060614;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .pagination a.active {
@@ -180,6 +186,17 @@ border-radius: 10px;
   float:center;
 }
 
+#botonL{
+  float: left;
+}
+#botonR{
+  float: right;
+}
+
+#divTotalPaginas{
+ visibility: hidden;
+ height: 0px;
+}
 .paginaActual{
   display: inline-flex;
   background: #00000070;
@@ -189,6 +206,7 @@ border-radius: 10px;
     border-radius: 20px;
     height: 34px;
     font-weight: 200;
+    margin: 15px;
 }
 
 .paginaActual:hover{
@@ -198,10 +216,10 @@ border-radius: 10px;
 .buscador{
   border: none !important;
     display: flex;
-    max-width: 80%;
+    max-width: 97%;
     text-align: center;
     margin: auto;
-    padding: 10px;
+    padding: 10px 0px;
     width: 500px;
 }
 .btnBuscar{
@@ -227,8 +245,10 @@ border-radius: 10px;
     text-align: center;
 }
 .logo img {
-   max-width: 26%;
-    min-width: 250px;
+   max-width: 97%;
+    width: 390px;
+    padding: 10 0;
+    
    
 }
 
@@ -262,6 +282,7 @@ input[type="search"] {
   -webkit-transition: border-color 0.2s;
   -moz-transition: border-color 0.2s;
   transition: border-color 0.2s;
+  box-shadow: 0 0 22px rgb(0 0 0 / 20%); 
 }
 
 input[type="search"]:focus {
@@ -329,7 +350,7 @@ input[type="search"]::placeholder {
 
 .types ul{
   list-style:none;
-  
+  display: contents;
   
   
   
@@ -337,10 +358,12 @@ input[type="search"]::placeholder {
 
 .types{
   text-align:center;
-  width:100%;
+  width:97%;
   background:rgb(255,255,255,0.3);
   max-width: 1200px;
   border-radius: 30px 30px 0px 3px;
+  padding: 30px;
+  box-shadow: 0px -16px 37px -12px rgb(0 0 0 / 20%)
   
     }
 
@@ -471,6 +494,12 @@ input[type="search"]::placeholder {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+.modalDataContainer{
+  background:#00000042; 
+  border-radius:30px;
+  box-shadow: 3px 1px 20px 6px rgb(100 100 100);
+  border-style: solid; border-color: #00000042;
+}
 
 .modalLoading{
   display: fixed; /* Hidden by default */
@@ -506,7 +535,7 @@ input[type="search"]::placeholder {
     margin-left: auto;
     margin-right: auto;
     margin: auto;
-    padding: 10%;
+    padding: 10% 0 0 0;
     filter: brightness(0.5);
     border-radius: 25px;
     width: auto;
@@ -617,9 +646,22 @@ span.closeModal:hover {
     font-size: large;
 }
 
-.attackBar{
+.statsBars{
   display: inline-block;
   width: 200px;
+}
+.statBar {
+    width: 100%;
+    height: 30px;
+    background-color: #ffffff61;
+    border-radius: 10px;
+    margin: auto;
+    display: inline-flex;
+}
+.statBarColored {
+    border-radius: 10px 0px 0px 10px;
+    height: 30px;
+    width: 15.384615384615385%;
 }
 
 .imagen{
@@ -677,29 +719,34 @@ span.closeModal:hover {
   width: 100%;
   background: #ffffffb3;
   border-radius: 20px;
-  padding-top: 2px;
-  text-align: center;;
+  text-align: center;
+  box-shadow: 0 0 22px rgb(0 0 0 / 20%);
 }
 
 
 .genList li{
  
-    margin: 5px;
-    
-    display: inline-block;
-    width: auto;
-    
-   
-    transition-duration: .2s;
-    
-    text-align: center;
-    height: auto;
-    min-width: 90px;
-    
+display: inline-block;
+ 
+width: auto;
+ 
+transition-duration: .2s;
+ 
+text-align: center;
+ 
+height: auto;
+ 
+min-width: 90px;
+ 
+padding: 10 0 0 0;
+
+cursor: pointer;
 }
 
 .genList li:hover{
-  filter: drop-shadow(2px 4px 6px black);
+  background: #0000006e;
+  font-weight: 900;
+  transform: scale(1.05);
 }
 
 
@@ -717,13 +764,18 @@ span.closeModal:hover {
 }
 .genList p{
   color: white;
-    background: #000000a3;
-    border-radius: 35px;
-    font-size: 14px;
-    width: auto;
-    font-weight: lighter;
-    padding: 2px 10px 2px 10px;
-    cursor: pointer;
+  background: #000000a3;
+  font-size: 14px;
+  width: auto;
+  font-weight: lighter;
+  padding: 2px 10px 2px 10px;
+  cursor: pointer;
+}
+
+#generacionesBlock{
+  display:none; 
+  max-width: 1200px; 
+  width: 97%;" 
 }
 
 span.close:hover {
@@ -743,28 +795,24 @@ span.close:hover {
 
 footer{
  height: auto;
-   
-    width: 100%;
-    text-align: center;
-    height: auto;
+ width: 100%;
+ text-align: center;
+ background: #ffffff8a;
+ padding: 20px;
+ max-width: 1200px;
+ box-shadow: 0px 26px 37px -12px rgb(0 0 0 / 20%);
+
 }
 
-.pie{
-  max-width: 1200px;
-    margin: auto;
-    margin-bottom: 50px;
-    background: #ffffff8a;
-    height: 100%;
-    padding: 15px 3%;
-}
 
-.pie img{
+
+footer img{
   height: 50px;
     float: left;
     filter: opacity(0.5);
 }
 
-.pie p{
+footer p{
        display: inline-block;
     float: right;
     color: #00000087;
@@ -772,7 +820,87 @@ footer{
     font-size: 20px;
 }
 
-.pie a{
+footer a{
   color: #ffc928;
     text-decoration: none;
 }
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
+
+@media only screen and (max-width: 720px) {
+  span.close {
+    display: contents;
+  }
+  .genList{
+    text-align: right;
+    padding: 0 15px;
+  }
+  .genlist ul{
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+  }
+  footer p{
+    width: 100%;
+    display:revert;
+  }
+  footer img{
+    float: none;
+  }
+}
+
+

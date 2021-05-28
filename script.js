@@ -18,8 +18,8 @@ load(defaultTipo);
 //  -ejecutamos la funcion enlacesPorTipo y le pasamos la variable defaultTipo, inicio y final.
 function load(defaultTipo) {
     //console.log(defaultTipo);
-    
-    
+
+
 
     backgroundRandom();
     if (defaultTipo === undefined) {
@@ -74,8 +74,7 @@ function paginador(y, defaultTipo) {
     if (defaultTipo === undefined || defaultTipo === "undefined") {
         enlaces(inicio, final);
         imprimirBotones(75)
-    } 
-    else {
+    } else {
         enlacesPorTipo(defaultTipo, inicio, final, y);
 
     }
@@ -130,94 +129,94 @@ function enlaces(inicio, final) {
 //inicio y final - determina el inicio y fin de los datos a mostrar (15 por pagina)
 //y - pagina actual, sirve de referencia para la paginacion, si no existe y sera igual a 1
 
-function backgroundPorTipo(defaultTipo){
+function backgroundPorTipo(defaultTipo) {
     console.log(defaultTipo);
 
     switch (defaultTipo) {
-      case 'grass':
-        var backgroundColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%)";
-        return backgroundColor
-        break;
-      case 'fire':
-        var backgroundColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%)"; 
-        return backgroundColor
-        break;
-      case 'water':
-        var backgroundColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%)";
-        return backgroundColor
-        break;
-      case 'bug':
-        var backgroundColor = "radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%)"; 
-        return backgroundColor 
-        break;
-      case 'normal':
-        var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
-        return backgroundColor
-        break;
-      case 'flying':
-        var backgroundColor = "radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%)";
-        return backgroundColor
-        break;
-      case 'poison':
-        var backgroundColor = "radial-gradient(circle, rgba(192,147,206,1) 0%, rgba(147,0,192,1) 100%)";
-        return backgroundColor
-        break;
-      case 'normal':
-        var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
-        return backgroundColor
-        break;
-      case 'ground':
-        var backgroundColor = "radial-gradient(circle, rgba(244,231,218,1) 0%, rgba(142,109,76,1) 100%)";;
-        return backgroundColor
-        break;
-      case 'ghost':
-        var backgroundColor = "radial-gradient(circle, rgba(185,163,208,1) 0%, rgba(119,82,159,1) 100%)";
-        return backgroundColor
-        break;
-      case 'steel':
-        var backgroundColor = "radial-gradient(circle, rgba(211,211,211,1) 0%, rgba(53,53,53,1) 100%)";
-        return backgroundColor
-        break;
-      case 'electric':
-        var backgroundColor = "radial-gradient(circle, rgba(247,239,200,1) 0%, rgba(251,209,0,1) 100%)";
-        return backgroundColor
-        break;
-      case 'ice':
-        var backgroundColor = "radial-gradient(circle, rgba(233,246,244,1) 0%, rgba(119,208,196,1) 100%)";
-        return backgroundColor
-        break;
-      case 'psychic':
-        var backgroundColor = "radial-gradient(circle, rgba(231,196,239,1) 0%, rgba(101,44,102,1) 100%)";
-        return backgroundColor
-        break;
-      case 'dragon':
-        var backgroundColor = "radial-gradient(circle, rgba(151,179,230,1) 0%, rgba(0,29,82,1) 100%)";
-        return backgroundColor
-        break;
-      case 'dark':
-        var backgroundColor = "radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(68,63,77,1) 100%)";
-        return backgroundColor
-        break;
-      case 'fairy':
-        var backgroundColor = "radial-gradient(circle, rgba(252,234,255,1) 0%, rgba(236,178,245,1) 100%)";
-        return backgroundColor
-        break;
-      case 'fighting':
-        var backgroundColor = "radial-gradient(circle, rgba(230,224,212,1) 0%, rgba(239,145,145,1) 100%)";
-        return backgroundColor
-        break;
-       case 'rock':
-        var backgroundColor = "radial-gradient(circle, rgba(213,213,212,1) 0%, rgba(139,139,132,1) 100%)";
-        return backgroundColor
-        break;
-      
-      default:
-        console.log('background por defecto');
-    }
-           
-         
+        case 'grass':
+            var backgroundColor = "radial-gradient(circle, rgba(222,253,224,1) 0%, rgba(90,181,96,1) 100%)";
+            return backgroundColor
+            break;
+        case 'fire':
+            var backgroundColor = "radial-gradient(circle, rgba(253,223,223,1) 0%, rgba(233,127,70,1) 100%)";
+            return backgroundColor
+            break;
+        case 'water':
+            var backgroundColor = "radial-gradient(circle, rgba(222,243,253,1) 0%, rgba(57,140,180,1) 100%)";
+            return backgroundColor
+            break;
+        case 'bug':
+            var backgroundColor = "radial-gradient(circle, rgba(248,213,163,1) 0%, rgba(164,218,115,1) 100%)";
+            return backgroundColor
+            break;
+        case 'normal':
+            var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
+            return backgroundColor
+            break;
+        case 'flying':
+            var backgroundColor = "radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(202,232,248,1) 100%)";
+            return backgroundColor
+            break;
+        case 'poison':
+            var backgroundColor = "radial-gradient(circle, rgba(192,147,206,1) 0%, rgba(147,0,192,1) 100%)";
+            return backgroundColor
+            break;
+        case 'normal':
+            var backgroundColor = "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(222,215,215,1) 100%)";
+            return backgroundColor
+            break;
+        case 'ground':
+            var backgroundColor = "radial-gradient(circle, rgba(244,231,218,1) 0%, rgba(142,109,76,1) 100%)";;
+            return backgroundColor
+            break;
+        case 'ghost':
+            var backgroundColor = "radial-gradient(circle, rgba(185,163,208,1) 0%, rgba(119,82,159,1) 100%)";
+            return backgroundColor
+            break;
+        case 'steel':
+            var backgroundColor = "radial-gradient(circle, rgba(211,211,211,1) 0%, rgba(53,53,53,1) 100%)";
+            return backgroundColor
+            break;
+        case 'electric':
+            var backgroundColor = "radial-gradient(circle, rgba(247,239,200,1) 0%, rgba(251,209,0,1) 100%)";
+            return backgroundColor
+            break;
+        case 'ice':
+            var backgroundColor = "radial-gradient(circle, rgba(233,246,244,1) 0%, rgba(119,208,196,1) 100%)";
+            return backgroundColor
+            break;
+        case 'psychic':
+            var backgroundColor = "radial-gradient(circle, rgba(231,196,239,1) 0%, rgba(101,44,102,1) 100%)";
+            return backgroundColor
+            break;
+        case 'dragon':
+            var backgroundColor = "radial-gradient(circle, rgba(151,179,230,1) 0%, rgba(0,29,82,1) 100%)";
+            return backgroundColor
+            break;
+        case 'dark':
+            var backgroundColor = "radial-gradient(circle, rgba(124,124,124,1) 0%, rgba(68,63,77,1) 100%)";
+            return backgroundColor
+            break;
+        case 'fairy':
+            var backgroundColor = "radial-gradient(circle, rgba(252,234,255,1) 0%, rgba(236,178,245,1) 100%)";
+            return backgroundColor
+            break;
+        case 'fighting':
+            var backgroundColor = "radial-gradient(circle, rgba(230,224,212,1) 0%, rgba(239,145,145,1) 100%)";
+            return backgroundColor
+            break;
+        case 'rock':
+            var backgroundColor = "radial-gradient(circle, rgba(213,213,212,1) 0%, rgba(139,139,132,1) 100%)";
+            return backgroundColor
+            break;
 
-        
+        default:
+            console.log('background por defecto');
+    }
+
+
+
+
 }
 
 function enlacesPorTipo(defaultTipo, inicio, final, y) {
@@ -236,7 +235,7 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
     var link = "https://pokeapi.co/api/v2/type/" + tipo;
 
     var body = document.getElementById("body");
-    body.style.background=backgroundPorTipo(defaultTipo);
+    body.style.background = backgroundPorTipo(defaultTipo);
     console.log("fondo: " + backgroundPorTipo(defaultTipo));
 
     backgroundPorTipo(defaultTipo);
@@ -313,7 +312,7 @@ function imprimirBotones(totalPaginas) {
     var paginaActual = pAout.slice(21, -6);
     newPaginaActual = paginaActual.replace('/', '');
     paginaActual = newPaginaActual;
-   // console.log("pagina actual " + newPaginaActual);
+    // console.log("pagina actual " + newPaginaActual);
     //console.log(totalPaginas);
 
     if (paginaActual == totalPaginas) {
@@ -348,16 +347,16 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
     pageMap.push(+newPaginaActual);
     //console.log(pageMap + " : mapa de pagina")
 
-    if (totalPaginas > 13) {
-        if (newPaginaActual >= 8 && newPaginaActual < (totalPaginas - 7) && totalPaginas > 13) {
-            var inicio = +newPaginaActual - 7;
-            var fin = inicio + 13;
-        } else if (newPaginaActual >= 8 && newPaginaActual >= (totalPaginas - 7)) {
+    if (totalPaginas > 15) {
+        if (newPaginaActual >= 8 && newPaginaActual < (totalPaginas - 7) && totalPaginas > 15) {
+            var inicio = +newPaginaActual - 8;
+            var fin = inicio + 15;
+        } else if (newPaginaActual >= 8 && newPaginaActual >= (totalPaginas - 8)) {
             var fin = totalPaginas;
-            var inicio = totalPaginas - 13
+            var inicio = totalPaginas - 15
         } else if (newPaginaActual < 8) {
             var inicio = 0;
-            var fin = inicio + 13;
+            var fin = inicio + 15;
         }
     } else {
         var inicio = 0
@@ -376,13 +375,13 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
 
                 paginas.innerHTML += `
                             
-                           <a class="pagination-item" href="javascript:void(0)" style="display: inline-block; background-color: #06060682; border-radius: 10px;" onclick="buscador(${pagina},'${indice}')" >${pagina}</a>
+                           <a class="page-link" style="background:#06060682;" onclick="buscador(${pagina},'${indice}')" >${pagina}</a>
 
                                      `
             } else {
                 paginas.innerHTML += `
                             
-                           <a class="pagination-item" href="javascript:void(0)" style="display:inline-block;" onclick="buscador(${pagina},'${indice}')" >${pagina}</a>
+                           <a class="page-link" onclick="buscador(${pagina},'${indice}')" >${pagina}</a>
 
                                      `
             }
@@ -392,28 +391,44 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
 
     if (defaultTipo == "filtroGeneracion") {
         for (var numeroPagina = inicio; numeroPagina < fin; numeroPagina++) {
-            var pagina = numeroPagina+1;
+            var pagina = numeroPagina + 1;
             if (pagina == newPaginaActual) {
                 paginas.innerHTML +=
-                    `<a class="page-link" href="javascript:void(0)" style="display: inline-block; background-color: #06060682; border-radius: 10px;" onclick="filtroGeneracion('${indice}',${pagina})" >${pagina}</a> `
+                    `<a class="page-link" style="background:#06060682;" onclick="filtroGeneracion('${indice}',${pagina})" >${pagina}</a> `
             } else {
                 paginas.innerHTML +=
-                    `<a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="filtroGeneracion('${indice}',${pagina})" >${pagina}</a> `
+                    `<a class="page-link" onclick="filtroGeneracion('${indice}',${pagina})" >${pagina}</a> `
 
             }
 
         }
     }
-    
-    if (defaultTipo == undefined || defaultTipo == "grass" || defaultTipo == "normal"|| defaultTipo == "bug"|| defaultTipo == "dark"|| defaultTipo == "steel"|| defaultTipo == "water"|| defaultTipo == "fire"|| defaultTipo == "rock"|| defaultTipo == "dragon"|| defaultTipo == "electric"|| defaultTipo == "fairy"|| defaultTipo == "fighting"|| defaultTipo == "poison"|| defaultTipo == "flying"|| defaultTipo == "ground"|| defaultTipo == "psychic"|| defaultTipo == "ice"|| defaultTipo == "ghost") {
+
+    if (defaultTipo == "filtroGeneracionMEGA") {
         for (var numeroPagina = inicio; numeroPagina < fin; numeroPagina++) {
             var pagina = numeroPagina + 1;
             if (pagina == newPaginaActual) {
                 paginas.innerHTML +=
-                    `<a class="page-link" href="javascript:void(0)" style="display: inline-block; background-color: #06060682; border-radius: 10px;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
+                    `<a class="page-link" style="background:#06060682;" onclick="filtroGeneracion('mega',${pagina},'undefined','${indice}')" >${pagina}</a> `
             } else {
                 paginas.innerHTML +=
-                    `<a class="page-link" href="javascript:void(0)" style="display:inline-block;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
+                    `<a class="page-link" onclick="filtroGeneracion('mega',${pagina},'undefined','${indice}')" >${pagina}</a> `
+
+            }
+
+        }
+    }
+
+
+    if (defaultTipo == undefined || defaultTipo == "grass" || defaultTipo == "normal" || defaultTipo == "bug" || defaultTipo == "dark" || defaultTipo == "steel" || defaultTipo == "water" || defaultTipo == "fire" || defaultTipo == "rock" || defaultTipo == "dragon" || defaultTipo == "electric" || defaultTipo == "fairy" || defaultTipo == "fighting" || defaultTipo == "poison" || defaultTipo == "flying" || defaultTipo == "ground" || defaultTipo == "psychic" || defaultTipo == "ice" || defaultTipo == "ghost") {
+        for (var numeroPagina = inicio; numeroPagina < fin; numeroPagina++) {
+            var pagina = numeroPagina + 1;
+            if (pagina == newPaginaActual) {
+                paginas.innerHTML +=
+                    `<a class="page-link" style="background:#06060682;" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
+            } else {
+                paginas.innerHTML +=
+                    `<a class="page-link" onclick="paginador(${pagina},'${defaultTipo}')" >${pagina}</a> `
 
             }
 
@@ -466,17 +481,26 @@ function recorrerPagina(side) {
         console.log(defaultTipo);
         paginador(pagina, defaultTipo);
     } else if (subtitulo.includes('region</p>')) {
-         if (side === "right") {
+        if (side === "right") {
             var pagina = (+paginaActual + 1);
             //console.log(pagina);
-            filtroGeneracion(undefined,pagina,side);
+            filtroGeneracion(undefined, pagina, side);
         } else if (side === "left") {
             var pagina = (+paginaActual - 1);
             //console.log(pagina);
-           filtroGeneracion(undefined,pagina,side);
+            filtroGeneracion(undefined, pagina, side);
         }
 
-    } else {
+    } else if (subtitulo.includes('MEGA EVOLUTIONS')){
+        if (side === "right") {
+            var pagina = (+paginaActual + 1);
+            filtroGeneracion("mega", pagina);
+        } else if (side === "left") {
+            var pagina = (+paginaActual - 1);
+            //console.log(pagina);
+            filtroGeneracion("mega", pagina);
+        }
+    }else {
         if (side === "right") {
 
             var pagina = (+paginaActual + 1);
@@ -485,7 +509,7 @@ function recorrerPagina(side) {
             var pagina = (+paginaActual - 1);
         }
         paginador(pagina);
-    }
+    } 
 
 }
 
@@ -516,7 +540,7 @@ function principal(enlace) {
             var speed = datos.stats[5].base_stat;
             var base_experience = datos.base_experience;
             var altura = datos.height;
-            var numeroPokedex = datos.order;
+            var numeroPokedex = datos.id;
             var peso = datos.weight;
             //console.log(base_experience);
             //console.log(datos.stats);
@@ -536,11 +560,11 @@ function principal(enlace) {
                 var tipo1 = datos.types[0].type.name;
                 var tipo2 = datos.types[1].type.name;
                 var concaTipos = tipo1 + "," + tipo2;
-                var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >" + "<img class='cardTypes' src='types/" +tipo2+ ".png' alt='" +tipo2+ "' >";
+                var concaTiposIMG = "<img class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img class='cardTypes' src='types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
             } else {
                 var concaTipos = datos.types[0].type.name;
                 var tipo1 = datos.types[0].type.name;
-                var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >";
+                var concaTiposIMG = "<img class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
             }
 
             if (tipo1 === "grass") {
@@ -582,6 +606,32 @@ function principal(enlace) {
             } else {
                 var cardColor = "card text-white bg-info mb-3";
             }
+
+            
+            
+
+
+            //if poke id entra al rango de las formas alternas
+            if (datos.id >10000 && datos.id < 10033 || datos.id >= 10091 && datos.id < 10094 ||datos.id >= 10077 && datos.id < 10079|| datos.id == 10086 || datos.id >= 10100 && datos.id < 10186){
+                var numPoke = "<i class='fas fa-certificate'></i>"
+            } 
+            //mega evoluciones
+            else if (datos.id >= 10033 && datos.id < 10077 || datos.id == 10079 || datos.id >= 10087 && datos.id < 10091) {
+                var numPoke = "<i class='fab fa-megaport'></i>"
+            } 
+            //formas de pikachu
+            else if (datos.id >= 10080 && datos.id < 10086 ||datos.id >= 10094 && datos.id < 10100 || datos.id == 10148) {
+                var numPoke = "<i class='fas fa-bolt'></i>"
+            }
+            //gigamax
+            else if (datos.id >= 10186 && datos.id < 10094 || datos.id >= 10101 && datos.id < 10148|| datos.id >= 10149) {
+                var numPoke = "<i class='fab fa-maxcdn'></i>"
+            }
+            //normal 
+            else{
+                var numPoke = datos.id;
+            }
+            var nombrePoke = datos.name.replace("-"," ");
             cards.innerHTML += `
                          
                     
@@ -590,8 +640,8 @@ function principal(enlace) {
                             <img src="${imagen}" alt="${datos.name}">
                             </div>
                             <div class="info">
-                                <span class="number">${datos.id}</span>
-                                <h3 class="name">${datos.name}</h3>
+                                <span class="number">${numPoke}</span>
+                                <h3 class="name">${nombrePoke}</h3>
                                 <small class="type"><span>${concaTiposIMG}</span></small>
                             </div>
                         </div>
@@ -599,11 +649,9 @@ function principal(enlace) {
                          `
 
 
-        } else {
-
+        } else{
+            console.log("enlace invalido");
         }
-
-
     }
 
     request.send();
@@ -611,17 +659,28 @@ function principal(enlace) {
 
 }
 
+
+
 //tecla enter en buscador
 var inputBusqueda = document.getElementById("busqueda");
 inputBusqueda.addEventListener("keyup", async function(event) {
-    var body = document.getElementById("body");
-  
-  if (event.keyCode === 13) {
-   await showLoader();  
-   buscador(undefined,undefined,'buscar');
-   
-  }
+    
+
+    if (event.keyCode === 13) {
+        await showLoader();
+        buscador(undefined, undefined, 'buscar');
+
+    }
 });
+
+var btnBusqueda = document.getElementById("buscar");
+btnBusqueda.addEventListener("click", async function(event) {
+    
+    await showLoader();
+    buscador(undefined, undefined, 'buscar');
+});
+
+
 
 
 
@@ -630,7 +689,7 @@ function buscador(pagina, indice, accion) {
 
     //console.log(accion);
     document.getElementById("subtitulo").innerHTML = "<p id='pSub' >Search Results: </p>";
-    
+
     //document.getElementById("botonR").innerHTML="";
     //botonL.innerHTML += `<button onclick="recorrerPagina('left')"  href="#">&raquo;</button>`
     //botonR.innerHTML += `<button onclick="recorrerPagina('right')" href="#">&raquo;</button>`
@@ -801,26 +860,49 @@ function buscador(pagina, indice, accion) {
 }
 
 
-function descripcionPokemon(id,nombre,concaTiposDescripcion){
-    var link = "https://pokeapi.co/api/v2/pokemon-species/"+id+"/";
+function descripcionPokemon(id, nombre, concaTiposDescripcion) {
+    var link = "https://pokeapi.co/api/v2/pokemon-species/" + id + "/";
     var request = new XMLHttpRequest();
     request.open("GET", link);
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
             var datos = JSON.parse(request.responseText);
-            var descrPoke = datos.flavor_text_entries[8].flavor_text;
+            var generacion = datos.generation.name;
+            console.log("la generacion es" +generacion);
+
+            switch(generacion){
+                case "generation-viii":
+                    var descrPoke = datos.flavor_text_entries[7].flavor_text;
+                    break;
+                case "generation-vii":
+                    var descrPoke = datos.flavor_text_entries[17].flavor_text;
+                    break;
+                case "generation-v":
+                    var descrPoke = datos.flavor_text_entries[1].flavor_text;
+                    break;
+                case "generation-i":
+                    var descrPoke = datos.flavor_text_entries[8].flavor_text;
+                    break;
+                default:
+                    var descrPoke = datos.flavor_text_entries[6].flavor_text;
+            }
+
+            
+
+            
+
             var nombreMayusc = nombre.charAt(0).toUpperCase() + nombre.slice(1);
             var descripcionMinusc = descrPoke.toLowerCase();
             var descripcionSinPuntos = descripcionMinusc.replaceAll('.', ',');
-            var descripcionFinal = descripcionSinPuntos.charAt(0).toUpperCase() + descripcionSinPuntos.slice(1,-1);
+            var descripcionFinal = descripcionSinPuntos.charAt(0).toUpperCase() + descripcionSinPuntos.slice(1, -1);
 
             console.log(descrPoke);
-            descripcion.innerHTML += `<p style="text-align:center;">${nombreMayusc} is a ${concaTiposDescripcion} Pokemon. ${descripcionFinal}.</p>`
-            
-            
+            descripcion.innerHTML += `<p>${nombreMayusc} is a ${concaTiposDescripcion} Pokemon. ${descripcionFinal}.</p>`
+
+
         }
     }
-   
+
     request.send();
 
 }
@@ -846,20 +928,22 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         }
     }
 
+    
 
-    if (tipos.length>1){
+
+    if (tipos.length > 1) {
         var tipo1 = tipos[0];
         var tipo2 = tipos[1];
-        var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >" + "<img class='cardTypes' src='types/" +tipo2+ ".png' alt='" +tipo2+ "' >";
-        var concaTiposDescripcion = "dual-type "+tipo1 + "/"+tipo2;
-         console.log(concaTiposIMG);
-    } else{
-        var tipo1 = tipos[0];
-        var concaTiposIMG="<img class='cardTypes' src='types/" +tipo1+ ".png' alt='" +tipo1+ "' >";
+        var concaTiposIMG = "<img  id='imgTipoModal' class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img id='imgTipoModal2'class='cardTypes' src='types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
+        var concaTiposDescripcion = "dual-type " + tipo1 + "/" + tipo2;
         console.log(concaTiposIMG);
-        var concaTiposDescripcion = tipo1+" type";
+    } else {
+        var tipo1 = tipos[0];
+        var concaTiposIMG = "<img id='imgTipoModal' class='cardTypes' src='types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
+        console.log(concaTiposIMG);
+        var concaTiposDescripcion = tipo1 + " type";
     }
-    
+
     var porAtaque = (ataque / 200) * 100;
     var porHP = (HP / 260) * 100;
     var porDefensa = (defensa / 260) * 100;
@@ -872,98 +956,78 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
     var barColorGreen = "linear-gradient(97deg, rgb(29 202 81 / 71%) 0%, rgb(24 144 0 / 67%) 100%)";
     var barColorBlue = "linear-gradient(97deg, rgb(14 92 189 / 58%) 0%, rgb(2 57 105 / 67%) 100%)";
 
-    if (porAtaque < 25 ) {
+    if (porAtaque < 25) {
         var atackBarColor = barColorRed;
-    }
-    else if (porAtaque>=25 && porAtaque <= 40) {
+    } else if (porAtaque >= 25 && porAtaque <= 40) {
         var atackBarColor = barColorYellow;
-    }
-    else if (porAtaque > 40 && porAtaque<= 70) {
+    } else if (porAtaque > 40 && porAtaque <= 70) {
         var atackBarColor = barColorGreen;
-    }
-    else if (porAtaque > 70) {
+    } else if (porAtaque > 70) {
         var atackBarColor = barColorBlue;
     }
 
-    if (porHP < 25 ) {
+    if (porHP < 25) {
         var hpBarColor = barColorRed;
-    }
-    else if (porHP>=25 && porHP <= 40) {
+    } else if (porHP >= 25 && porHP <= 40) {
         var hpBarColor = barColorYellow;
-    }
-    else if (porHP > 40 && porHP<= 70) {
+    } else if (porHP > 40 && porHP <= 70) {
         var hpBarColor = barColorGreen;
-    }
-    else if (porHP > 70) {
+    } else if (porHP > 70) {
         var hpBarColor = barColorBlue;
     }
 
-    if (porDefensa < 25 ) {
+    if (porDefensa < 25) {
         var defensaBarColor = barColorRed;
-    }
-    else if (porDefensa>=25 && porDefensa <= 40) {
+    } else if (porDefensa >= 25 && porDefensa <= 40) {
         var defensaBarColor = barColorYellow;
-    }
-    else if (porDefensa > 40 && porDefensa<= 70) {
+    } else if (porDefensa > 40 && porDefensa <= 70) {
         var defensaBarColor = barColorGreen;
-    }
-    else if (porDefensa > 70) {
+    } else if (porDefensa > 70) {
         var defensaBarColor = barColorBlue;
     }
 
-    if (porSpecialAttack< 25 ) {
+    if (porSpecialAttack < 25) {
         var specialAtackBarColor = barColorRed;
-    }
-    else if (porSpecialAttack>=25 && porSpecialAttack <= 40) {
+    } else if (porSpecialAttack >= 25 && porSpecialAttack <= 40) {
         var specialAtackBarColor = barColorYellow;
-    }
-    else if (porSpecialAttack > 40 && porSpecialAttack<= 70) {
+    } else if (porSpecialAttack > 40 && porSpecialAttack <= 70) {
         var specialAtackBarColor = barColorGreen;
-    }
-    else if (porSpecialAttack > 70) {
+    } else if (porSpecialAttack > 70) {
         var specialAtackBarColor = barColorBlue;
     }
 
-     if (porSpecialDefense< 25 ) {
+    if (porSpecialDefense < 25) {
         var specialDefenseBarColor = barColorRed;
-    }
-    else if (porSpecialDefense>=25 && porSpecialDefense <= 40) {
+    } else if (porSpecialDefense >= 25 && porSpecialDefense <= 40) {
         var specialDefenseBarColor = barColorYellow;
-    }
-    else if (porSpecialDefense > 40 && porSpecialDefense<= 70) {
+    } else if (porSpecialDefense > 40 && porSpecialDefense <= 70) {
         var specialDefenseBarColor = barColorGreen;
-    }
-    else if (porSpecialDefense > 70) {
+    } else if (porSpecialDefense > 70) {
         var specialDefenseBarColor = barColorBlue;
     }
 
-    if (porSpeed< 25 ) {
+    if (porSpeed < 25) {
         var speedBarColor = barColorRed;
-    }
-    else if (porSpeed>=25 && porSpeed <= 40) {
+    } else if (porSpeed >= 25 && porSpeed <= 40) {
         var speedBarColor = barColorYellow;
-    }
-    else if (porSpeed > 40 && porSpeed<= 70) {
+    } else if (porSpeed > 40 && porSpeed <= 70) {
         var speedBarColor = barColorGreen;
-    }
-    else if (porSpeed > 70) {
+    } else if (porSpeed > 70) {
         var speedBarColor = barColorBlue;
     }
 
     var height = altura / 10;
-    var weight = peso /10;
-
-    
-    
-    
+    var weight = peso / 10;
 
 
-    descripcionPokemon(id,nombre,concaTiposDescripcion);
+
+
+    descripcionPokemon(id, nombre, concaTiposDescripcion);
     info.innerHTML += `
 
                         
                     <div style="background: ${cardColor}; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100" >
-                        <div style="background:#00000042; border-radius:30px;box-shadow: 3px 1px 20px 6px rgb(100 100 100);   border-style: solid; border-color: #00000042; ">
+                        <div class="modalDataContainer">
                             
                             <div class="img-container">
                                 <div class="imagen">
@@ -981,52 +1045,52 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                             </div>
                             <div class="infoblock">
 
-                                <div class="attackBar">
+                                <div class="statsBars">
 
                                     <p class="infoblock_p_stats" ><i class="fas fa-heart"></i> HP</p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porHP}%; background: ${hpBarColor};"><p class ="statsBarText">${HP}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style="width:${porHP}%;background: ${hpBarColor};"><p class ="statsBarText">${HP}</p>
                                         </div>
                                     </div>
                                 </div>
                                 
 
-                                <div class="attackBar" >
+                                <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fas fa-fist-raised"></i> Atack</p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porAtaque}%; background: ${atackBarColor};"><p class ="statsBarText">${ataque}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style="width:${porAtaque}%;background:${atackBarColor};"><p class ="statsBarText">${ataque}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" >
+                                <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fas fa-shield-alt"></i> Defense</p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porDefensa}%; background: ${defensaBarColor};"><p class="statsBarText">${defensa}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style="width:${porDefensa}%; background: ${defensaBarColor};"><p class="statsBarText">${defensa}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" >
+                                <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fab fa-battle-net"></i> Special Atack </p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialAttack}%; background: ${specialAtackBarColor};"><p class ="statsBarText">${specialAttack}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style="width:${porSpecialAttack}%; background: ${specialAtackBarColor};"><p class ="statsBarText">${specialAttack}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" >
+                                <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fas fa-hand-sparkles"></i> Special Defense </p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style="${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="attackBar" >
+                                <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fas fa-tachometer-alt"></i> Speed</p>
-                                    <div style="width:100%;height: 30px;background-color: #ffffff61;border-radius:10px;margin: auto;display: inline-flex;">
-                                        <div style="border-radius: 10px 0px 0px 10px; height:30px; width:${porSpeed}%; background: ${speedBarColor};"><p class ="statsBarText">${speed}</p>
+                                    <div class="statBar">
+                                        <div class="statBarColored" style=" width:${porSpeed}%; background: ${speedBarColor};"><p class ="statsBarText">${speed}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1045,45 +1109,146 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                         
 
                          `
+    var miniaturaTypes = document.getElementById("imgTipoModal");
+
+    miniaturaTypes.addEventListener("click", async function(event) {
+        var tipo = miniaturaTypes.alt;
+
+        load(tipo);
+        modal.style.display = "none";
+    });
+    var miniaturaTypes2 = document.getElementById("imgTipoModal2");
+
+    miniaturaTypes2.addEventListener("click", async function(event) {
+        var tipo = miniaturaTypes2.alt;
+
+        load(tipo);
+        modal.style.display = "none";
+    });
 }
+
+
 
 function generaciones() {
     generacionesBlock.style.display = 'block';
     var span = document.getElementsByClassName("close")[0];
-     span.onclick = function() {
+    span.onclick = function() {
         generacionesBlock.style.display = "none";
     }
 
 }
 
-var gen = []
-function filtroGeneracion(generacion,pagina,side) {
-    showLoader();
+var gen = [];
+var indiceGen=[];
+async function filtroGeneracion(generacion, pagina, side, indice) {
+    await showLoader();
     document.getElementById("subtitulo").innerHTML = "";
     document.getElementById("cards").innerHTML = "";
     
     
-    
-    if (side == "right" ||side == "left") {
-       
-        var genCount = gen.length-1;
-        
+
+    if (side == "right" || side == "left") {
+
+        var genCount = gen.length - 1;
+
         var generacion = gen[genCount];
-         //console.log("side no es null "+generacion);
+        
+
+
+        //console.log("side no es null "+generacion);
     }
 
-    if (pagina == undefined) {
+    if (pagina == undefined || pagina == 1) {
         var inicio = 0
         var fin = 14;
     }
-    if (pagina >=1) {
-        var inicio = (pagina * 15)-15;
+    if (pagina >= 1) {
+        var inicio = (pagina * 15) - 15;
         var fin = inicio + 14;
     }
+    console.log(pagina);
+    if (generacion == "Unknown") {
+        console.log("desconocido ");
+        for (var i = 808; i < 810; i++) {
+            var link = "https://pokeapi.co/api/v2/pokemon/"+i;
+            principal(link);
+        }
+        paginas.innerHTML= '';
+        imprimirBotones(1)
+        subtitulo.innerHTML="";
+        subtitulo.innerHTML += `<p id="pSub" >2 results of Unknown Pokemon</p>`;
+        document.getElementById("divPaginaActual").innerHTML = "";
+        document.getElementById("divTotalPaginas").innerHTML = "";
+        divTotalPaginas.innerHTML += `<p>Paginas: 1</p>`;
+        divPaginaActual.innerHTML += `<p id="paginaActual">1/1</p>`;
+    }
+    if (generacion == "mega") {
+        var pokeLinks = indiceGen;
+        
 
-   
+        if (pagina == undefined) {
+            var inicio = 10132;
+            var final = 10193;
+            var contador= 0;
+            for (var i = inicio; i <= final; i++) {
+            var link = "https://pokeapi.co/api/v2/pokemon-form/"+i;
+            var request = new XMLHttpRequest();
+            request.open("GET", link, false);
+            request.onreadystatechange = function() {
+                if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                    var datos = JSON.parse(request.responseText);
+                    var forma = datos.form_name;
+                    var enlace = datos.pokemon.url;
+                    if (forma == "mega" && contador<15) {
+                        contador++;
+                        principal(enlace);
+                        console.log(contador);
+                        indiceGen.push(enlace);
+                    } else if (forma == "mega" && contador >=15) {
+                        indiceGen.push(enlace);
+                    }
+                    subtitulo.innerHTML="";
+                    subtitulo.innerHTML += `<p id="pSub" >${indiceGen.length} results of MEGA EVOLUTIONS</p>`;
+                    var totalPaginas = (Math.ceil(indiceGen.length / 15));
+                    document.getElementById("divPaginaActual").innerHTML = "";
+                    document.getElementById("divTotalPaginas").innerHTML = "";
+                    divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+                    divPaginaActual.innerHTML += `<p id="paginaActual">1/${totalPaginas}</p>`;
+                    imprimirPaginacion(totalPaginas, "filtroGeneracionMEGA", indiceGen);
+                    imprimirBotones(totalPaginas);            
+                }
+                
+            }
+            request.send();
+            
+            }
 
-    
+        } else if (pagina >= 1) {
+            
+            for (var i = inicio; i <= fin; i++) {
+                if (i < pokeLinks.length) {
+                    principal(pokeLinks[i]);
+                }   
+            }
+            var totalPaginas = (Math.ceil(pokeLinks.length / 15));
+            subtitulo.innerHTML += `<p id="pSub" >${pokeLinks.length} results of MEGA EVOLUTIONS</p>`;
+            document.getElementById("divPaginaActual").innerHTML = "";
+            document.getElementById("divTotalPaginas").innerHTML = "";
+            divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+            divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
+            imprimirPaginacion(totalPaginas, "filtroGeneracionMEGA", pokeLinks);
+            imprimirBotones(totalPaginas);
+
+        }
+        
+            
+        
+    } else{
+
+
+
+
+
 
     var link = "https://pokeapi.co/api/v2/generation/" + generacion + "/";
     var request = new XMLHttpRequest();
@@ -1094,10 +1259,10 @@ function filtroGeneracion(generacion,pagina,side) {
 
             var count = datos.pokemon_species.length;
             var totalPaginas = (Math.ceil(count / 15));
-            console.log("cantidad de data "+count);
+            console.log("cantidad de data " + count);
 
             subtitulo.innerHTML += `<p id="pSub" >${count} results from the ${datos.main_region.name} region</p>`;
-            
+
 
             document.getElementById("divPaginaActual").innerHTML = "";
             document.getElementById("divTotalPaginas").innerHTML = "";
@@ -1105,26 +1270,25 @@ function filtroGeneracion(generacion,pagina,side) {
             divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
 
 
-            if (fin > (count-1)) {
+            if (fin > (count - 1)) {
                 if (inicio == (count)) {
                     var enlace = "https://pokeapi.co/api/v2/pokemon/" + fin;
                     principal(enlace);
 
 
-                    
+
+                } else {
+                    var final = count - 1;
+                    console.log("el final se pasa y es" + final);
                 }
-                else{
-                    var final = count-1;
-                    console.log("el final se pasa y es"+final);
-                }
-               
+
                 //console.log("es mayor y se sale final "+final);
-            }else{
+            } else {
                 var final = fin;
             }
 
 
-           
+
             //console.log(inicio+" inicio y final " +final)
             for (var i = inicio; i <= final; i++) {
 
@@ -1132,49 +1296,107 @@ function filtroGeneracion(generacion,pagina,side) {
                 var id = pokeId.slice(42);
 
                 var enlace = "https://pokeapi.co/api/v2/pokemon/" + id;
-               
+
                 principal(enlace);
             }
             imprimirPaginacion(totalPaginas, "filtroGeneracion", generacion);
             imprimirBotones(totalPaginas);
 
-            
-           
+
+
         }
     }
     gen.push(generacion);
-    console.log(gen);
+    
     request.send();
+}
+}
+
+function pokeForm(id){
+    
+    var id = id + 100;
+    var link = "https://pokeapi.co/api/v2/pokemon-form/"+ id;
+        var request = new XMLHttpRequest();
+        request.open("GET", link, false);
+        request.onreadystatechange = function() {
+
+            if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                var datos = JSON.parse(request.responseText);
+                var forma = datos.form_name;
+                console.log (forma);
+                return forma;
+
+            }
+        }
+    request.send();
+
 }
 
 
-function closeLoader(){
+
+function closeLoader() {
     var modalLoading = document.getElementById("modalLoading");
     modalLoading.style.display = "none";
 }
 
 
 function showLoader() {
-  return new Promise(function(resolve,reject) {
-    var modalLoading = document.getElementById("modalLoading");
-    modalLoading.style.display = 'block';
-    console.log("si entra");
-    setTimeout(resolve, 2000);
-  })
+    return new Promise(function(resolve, reject) {
+        var modalLoading = document.getElementById("modalLoading");
+        modalLoading.style.display = 'block';
+        console.log("si entra");
+        setTimeout(resolve, 2000);
+    })
 }
 
-function backgroundRandom(){
+function backgroundRandom() {
     var background = [
         "background:linear-gradient(to right, #D4D3DD, #EFEFBB)",
         "background:linear-gradient(to right, #a9a2e4, #94fdc3)",
         "background:linear-gradient(to right, #6ad495db, #bc94fd)"
-        ];
+    ];
     var body = document.getElementById("body");
     var fondo = background[2];
-    body.style.background=fondo;
+    body.style.background = fondo;
 
     console.log(fondo);
 
 
 }
 
+var menuSection = document.querySelectorAll('.header-menu-tab');
+var iconMenu = document.querySelectorAll('.icon');
+
+console.log(menuSection.length);
+console.log(iconMenu.length);
+
+for (var i=0; i<menuSection.length; i++){
+    menuSection[i].addEventListener("mouseover",function(){
+       console.log(this.toString());
+       if (this.toString().includes('#gen')){
+        iconMenu[2].style.color="#d4b743";
+       }
+       else if (this.toString().includes('#types')){
+        iconMenu[1].style.color="#d4b743";
+       }
+       else{
+        iconMenu[0].style.color="#d4b743";
+       }
+
+       
+    })
+    menuSection[i].addEventListener("mouseout",function(){
+       console.log(this.toString());
+       if (this.toString().includes('#gen')){
+        iconMenu[2].style.color="#9099b7";
+       }
+       else if (this.toString().includes('#types')){
+        iconMenu[1].style.color="#9099b7";
+       }
+       else{
+        iconMenu[0].style.color="#9099b7";
+       }
+
+       
+    })
+}
