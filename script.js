@@ -328,6 +328,7 @@ function imprimirBotones(totalPaginas) {
         botonL.innerHTML += `<button class="entypo-left-open" onclick="recorrerPagina('left')"  href="#"></button>`
     }
     if (totalPaginas == 0) {
+        document.getElementById("botonL").innerHTML = "";
          document.getElementById("botonR").innerHTML = "";
     }
 
@@ -764,12 +765,15 @@ function buscador(pagina, indice, accion) {
                         //subtituloPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1} </p> <p>Pagina <p id="paginaActual">1</p>/${totalPaginas-1}</p>`;
                         if (totalPaginas == 1) {
                             cards.innerHTML += `<h2 style="color: #717171;">No search results found</h2>`;
+                            document.getElementById("divPaginaActual").innerHTML = "";
+                            divPaginaActual.innerHTML += `<p id="paginaActual">0/0`;
                             closeLoader();
                         }
                         if ((totalPaginas - 1) == 1) {
                             document.getElementById("botonR").innerHTML = "";
+
                         }
-                        if (accion == "buscar") {
+                        if (accion == "buscar" && totalPaginas > 1) {
                             document.getElementById("divTotalPaginas").innerHTML = "";
                             document.getElementById("divPaginaActual").innerHTML = "";
                             divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1}</p>`;
