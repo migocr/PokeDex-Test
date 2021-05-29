@@ -764,7 +764,7 @@ function buscador(pagina, indice, accion) {
 
                         //subtituloPaginas.innerHTML += `<p>Paginas: ${totalPaginas-1} </p> <p>Pagina <p id="paginaActual">1</p>/${totalPaginas-1}</p>`;
                         if (totalPaginas == 1) {
-                            cards.innerHTML += `<h2 style="color: #717171;">No search results found</h2>`;
+                            cards.innerHTML += `<img src="img/notFound.png"><h2 style="color: #717171;">No search results found</h2>`;
                             document.getElementById("divPaginaActual").innerHTML = "";
                             divPaginaActual.innerHTML += `<p id="paginaActual">0/0`;
                             closeLoader();
@@ -904,8 +904,8 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
             var descripcionSinPuntos = descripcionMinusc.replaceAll('.', ',');
             var descripcionFinal = descripcionSinPuntos.charAt(0).toUpperCase() + descripcionSinPuntos.slice(1, -1);
 
-            console.log(descrPoke);
-            descripcion.innerHTML += `<p>${nombreMayusc} is a ${concaTiposDescripcion} Pokemon. ${descripcionFinal}.</p>`
+            var descripcionCompleta = document.getElementById('descripcion');
+            descripcionCompleta.innerHTML += `<p>${nombreMayusc} is a ${concaTiposDescripcion} Pokemon. ${descripcionFinal}.</p>`
 
 
         }
@@ -1030,7 +1030,7 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
 
 
 
-    descripcionPokemon(id, nombre, concaTiposDescripcion);
+    
     info.innerHTML += `
 
                         
@@ -1107,8 +1107,8 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                             
                             <div class="infoblock_footer">
                                 <p>Base XP: ${base_experience}</p>
-                                <p>Weight: ${height} mts</p>
-                                <p>Height: ${weight} kg</p>
+                                <p>Weight: ${weight} kg</p>
+                                <p>Height: ${height} mts</p>
                             </div>
                         </div>
                     </div>
@@ -1117,6 +1117,8 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                         
 
                          `
+    descripcionPokemon(id, nombre, concaTiposDescripcion)
+
     var miniaturaTypes = document.getElementById("imgTipoModal");
 
     miniaturaTypes.addEventListener("click", async function(event) {
@@ -1148,8 +1150,8 @@ function generaciones() {
 
 var gen = [];
 var indiceGen=[];
-async function filtroGeneracion(generacion, pagina, side, indice) {
-    await showLoader();
+function filtroGeneracion(generacion, pagina, side, indice) {
+    showLoader();
     document.getElementById("subtitulo").innerHTML = "";
     document.getElementById("cards").innerHTML = "";
     
