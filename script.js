@@ -130,7 +130,7 @@ function enlaces(inicio, final) {
 //y - pagina actual, sirve de referencia para la paginacion, si no existe y sera igual a 1
 
 function backgroundPorTipo(defaultTipo) {
-    console.log(defaultTipo);
+    //console.log(defaultTipo);
 
     switch (defaultTipo) {
         case 'grass':
@@ -211,7 +211,7 @@ function backgroundPorTipo(defaultTipo) {
             break;
 
         default:
-            console.log('background por defecto');
+            //console.log('background por defecto');
     }
 
 
@@ -236,7 +236,7 @@ function enlacesPorTipo(defaultTipo, inicio, final, y) {
 
     var body = document.getElementById("body");
     body.style.background = backgroundPorTipo(defaultTipo);
-    console.log("fondo: " + backgroundPorTipo(defaultTipo));
+    //console.log("fondo: " + backgroundPorTipo(defaultTipo));
 
     backgroundPorTipo(defaultTipo);
 
@@ -312,7 +312,7 @@ function imprimirBotones(totalPaginas) {
     var paginaActual = pAout.slice(21, -6);
     newPaginaActual = paginaActual.replace('/', '');
     paginaActual = newPaginaActual;
-    // console.log("pagina actual " + newPaginaActual);
+    // //console.log("pagina actual " + newPaginaActual);
     //console.log(totalPaginas);
 
     if (paginaActual == totalPaginas) {
@@ -329,7 +329,7 @@ function imprimirBotones(totalPaginas) {
     }
     if (totalPaginas == 0) {
         document.getElementById("botonL").innerHTML = "";
-         document.getElementById("botonR").innerHTML = "";
+        document.getElementById("botonR").innerHTML = "";
     }
 
 
@@ -346,7 +346,7 @@ function imprimirPaginacion(totalPaginas, tipo, indice) {
     var pAout = pA.outerHTML;
     var paginaActual = pAout.slice(21, -6);
     newPaginaActual = paginaActual.replace('/', '');
-    console.log("imprimir paginacion PA " + newPaginaActual);
+    //console.log("imprimir paginacion PA " + newPaginaActual);
 
     pageMap.push(+newPaginaActual);
     //console.log(pageMap + " : mapa de pagina")
@@ -451,7 +451,7 @@ function recorrerPagina(side) {
     var subtitulo = p.outerHTML;
     newPaginaActual = paginaActual.replace('/', '');
     var paginaActual = newPaginaActual;
-    console.log("pagina actual " + newPaginaActual);
+    //console.log("pagina actual " + newPaginaActual);
     //falta imprimir paginacion en filtro de tipos
 
     var stringSub = p.outerHTML.includes("Search Results:");
@@ -474,7 +474,7 @@ function recorrerPagina(side) {
         var tipo = subtitulo.slice(13, -10);
 
         var defaultTipo = tipo.toLowerCase();
-        console.log("es por tipo");
+        //console.log("es por tipo");
         if (side === "right") {
 
             var pagina = (+paginaActual + 1);
@@ -482,7 +482,7 @@ function recorrerPagina(side) {
         } else if (side === "left") {
             var pagina = (+paginaActual - 1);
         }
-        console.log(defaultTipo);
+        //console.log(defaultTipo);
         paginador(pagina, defaultTipo);
     } else if (subtitulo.includes('region</p>')) {
         if (side === "right") {
@@ -495,7 +495,7 @@ function recorrerPagina(side) {
             filtroGeneracion(undefined, pagina, side);
         }
 
-    } else if (subtitulo.includes('MEGA EVOLUTIONS')){
+    } else if (subtitulo.includes('MEGA EVOLUTIONS')) {
         if (side === "right") {
             var pagina = (+paginaActual + 1);
             filtroGeneracion("mega", pagina);
@@ -504,7 +504,7 @@ function recorrerPagina(side) {
             //console.log(pagina);
             filtroGeneracion("mega", pagina);
         }
-    }else {
+    } else {
         if (side === "right") {
 
             var pagina = (+paginaActual + 1);
@@ -513,7 +513,7 @@ function recorrerPagina(side) {
             var pagina = (+paginaActual - 1);
         }
         paginador(pagina);
-    } 
+    }
 
 }
 
@@ -611,40 +611,46 @@ function principal(enlace) {
                 var cardColor = "card text-white bg-info mb-3";
             }
 
-            
-            
 
 
+
+            var number = "number";
             //if poke id entra al rango de las formas alternas
-            if (datos.id >10000 && datos.id < 10033 || datos.id >= 10091 && datos.id < 10094 ||datos.id >= 10077 && datos.id < 10079|| datos.id == 10086 || datos.id >= 10100 && datos.id < 10186){
-                var numPoke = "<i class='fas fa-certificate'></i>"
-            } 
+            if (datos.id > 10000 && datos.id < 10033 || datos.id >= 10091 && datos.id < 10094 || datos.id >= 10077 && datos.id < 10079 || datos.id == 10086 || datos.id >= 10100 && datos.id < 10186) {
+                var numPoke = "<i class='fas fa-certificate'></i>";
+                var form = "alterna";
+            }
             //mega evoluciones
             else if (datos.id >= 10033 && datos.id < 10077 || datos.id == 10079 || datos.id >= 10087 && datos.id < 10091) {
-                var numPoke = "<img src='img/gen/mega.png'/> "
-            } 
+                var numPoke = "<img src='img/gen/mega.png'/> ";
+                var number = "numberMEGA";
+                var form = "mega";
+            }
             //formas de pikachu
-            else if (datos.id >= 10080 && datos.id < 10086 ||datos.id >= 10094 && datos.id < 10100 || datos.id == 10148) {
-                var numPoke = "<img src='img/pikachu.png'/>"
+            else if (datos.id >= 10080 && datos.id < 10086 || datos.id >= 10094 && datos.id < 10100 || datos.id == 10148) {
+                var numPoke = "<img src='img/pikachu.png'/>";
+                var form = "pika";
             }
             //gigamax
-            else if (datos.id >= 10186 && datos.id < 10094 || datos.id >= 10101 && datos.id < 10148|| datos.id >= 10149) {
-                var numPoke = "<img src='img/gmax.png'/>"
+            else if (datos.id >= 10186 && datos.id < 10094 || datos.id >= 10101 && datos.id < 10148 || datos.id >= 10149) {
+                var numPoke = "<img src='img/gmax.png'/>";
+                var form = "gmax";
             }
             //normal 
-            else{
+            else {
                 var numPoke = datos.id;
+                var form = "normal";
             }
-            var nombrePoke = datos.name.replace("-"," ");
+            var nombrePoke = datos.name.replace("-", " ");
             cards.innerHTML += `
                          
                     
-                        <div class="pokemon" onclick="imprimirDatos(${datos.id},'${datos.name}','${concaTipos}','${imagen}','${HP}','${ataque}','${defensa}','${specialAttack}','${specialDeffense}','${speed}','${base_experience}','${altura}','${numeroPokedex}','${peso}','${cardColor}')" style="background:${cardColor};">
+                        <div class="pokemon" onclick="imprimirDatos(${datos.id},'${datos.name}','${concaTipos}','${imagen}','${HP}','${ataque}','${defensa}','${specialAttack}','${specialDeffense}','${speed}','${base_experience}','${altura}','${numeroPokedex}','${peso}','${cardColor}','${form}')" style="background:${cardColor};">
                             <div class="img-container">
-                            <img src="${imagen}" alt="${datos.name}">
+                            <img  src="${imagen}" alt="${datos.name}">
                             </div>
                             <div class="info">
-                                <span class="number">${numPoke}</span>
+                                <span class="${number}">${numPoke}</span>
                                 <h3 class="name">${nombrePoke}</h3>
                                 <small class="type"><span>${concaTiposIMG}</span></small>
                             </div>
@@ -653,8 +659,8 @@ function principal(enlace) {
                          `
 
 
-        } else{
-            console.log("enlace invalido");
+        } else {
+            //console.log("enlace invalido");
         }
     }
 
@@ -668,7 +674,7 @@ function principal(enlace) {
 //tecla enter en buscador
 var inputBusqueda = document.getElementById("busqueda");
 inputBusqueda.addEventListener("keyup", async function(event) {
-    
+
 
     if (event.keyCode === 13) {
         await showLoader();
@@ -679,12 +685,10 @@ inputBusqueda.addEventListener("keyup", async function(event) {
 
 var btnBusqueda = document.getElementById("buscar");
 btnBusqueda.addEventListener("click", async function(event) {
-    
+
     await showLoader();
     buscador(undefined, undefined, 'buscar');
 });
-
-
 
 
 
@@ -706,7 +710,7 @@ function buscador(pagina, indice, accion) {
         var limite = 1118;
         busquedaBruta = document.getElementById("busqueda").value;
         var busqueda = busquedaBruta.toLowerCase();
-        console.log("termino de busqueda " + busqueda);
+        //console.log("termino de busqueda " + busqueda);
         document.getElementById("cards").innerHTML = "";
         document.getElementById("botonL").innerHTML = "";
 
@@ -734,7 +738,7 @@ function buscador(pagina, indice, accion) {
 
                             if (accion === undefined || accion == "buscar") {
                                 principal(enlace);
-                                console.log("pagina indefinida");
+                                //console.log("pagina indefinida");
 
                             }
                         }
@@ -755,7 +759,7 @@ function buscador(pagina, indice, accion) {
                         }
 
 
-                        // console.log("pause " + indice);
+                        // //console.log("pause " + indice);
                         var totalPaginas = (Math.ceil(counter / 15) + 1);
 
                         //console.log("Resultados "+resultadosBusqueda); 
@@ -808,7 +812,7 @@ function buscador(pagina, indice, accion) {
         }
 
 
-        console.log(arrayPokes);
+        //console.log(arrayPokes);
         document.getElementById("pSub").innerHTML += arrayPokes.length;
         document.getElementById("cards").innerHTML = "";
         document.getElementById("paginas").innerHTML = "";
@@ -828,10 +832,10 @@ function buscador(pagina, indice, accion) {
             var fin = (pagina * 15) - 1;
         }
         var totalPaginas = (Math.ceil(arrayPokes.length / 15)) + 1;
-        console.log(totalPaginas + " total paginas")
-        console.log(pagina + "  pagina")
+        //console.log(totalPaginas + " total paginas")
+        //console.log(pagina + "  pagina")
         if (pagina === (totalPaginas - 1)) {
-            console.log("se borra el boton")
+            //console.log("se borra el boton")
             document.getElementById("botonR").innerHTML = "";
         } else {
             //borramos de existir y reimprimimos el boton derecho
@@ -842,7 +846,7 @@ function buscador(pagina, indice, accion) {
         if (pagina === totalPaginas) {
             var ini = (pagina * 15) - 30;
             var fin = (pagina * 15) - 16;
-            console.log("se pása del limite")
+            //console.log("se pása del limite")
         }
 
         for (var i = ini; i <= fin; i++) {
@@ -876,9 +880,9 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
         if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
             var datos = JSON.parse(request.responseText);
             var generacion = datos.generation.name;
-            console.log("la generacion es" +generacion);
+            //console.log("la generacion es" +generacion);
 
-            switch(generacion){
+            switch (generacion) {
                 case "generation-viii":
                     var descrPoke = datos.flavor_text_entries[7].flavor_text;
                     break;
@@ -895,9 +899,8 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
                     var descrPoke = datos.flavor_text_entries[6].flavor_text;
             }
 
-            
 
-            
+
 
             var nombreMayusc = nombre.charAt(0).toUpperCase() + nombre.slice(1);
             var descripcionMinusc = descrPoke.toLowerCase();
@@ -915,9 +918,23 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
 
 }
 
-function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor) {
+function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor, form) {
+    //console.log(form);
+    if (form == "alterna") {
+        var numeroPokedex = "<i class='fas fa-certificate'></i>";
+    } else if (form == "mega") {
+        var numeroPokedex = "<img src='img/gen/mega.png'/> ";
+    } else if (form == "pika") {
+        var numeroPokedex = "<img src='img/pikachu.png'/>"
+    } else if (form == "gmax") {
+        var numeroPokedex = "<img src='img/gmax.png'/>"
+    } else {
+
+    }
+
+
     var tipos = concaTipos.split(',');
-    console.log(tipos);
+    //console.log(tipos);
     document.getElementById("info").innerHTML = "";
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("closeModal")[0];
@@ -925,7 +942,7 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
 
     //boton cerrar modal
     span.onclick = function() {
-        console.log("click en boton");
+        //console.log("click en boton");
         modal.style.display = "none";
     }
 
@@ -936,7 +953,7 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         }
     }
 
-    
+
 
 
     if (tipos.length > 1) {
@@ -944,20 +961,20 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         var tipo2 = tipos[1];
         var concaTiposIMG = "<img  id='imgTipoModal' class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >" + "<img id='imgTipoModal2'class='cardTypes' src='img/types/" + tipo2 + ".png' alt='" + tipo2 + "' >";
         var concaTiposDescripcion = "dual-type " + tipo1 + "/" + tipo2;
-        console.log(concaTiposIMG);
+        //console.log(concaTiposIMG);
     } else {
         var tipo1 = tipos[0];
         var concaTiposIMG = "<img id='imgTipoModal' class='cardTypes' src='img/types/" + tipo1 + ".png' alt='" + tipo1 + "' >";
-        console.log(concaTiposIMG);
+        //console.log(concaTiposIMG);
         var concaTiposDescripcion = tipo1 + " type";
     }
 
-    var porAtaque = (ataque / 200) * 100;
+    var porAtaque = (ataque / 260) * 100;
     var porHP = (HP / 260) * 100;
     var porDefensa = (defensa / 260) * 100;
-    var porSpecialAttack = (specialAttack / 200) * 100;
-    var porSpecialDefense = (specialDeffense / 250) * 100;
-    var porSpeed = (speed / 200) * 100;
+    var porSpecialAttack = (specialAttack / 260) * 100;
+    var porSpecialDefense = (specialDeffense / 260) * 100;
+    var porSpeed = (speed / 260) * 100;
 
     var barColorRed = "linear-gradient(97deg, rgb(239 20 20 / 53%) 0%, rgb(255 0 0 / 60%) 100%)";
     var barColorYellow = "linear-gradient(97deg, rgb(226 255 0 / 52%) 0%, rgb(167 171 0 / 58%) 100%)";
@@ -1030,7 +1047,6 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
 
 
 
-    
     info.innerHTML += `
 
                         
@@ -1090,7 +1106,7 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                                 <div class="statsBars" >
                                     <p class="infoblock_p_stats" ><i class="fas fa-hand-sparkles"></i> Special Defense </p>
                                     <div class="statBar">
-                                        <div class="statBarColored" style="${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
+                                        <div class="statBarColored" style="width:${porSpecialDefense}%; background: ${specialDefenseBarColor};"><p class ="statsBarText">${specialDeffense}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1149,20 +1165,21 @@ function generaciones() {
 }
 
 var gen = [];
-var indiceGen=[];
-function filtroGeneracion(generacion, pagina, side, indice) {
-    showLoader();
+var indiceGen = [];
+
+async function filtroGeneracion(generacion, pagina, side, indice) {
+    await showLoader();
     document.getElementById("subtitulo").innerHTML = "";
     document.getElementById("cards").innerHTML = "";
-    
-    
+
+
 
     if (side == "right" || side == "left") {
 
         var genCount = gen.length - 1;
 
         var generacion = gen[genCount];
-        
+
 
 
         //console.log("side no es null "+generacion);
@@ -1176,16 +1193,16 @@ function filtroGeneracion(generacion, pagina, side, indice) {
         var inicio = (pagina * 15) - 15;
         var fin = inicio + 14;
     }
-    console.log(pagina);
+    //console.log(pagina);
     if (generacion == "Unknown") {
-        console.log("desconocido ");
+        //console.log("desconocido ");
         for (var i = 808; i < 810; i++) {
-            var link = "https://pokeapi.co/api/v2/pokemon/"+i;
+            var link = "https://pokeapi.co/api/v2/pokemon/" + i;
             principal(link);
         }
-        paginas.innerHTML= '';
+        paginas.innerHTML = '';
         imprimirBotones(1)
-        subtitulo.innerHTML="";
+        subtitulo.innerHTML = "";
         subtitulo.innerHTML += `<p id="pSub" >2 results of Unknown Pokemon</p>`;
         document.getElementById("divPaginaActual").innerHTML = "";
         document.getElementById("divTotalPaginas").innerHTML = "";
@@ -1194,51 +1211,51 @@ function filtroGeneracion(generacion, pagina, side, indice) {
     }
     if (generacion == "mega") {
         var pokeLinks = indiceGen;
-        
+
 
         if (pagina == undefined) {
             var inicio = 10132;
             var final = 10193;
-            var contador= 0;
+            var contador = 0;
             for (var i = inicio; i <= final; i++) {
-            var link = "https://pokeapi.co/api/v2/pokemon-form/"+i;
-            var request = new XMLHttpRequest();
-            request.open("GET", link, false);
-            request.onreadystatechange = function() {
-                if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-                    var datos = JSON.parse(request.responseText);
-                    var forma = datos.form_name;
-                    var enlace = datos.pokemon.url;
-                    if (forma == "mega" && contador<15) {
-                        contador++;
-                        principal(enlace);
-                        console.log(contador);
-                        indiceGen.push(enlace);
-                    } else if (forma == "mega" && contador >=15) {
-                        indiceGen.push(enlace);
+                var link = "https://pokeapi.co/api/v2/pokemon-form/" + i;
+                var request = new XMLHttpRequest();
+                request.open("GET", link, false);
+                request.onreadystatechange = function() {
+                    if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
+                        var datos = JSON.parse(request.responseText);
+                        var forma = datos.form_name;
+                        var enlace = datos.pokemon.url;
+                        if (forma == "mega" && contador < 15) {
+                            contador++;
+                            principal(enlace);
+                            //console.log(contador);
+                            indiceGen.push(enlace);
+                        } else if (forma == "mega" && contador >= 15) {
+                            indiceGen.push(enlace);
+                        }
+                        subtitulo.innerHTML = "";
+                        subtitulo.innerHTML += `<p id="pSub" >${indiceGen.length} results of MEGA EVOLUTIONS</p>`;
+                        var totalPaginas = (Math.ceil(indiceGen.length / 15));
+                        document.getElementById("divPaginaActual").innerHTML = "";
+                        document.getElementById("divTotalPaginas").innerHTML = "";
+                        divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+                        divPaginaActual.innerHTML += `<p id="paginaActual">1/${totalPaginas}</p>`;
+                        imprimirPaginacion(totalPaginas, "filtroGeneracionMEGA", indiceGen);
+                        imprimirBotones(totalPaginas);
                     }
-                    subtitulo.innerHTML="";
-                    subtitulo.innerHTML += `<p id="pSub" >${indiceGen.length} results of MEGA EVOLUTIONS</p>`;
-                    var totalPaginas = (Math.ceil(indiceGen.length / 15));
-                    document.getElementById("divPaginaActual").innerHTML = "";
-                    document.getElementById("divTotalPaginas").innerHTML = "";
-                    divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
-                    divPaginaActual.innerHTML += `<p id="paginaActual">1/${totalPaginas}</p>`;
-                    imprimirPaginacion(totalPaginas, "filtroGeneracionMEGA", indiceGen);
-                    imprimirBotones(totalPaginas);            
+
                 }
-                
-            }
-            request.send();
-            
+                request.send();
+
             }
 
         } else if (pagina >= 1) {
-            
+
             for (var i = inicio; i <= fin; i++) {
                 if (i < pokeLinks.length) {
                     principal(pokeLinks[i]);
-                }   
+                }
             }
             var totalPaginas = (Math.ceil(pokeLinks.length / 15));
             subtitulo.innerHTML += `<p id="pSub" >${pokeLinks.length} results of MEGA EVOLUTIONS</p>`;
@@ -1250,96 +1267,74 @@ function filtroGeneracion(generacion, pagina, side, indice) {
             imprimirBotones(totalPaginas);
 
         }
-        
-            
-        
-    } else{
+
+
+
+    } else {
 
 
 
 
-
-
-    var link = "https://pokeapi.co/api/v2/generation/" + generacion + "/";
-    var request = new XMLHttpRequest();
-    request.open("GET", link);
-    request.onreadystatechange = function() {
-        if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-            var datos = JSON.parse(request.responseText);
-
-            var count = datos.pokemon_species.length;
-            var totalPaginas = (Math.ceil(count / 15));
-            console.log("cantidad de data " + count);
-
-            subtitulo.innerHTML += `<p id="pSub" >${count} results from the ${datos.main_region.name} region</p>`;
-
-
-            document.getElementById("divPaginaActual").innerHTML = "";
-            document.getElementById("divTotalPaginas").innerHTML = "";
-            divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
-            divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
-
-
-            if (fin > (count - 1)) {
-                if (inicio == (count)) {
-                    var enlace = "https://pokeapi.co/api/v2/pokemon/" + fin;
-                    principal(enlace);
-
-
-
-                } else {
-                    var final = count - 1;
-                    console.log("el final se pasa y es" + final);
-                }
-
-                //console.log("es mayor y se sale final "+final);
-            } else {
-                var final = fin;
-            }
-
-
-
-            //console.log(inicio+" inicio y final " +final)
-            for (var i = inicio; i <= final; i++) {
-
-                var pokeId = datos.pokemon_species[i].url;
-                var id = pokeId.slice(42);
-
-                var enlace = "https://pokeapi.co/api/v2/pokemon/" + id;
-
-                principal(enlace);
-            }
-            imprimirPaginacion(totalPaginas, "filtroGeneracion", generacion);
-            imprimirBotones(totalPaginas);
-
-
-
-        }
-    }
-    gen.push(generacion);
-    
-    request.send();
-}
-}
-
-function pokeForm(id){
-    
-    var id = id + 100;
-    var link = "https://pokeapi.co/api/v2/pokemon-form/"+ id;
+        var link = "https://pokeapi.co/api/v2/generation/" + generacion + "/";
         var request = new XMLHttpRequest();
-        request.open("GET", link, false);
+        request.open("GET", link);
         request.onreadystatechange = function() {
-
             if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
                 var datos = JSON.parse(request.responseText);
-                var forma = datos.form_name;
-                console.log (forma);
-                return forma;
+
+                var count = datos.pokemon_species.length;
+                var totalPaginas = (Math.ceil(count / 15));
+                //console.log("cantidad de data " + count);
+
+                subtitulo.innerHTML += `<p id="pSub" >${count} results from the ${datos.main_region.name} region</p>`;
+
+
+                document.getElementById("divPaginaActual").innerHTML = "";
+                document.getElementById("divTotalPaginas").innerHTML = "";
+                divTotalPaginas.innerHTML += `<p>Paginas: ${totalPaginas}</p>`;
+                divPaginaActual.innerHTML += `<p id="paginaActual">${pagina}/${totalPaginas}</p>`;
+
+
+                if (fin > (count - 1)) {
+                    if (inicio == (count)) {
+                        var enlace = "https://pokeapi.co/api/v2/pokemon/" + fin;
+                        principal(enlace);
+
+
+
+                    } else {
+                        var final = count - 1;
+                        //console.log("el final se pasa y es" + final);
+                    }
+
+                    //console.log("es mayor y se sale final "+final);
+                } else {
+                    var final = fin;
+                }
+
+
+
+                //console.log(inicio+" inicio y final " +final)
+                for (var i = inicio; i <= final; i++) {
+
+                    var pokeId = datos.pokemon_species[i].url;
+                    var id = pokeId.slice(42);
+
+                    var enlace = "https://pokeapi.co/api/v2/pokemon/" + id;
+
+                    principal(enlace);
+                }
+                imprimirPaginacion(totalPaginas, "filtroGeneracion", generacion);
+                imprimirBotones(totalPaginas);
+
+
 
             }
         }
-    request.send();
+        gen.push(generacion);
 
+        request.send();
+    }
 }
 
 
@@ -1354,7 +1349,7 @@ function showLoader() {
     return new Promise(function(resolve, reject) {
         var modalLoading = document.getElementById("modalLoading");
         modalLoading.style.display = 'block';
-        console.log("si entra");
+        //console.log("si entra");
         setTimeout(resolve, 2000);
     })
 }
@@ -1369,7 +1364,7 @@ function backgroundRandom() {
     var fondo = background[2];
     body.style.background = fondo;
 
-    console.log(fondo);
+    //console.log(fondo);
 
 
 }
@@ -1377,36 +1372,32 @@ function backgroundRandom() {
 var menuSection = document.querySelectorAll('.header-menu-tab');
 var iconMenu = document.querySelectorAll('.icon');
 
-console.log(menuSection.length);
-console.log(iconMenu.length);
+//console.log(menuSection.length);
+//console.log(iconMenu.length);
 
-for (var i=0; i<menuSection.length; i++){
-    menuSection[i].addEventListener("mouseover",function(){
-       console.log(this.toString());
-       if (this.toString().includes('#gen')){
-        iconMenu[2].style.color="#d4b743";
-       }
-       else if (this.toString().includes('#types')){
-        iconMenu[1].style.color="#d4b743";
-       }
-       else{
-        iconMenu[0].style.color="#d4b743";
-       }
+for (var i = 0; i < menuSection.length; i++) {
+    menuSection[i].addEventListener("mouseover", function() {
+        //console.log(this.toString());
+        if (this.toString().includes('#gen')) {
+            iconMenu[2].style.color = "#d4b743";
+        } else if (this.toString().includes('#types')) {
+            iconMenu[1].style.color = "#d4b743";
+        } else {
+            iconMenu[0].style.color = "#d4b743";
+        }
 
-       
+
     })
-    menuSection[i].addEventListener("mouseout",function(){
-       console.log(this.toString());
-       if (this.toString().includes('#gen')){
-        iconMenu[2].style.color="#9099b7";
-       }
-       else if (this.toString().includes('#types')){
-        iconMenu[1].style.color="#9099b7";
-       }
-       else{
-        iconMenu[0].style.color="#9099b7";
-       }
+    menuSection[i].addEventListener("mouseout", function() {
+        //console.log(this.toString());
+        if (this.toString().includes('#gen')) {
+            iconMenu[2].style.color = "#9099b7";
+        } else if (this.toString().includes('#types')) {
+            iconMenu[1].style.color = "#9099b7";
+        } else {
+            iconMenu[0].style.color = "#9099b7";
+        }
 
-       
+
     })
 }
