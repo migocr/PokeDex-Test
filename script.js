@@ -549,10 +549,10 @@ function principal(enlace) {
             //console.log(base_experience);
             //console.log(datos.stats);
 
-
+            console.log(datos.sprites.other["official-artwork"].front_default);
             var img = datos.sprites.other.dream_world.front_default;
             if (img == null) {
-                var imagen = datos.sprites.front_default;
+                var imagen = datos.sprites.other["official-artwork"].front_default;
                 //console.log("la imagen es nula");
             } else {
                 var imagen = img;
@@ -1167,8 +1167,8 @@ function generaciones() {
 var gen = [];
 var indiceGen = [];
 
-async function filtroGeneracion(generacion, pagina, side, indice) {
-    await showLoader();
+function filtroGeneracion(generacion, pagina, side, indice) {
+    showLoader();
     document.getElementById("subtitulo").innerHTML = "";
     document.getElementById("cards").innerHTML = "";
 
