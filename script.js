@@ -969,7 +969,7 @@ async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa
         var concaTiposDescripcion = tipo1 + " type";
     }
 
-    descripcionPokemon(id, nombre, concaTiposDescripcion);
+    await descripcionPokemon(id, nombre, concaTiposDescripcion);
 
     var porAtaque = (ataque / 260) * 100;
     var porHP = (HP / 260) * 100;
