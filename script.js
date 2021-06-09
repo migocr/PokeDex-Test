@@ -969,7 +969,7 @@ async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa
         var concaTiposDescripcion = tipo1 + " type";
     }
 
-    await descripcionPokemon(id, nombre, concaTiposDescripcion);
+
 
     var porAtaque = (ataque / 260) * 100;
     var porHP = (HP / 260) * 100;
@@ -1135,6 +1135,8 @@ async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa
                         
 
                          `
+
+   await descripcionPokemon(id, nombre, concaTiposDescripcion);
     
 
     var miniaturaTypes = document.getElementById("imgTipoModal");
