@@ -918,7 +918,7 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
 
 }
 
-function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor, form) {
+async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor, form) {
     //console.log(form);
     if (form == "alterna") {
         var numeroPokedex = "<i class='fas fa-certificate'></i>";
@@ -968,6 +968,8 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
         //console.log(concaTiposIMG);
         var concaTiposDescripcion = tipo1 + " type";
     }
+
+    descripcionPokemon(id, nombre, concaTiposDescripcion);
 
     var porAtaque = (ataque / 260) * 100;
     var porHP = (HP / 260) * 100;
@@ -1133,7 +1135,7 @@ function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, spec
                         
 
                          `
-    descripcionPokemon(id, nombre, concaTiposDescripcion)
+    
 
     var miniaturaTypes = document.getElementById("imgTipoModal");
 
