@@ -882,20 +882,22 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
             var generacion = datos.generation.name;
             //console.log("la generacion es" +generacion);
 
-
-            if (generacion == "generation-viii" ) {
-                var descrPoke = datos.flavor_text_entries[7].flavor_text;
-            } else if (generacion == "generation-vii") {
-                var descrPoke = datos.flavor_text_entries[17].flavor_text;
-            } else if (generacion =="generation-v") {
-                var descrPoke = datos.flavor_text_entries[1].flavor_text;
-            } else if (generacion == "generation.i") {
-                var descrPoke = datos.flavor_text_entries[8].flavor_text;
-            } else {
-                var descrPoke = datos.flavor_text_entries[6].flavor_text;
+            switch (generacion) {
+                case "generation-viii":
+                    var descrPoke = datos.flavor_text_entries[7].flavor_text;
+                    break;
+                case "generation-vii":
+                    var descrPoke = datos.flavor_text_entries[17].flavor_text;
+                    break;
+                case "generation-v":
+                    var descrPoke = datos.flavor_text_entries[1].flavor_text;
+                    break;
+                case "generation-i":
+                    var descrPoke = datos.flavor_text_entries[8].flavor_text;
+                    break;
+                default:
+                    var descrPoke = datos.flavor_text_entries[6].flavor_text;
             }
-            
-            
 
 
 
@@ -916,7 +918,7 @@ function descripcionPokemon(id, nombre, concaTiposDescripcion) {
 
 }
 
-async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor, form) {
+function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa, specialAttack, specialDeffense, speed, base_experience, altura, numeroPokedex, peso, cardColor, form) {
     //console.log(form);
     if (form == "alterna") {
         var numeroPokedex = "<i class='fas fa-certificate'></i>";
@@ -966,8 +968,6 @@ async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa
         //console.log(concaTiposIMG);
         var concaTiposDescripcion = tipo1 + " type";
     }
-
-
 
     var porAtaque = (ataque / 260) * 100;
     var porHP = (HP / 260) * 100;
@@ -1133,9 +1133,7 @@ async function imprimirDatos(id, nombre, concaTipos, imagen, HP, ataque, defensa
                         
 
                          `
-
-   await descripcionPokemon(id, nombre, concaTiposDescripcion);
-    
+    descripcionPokemon(id, nombre, concaTiposDescripcion)
 
     var miniaturaTypes = document.getElementById("imgTipoModal");
 
